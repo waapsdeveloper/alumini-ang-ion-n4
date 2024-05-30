@@ -1,0 +1,7 @@
+{
+  "name": "alumini-ang-ion-n4",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
