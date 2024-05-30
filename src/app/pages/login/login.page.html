@@ -1,0 +1,49 @@
+
+<ion-content>
+
+    <div class="container">
+       <div class="row justify-content-center align-items-center d-flex vh-100">
+          <div class="col-md-4 mx-auto">
+            <ion-card class="ion-padding">
+              <div class="osahan-login py-4">
+                <div class="text-center mb-4">
+                   <a href="index.html"><img src="img/logo.svg" alt=""></a>
+                   <h5 class="font-weight-bold mt-3">Welcome Back</h5>
+                   <p class="text-muted">Don't miss your next opportunity. Sign in to stay updated on your professional world.</p>
+                </div>
+                <form [formGroup]="aForm" (ngSubmit)="onSubmit()">
+                  <div class="form-group">
+                    <label class="mb-1">Email</label>
+                    <div class="position-relative icon-form-control">
+                       <i class="feather-at-sign position-absolute"></i>
+                       <input type="email" class="form-control" formControlName="email">
+                    </div>
+                    <div class="error-text-4555" *ngIf="aForm.get('email').invalid && aForm.get('email').touched">
+                      Enter a valid email.
+                    </div>
+                 </div>
+                 <div class="form-group">
+                    <label class="mb-1">Password (6 or more characters)</label>
+                    <div class="position-relative icon-form-control">
+                       <i class="feather-unlock position-absolute"></i>
+                       <input type="password" class="form-control" formControlName="password">
+                    </div>
+                    <div class="error-text-4555" *ngIf="aForm.get('password').invalid && aForm.get('password').touched">
+                      Password must be at least 6 characters long.
+                    </div>
+                 </div>
+
+                   <button class="btn btn-primary btn-block text-uppercase" type="submit" [disabled]="aForm.invalid"> Sign in </button>
+
+                   <div class="py-3 d-flex align-item-center">
+                      <span class="ml-auto"> New to Alumini Connect? <a class="font-weight-bold" (click)="nav.push('/pages/signup')" >Join now</a></span>
+                   </div>
+                </form>
+             </div>
+            </ion-card>
+
+          </div>
+       </div>
+    </div>
+
+</ion-content>
