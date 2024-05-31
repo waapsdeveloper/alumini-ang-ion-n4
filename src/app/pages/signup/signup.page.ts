@@ -36,7 +36,7 @@ export class SignupPage extends BasePage implements OnInit {
 
         if(res && res.user){
           this.users.setUser(res.user)
-          this.nav.push('/pages/dashboard')
+          this.nav.push('/pages/dl/dashboard')
         }
 
       }

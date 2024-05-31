@@ -36,10 +36,26 @@
 /* @import "@ionic/angular/css/palettes/dark.class.css"; */
 // @import "@ionic/angular/css/palettes/dark.system.css";
 
-// ion-content{
-//   background: #a0b2c4;
-//   --background: #a0b2c4;
-// }
+
+.dashboard-conent-y{
+  margin-top: 50px;
+}
+ion-content.light-meroon-background{
+   background: rgba(129, 24, 27, 0.05);
+   --background: rgba(129, 24, 27, 0.05);
+}
+
+/* ------- customize primary button color -------- */
+$mynewcolor:#81181b;
+
+.btn-primary,
+.btn-primary:hover,
+.btn-primary:active,
+.btn-primary:visited,
+.btn-primary:focus {
+    background-color: #81181b !important;
+    border-color: #81181b !important;
+}
 
 .btn-primary-874{
   background-color: #81181b !important;

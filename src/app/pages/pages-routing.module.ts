@@ -16,6 +16,12 @@ const routes: Routes = [
     canActivate: [NAuthGuard]
   },
   {
+    path: 'dl',
+    loadChildren: () => import('./dol-layout/dol-layout.module').then( m => m.DolLayoutPageModule),
+    canActivate: [AuthGuard],
+
+  },
+  {
     path: 'user-aggrement',
     loadChildren: () => import('./user-aggrement/user-aggrement.module').then( m => m.UserAggrementPageModule)
   },
@@ -23,11 +29,13 @@ const routes: Routes = [
     path: 'privacy-policy',
     loadChildren: () => import('./privacy-policy/privacy-policy.module').then( m => m.PrivacyPolicyPageModule)
   },
-  {
-    path: 'dashboard',
-    loadChildren: () => import('./dashboard/dashboard.module').then( m => m.DashboardPageModule),
-    canActivate: [AuthGuard]
-  },
+
+
+
+
+
+
+
 
 
 

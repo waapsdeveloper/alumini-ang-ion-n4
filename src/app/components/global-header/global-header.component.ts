@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { NavService } from 'src/app/services/nav.service';
+import { UsersService } from 'src/app/services/users.service';
 
 @Component({
   selector: 'app-global-header',
@@ -7,8 +9,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class GlobalHeaderComponent  implements OnInit {
 
-  constructor() { }
+  user: any;
+  constructor(private users: UsersService, public nav: NavService) { }
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.user = this.users.getUser()
+  }
+
+  logout(){
+    this.users.logout();
+  }
 
 }

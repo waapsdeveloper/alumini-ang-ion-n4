@@ -13,7 +13,7 @@ export class NAuthGuard implements CanActivate {
     if (!this.authService.isAuthenticated()) {
       return true;
     } else {
-      this.router.navigate(['/pages/dashboard']);
+      this.router.navigate(['/pages/dl']);
       return false;
     }
   }

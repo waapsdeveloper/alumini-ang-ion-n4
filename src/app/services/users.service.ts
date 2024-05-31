@@ -7,6 +7,17 @@ export class UsersService {
 
   constructor() { }
 
+  isProfileComplete(){
+    const u = this.getUser();
+    if(!u){
+      return false;
+    }
+
+
+    return false;
+
+  }
+
   isAuthenticated(){
     const t = localStorage.getItem('token')
     return t ? true : false;
@@ -14,6 +25,11 @@ export class UsersService {
 
   setToken(token: string){
     localStorage.setItem('token', token);
+  }
+
+  logout(){
+    localStorage.removeItem('token');
+    window.location.reload()
   }
 
   setUser(user: any){
