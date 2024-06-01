@@ -20,8 +20,8 @@ import { ProfileViewedModule } from './profile-viewed/profile-viewed.module';
     MyProfilePageRoutingModule,
     ProfileWithImageBoxModule,
     ProfileSkillsModule,
-    ProfileAboutModule,
-    ProfileViewedModule
+    ProfileViewedModule,
+    ProfileAboutModule
   ],
   declarations: [MyProfilePage]
 })

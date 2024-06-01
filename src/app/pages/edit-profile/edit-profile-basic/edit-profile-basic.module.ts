@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { EditProfileBasicComponent } from './edit-profile-basic.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { IonicModule } from '@ionic/angular';
 
 
 
@@ -9,6 +10,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
   declarations: [EditProfileBasicComponent],
   imports: [
     CommonModule,
+    IonicModule,
     FormsModule,
     ReactiveFormsModule
   ],
