@@ -10,6 +10,7 @@ import { EditProfilePage } from './edit-profile.page';
 import { EditProfileImageModule } from './edit-profile-image/edit-profile-image.module';
 import { EditProfileAboutModule } from './edit-profile-about/edit-profile-about.module';
 import { EditProfileSocialModule } from './edit-profile-social/edit-profile-social.module';
+import { EditProfileBasicModule } from './edit-profile-basic/edit-profile-basic.module';
 
 @NgModule({
   imports: [
@@ -19,7 +20,8 @@ import { EditProfileSocialModule } from './edit-profile-social/edit-profile-soci
     EditProfilePageRoutingModule,
     EditProfileImageModule,
     EditProfileAboutModule,
-    EditProfileSocialModule
+    EditProfileSocialModule,
+    EditProfileBasicModule
   ],
   declarations: [EditProfilePage]
 })
