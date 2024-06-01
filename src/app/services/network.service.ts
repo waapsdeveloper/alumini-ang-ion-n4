@@ -20,11 +20,15 @@ export class NetworkService {
     return this.httpPostResponse('users/login', data, null, true, true);
   }
 
+  editProfile(data: any, id: any) {
+    return this.httpPostResponse('users/edit/' + id, data, null, true, true);
+  }
+
   signup(data: any) {
     return this.httpPostResponse('users/register', data, null, true, true);
   }
 
-  uploadUserImage(data: any, id: any){
+  uploadUserImage(data: any, id: any) {
     return this.httpPostResponse('users/upload-image', data, id, true, true);
   }
   postImage(data: any){
@@ -149,7 +153,7 @@ export class NetworkService {
 
           this.utility.hideLoader();
 
-          if(showError){
+          if (showError) {
             this.utility.presentFailureToast(err.error.message);
           }
 

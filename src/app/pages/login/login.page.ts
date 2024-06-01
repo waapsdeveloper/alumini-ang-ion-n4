@@ -22,26 +22,19 @@ export class LoginPage extends BasePage implements OnInit {
     });
   }
 
-  async onSubmit(){
+  async onSubmit() {
     if (this.aForm.valid) {
       console.log(this.aForm.value);
       const formdata = this.aForm.value;
-
       const res = await this.network.login(formdata);
       console.log(res);
-
-      if(res && res.token){
+      if (res && res.token) {
         this.users.setToken(res.token);
-
-        if(res && res.user){
+        if (res && res.user) {
           this.users.setUser(res.user)
           this.nav.push('/pages/dl/dashboard')
         }
-
       }
-
-
-
     }
   }
 

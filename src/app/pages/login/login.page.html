@@ -1,50 +1,54 @@
-
 <ion-content>
 
-    <div class="container">
-       <div class="row justify-content-center align-items-center d-flex vh-100">
-          <div class="col-md-6 mx-auto">
-            <img src="assets/img/logo_large.png">
-          </div>
-          <div class="col-md-6 mx-auto">
-            <ion-card class="ion-padding" color="primary">
-              <div class="osahan-login p-4">
-                <div class="text-center mb-4">
-                   <h5 class="font-weight-bold mt-3">Welcome Back</h5>
-                   <p class="text-white">Don't miss your next opportunity. Sign in to stay updated on your professional world.</p>
+  <div class="container">
+    <div class="row justify-content-center align-items-center d-flex vh-100">
+      <div class="col-md-6 mx-auto">
+        <img src="assets/img/logo_large.png">
+      </div>
+      <div class="col-md-6 mx-auto">
+        <ion-card class="ion-padding" color="primary">
+          <div class="osahan-login p-4">
+            <div class="text-center mb-4">
+              <h5 class="font-weight-bold mt-3">Welcome Back</h5>
+              <p class="text-white">Don't miss your next opportunity. Sign in to stay updated on your professional
+                world.</p>
+            </div>
+            <form [formGroup]="aForm" (ngSubmit)="onSubmit()">
+              <input type="hidden" />
+              <div class="form-group">
+                <label class="mb-1">Email</label>
+                <div
+                  class="position-relative icon-form-control d-flex justify-content-start align-items-center gap-3 flex-row">
+                  <input type="email" class="form-control" formControlName="email" autocomplete="off">
                 </div>
-                <form [formGroup]="aForm" (ngSubmit)="onSubmit()" >
-                  <input type="hidden" />
-                  <div class="form-group">
-                    <label class="mb-1">Email</label>
-                    <div class="position-relative icon-form-control d-flex justify-content-start align-items-center gap-3 flex-row">
-                       <input type="email" class="form-control" formControlName="email" autocomplete="off">
-                    </div>
-                    <div *ngIf="aForm.get('email').invalid && aForm.get('email').touched">
-                      Enter a valid email.
-                    </div>
-                 </div>
-                 <div class="form-group">
-                    <label class="mb-1">Password (6 or more characters)</label>
-                    <div class="position-relative icon-form-control  d-flex justify-content-start align-items-center gap-3 flex-row">
-                       <input type="password" class="form-control" formControlName="password">
-                    </div>
-                    <div *ngIf="aForm.get('password').invalid && aForm.get('password').touched">
-                      Password must be at least 6 characters long.
-                    </div>
-                 </div>
+                <div *ngIf="aForm.get('email').invalid && aForm.get('email').touched">
+                  Enter a valid email.
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="mb-1">Password (6 or more characters)</label>
+                <div
+                  class="position-relative icon-form-control  d-flex justify-content-start align-items-center gap-3 flex-row">
+                  <input type="password" class="form-control" formControlName="password">
+                </div>
+                <div *ngIf="aForm.get('password').invalid && aForm.get('password').touched">
+                  Password must be at least 6 characters long.
+                </div>
+              </div>
 
-                   <button class="btn btn-primary btn-primary-874 btn-block text-uppercase cursor-pointer" type="submit" [disabled]="aForm.invalid"> Sign in </button>
+              <button class="btn btn-primary btn-primary-874 btn-block text-uppercase cursor-pointer" type="submit"
+                [disabled]="aForm.invalid"> Sign in </button>
 
-                   <div class="py-3 d-flex align-item-center">
-                      <span class="ml-auto"> New to Alumini Connect? <a class="font-weight-bold cursor-pointer white-links" href="javascript:void(0)" (click)="nav.push('/pages/signup')" >Join now</a></span>
-                   </div>
-                </form>
-             </div>
-            </ion-card>
-
+              <div class="py-3 d-flex align-item-center">
+                <span class="ml-auto"> New to Alumini Connect? <a class="font-weight-bold cursor-pointer white-links"
+                    href="javascript:void(0)" (click)="nav.push('/pages/signup')">Join now</a></span>
+              </div>
+            </form>
           </div>
-       </div>
+        </ion-card>
+
+      </div>
     </div>
+  </div>
 
 </ion-content>
