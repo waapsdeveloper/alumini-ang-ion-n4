@@ -8,6 +8,9 @@ import { MyProfilePageRoutingModule } from './my-profile-routing.module';
 
 import { MyProfilePage } from './my-profile.page';
 import { ProfileWithImageBoxModule } from './profile-with-image-box/profile-with-image-box.module';
+import { ProfileSkillsModule } from './profile-skills/profile-skills.module';
+import { ProfileAboutModule } from './profile-about/profile-about.module';
+import { ProfileViewedModule } from './profile-viewed/profile-viewed.module';
 
 @NgModule({
   imports: [
@@ -15,7 +18,10 @@ import { ProfileWithImageBoxModule } from './profile-with-image-box/profile-with
     FormsModule,
     IonicModule,
     MyProfilePageRoutingModule,
-    ProfileWithImageBoxModule
+    ProfileWithImageBoxModule,
+    ProfileSkillsModule,
+    ProfileAboutModule,
+    ProfileViewedModule
   ],
   declarations: [MyProfilePage]
 })
