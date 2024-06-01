@@ -9,6 +9,7 @@ import { EditProfilePageRoutingModule } from './edit-profile-routing.module';
 import { EditProfilePage } from './edit-profile.page';
 import { EditProfileImageModule } from './edit-profile-image/edit-profile-image.module';
 import { EditProfileAboutModule } from './edit-profile-about/edit-profile-about.module';
+import { EditProfileSocialModule } from './edit-profile-social/edit-profile-social.module';
 
 @NgModule({
   imports: [
@@ -17,8 +18,9 @@ import { EditProfileAboutModule } from './edit-profile-about/edit-profile-about.
     IonicModule,
     EditProfilePageRoutingModule,
     EditProfileImageModule,
-    EditProfileAboutModule
+    EditProfileAboutModule,
+    EditProfileSocialModule
   ],
   declarations: [EditProfilePage]
 })
-export class EditProfilePageModule {}
+export class EditProfilePageModule { }
