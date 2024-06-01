@@ -8,6 +8,7 @@ import { EditProfilePageRoutingModule } from './edit-profile-routing.module';
 
 import { EditProfilePage } from './edit-profile.page';
 import { EditProfileImageModule } from './edit-profile-image/edit-profile-image.module';
+import { EditProfileAboutModule } from './edit-profile-about/edit-profile-about.module';
 
 @NgModule({
   imports: [
@@ -15,7 +16,8 @@ import { EditProfileImageModule } from './edit-profile-image/edit-profile-image.
     FormsModule,
     IonicModule,
     EditProfilePageRoutingModule,
-    EditProfileImageModule
+    EditProfileImageModule,
+    EditProfileAboutModule
   ],
   declarations: [EditProfilePage]
 })
