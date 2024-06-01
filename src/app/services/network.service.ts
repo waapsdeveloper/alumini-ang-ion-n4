@@ -20,9 +20,12 @@ export class NetworkService {
     return this.httpPostResponse('users/login', data, null, true, true);
   }
 
-
   signup(data: any) {
     return this.httpPostResponse('users/register', data, null, true, true);
+  }
+
+  uploadUserImage(data: any, id: any){
+    return this.httpPostResponse('users/upload-image', data, id, true, true);
   }
 
   serialize = (obj: any) => {
