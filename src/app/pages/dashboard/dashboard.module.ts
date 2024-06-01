@@ -8,15 +8,18 @@ import { DashboardPageRoutingModule } from './dashboard-routing.module';
 
 import { DashboardPage } from './dashboard.page';
 import { GlobalHeaderModule } from 'src/app/components/global-header/global-header.module';
+import { AddPostComponent } from './add-post/add-post.component';
+import { AddPostModule } from './add-post/add-post.module';
 
 @NgModule({
+  declarations: [DashboardPage],
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
     DashboardPageRoutingModule,
-    GlobalHeaderModule
+    GlobalHeaderModule,
+    AddPostModule
   ],
-  declarations: [DashboardPage]
 })
 export class DashboardPageModule {}

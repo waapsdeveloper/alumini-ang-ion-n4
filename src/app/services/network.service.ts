@@ -27,6 +27,11 @@ export class NetworkService {
   uploadUserImage(data: any, id: any){
     return this.httpPostResponse('users/upload-image', data, id, true, true);
   }
+  postImage(data: any){
+    return this.httpPostResponse('posts/post-add', data);
+  }
+
+
 
   serialize = (obj: any) => {
     const str: any[] = [];

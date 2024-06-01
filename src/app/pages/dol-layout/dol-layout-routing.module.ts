@@ -20,6 +20,18 @@ const routes: Routes = [
         path: 'edit-profile',
         loadChildren: () => import('./../edit-profile/edit-profile.module').then( m => m.EditProfilePageModule)
       },
+      {
+        path: 'jobs',
+        loadChildren: () => import('./../jobs/jobs.module').then( m => m.JobsPageModule)
+      },
+      {
+        path: 'events',
+        loadChildren: () => import('./../events/events.module').then( m => m.EventsPageModule)
+      },
+      {
+        path: 'job-profle',
+        loadChildren: () => import('./../job-profle/job-profle.module').then( m => m.JobProflePageModule)
+      },
     ]
   }
 ];

@@ -30,17 +30,6 @@ const routes: Routes = [
     loadChildren: () => import('./privacy-policy/privacy-policy.module').then( m => m.PrivacyPolicyPageModule)
   },
 
-
-
-
-
-
-
-
-
-
-
-
 ];
 
 @NgModule({

@@ -7,19 +7,19 @@ import { UsersService } from 'src/app/services/users.service';
   templateUrl: './dol-layout.page.html',
   styleUrls: ['./dol-layout.page.scss'],
 })
-export class DolLayoutPage extends BasePage implements OnInit {
+export class DolLayoutPage extends BasePage  {
 
   constructor(injector: Injector, private authService: UsersService) {
     super(injector)
   }
 
-  ngOnInit() {
-    setTimeout(() => {
+  // ngOnInit() {
+  //   setTimeout(() => {
 
-      if (!this.authService.isProfileComplete()) {
-        this.nav.push('/pages/dl/edit-profile');
-      }
-    })
-  }
+  //     if (!this.authService.isProfileComplete()) {
+  //       this.nav.push('/pages/dl/edit-profile');
+  //     }
+  //   })
+  // }
 
 }
