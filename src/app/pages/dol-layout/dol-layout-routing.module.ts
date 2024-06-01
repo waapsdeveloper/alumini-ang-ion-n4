@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
 import { DolLayoutPage } from './dol-layout.page';
+import { PclGuard } from 'src/app/guards/pcl.guard';
 
 const routes: Routes = [
   {
@@ -9,8 +10,14 @@ const routes: Routes = [
     component: DolLayoutPage,
     children: [
       {
+        path: '',
+        redirectTo: 'dashboard',
+        pathMatch: 'full'
+      },
+      {
         path: 'dashboard',
         loadChildren: () => import('./../dashboard/dashboard.module').then( m => m.DashboardPageModule),
+        canActivate: [PclGuard]
       },
       {
         path: 'my-profile',

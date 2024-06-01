@@ -17,6 +17,10 @@ export class EditProfileImageComponent  implements OnInit {
 
   ngOnInit() {
     this.user = this.users.getUser();
+    console.log(this.user)
+    if(this.user && this.user.image){
+      this.designatedImage = this.user.image;
+    }
   }
 
 
@@ -48,7 +52,13 @@ export class EditProfileImageComponent  implements OnInit {
     let d = {
       image: image
     }
-    const res = await this.network.uploadUserImage(d, id)
+    const res = await this.network.uploadUserImage(d, id);
+    console.log(res);
+    if(res && res.image){
+      this.users.setUser(res);
+      this.designatedImage = res.image;
+    }
+
   }
 
 

@@ -28,10 +28,15 @@ export class NetworkService {
     return this.httpPostResponse('users/register', data, null, true, true);
   }
 
-  uploadUserImage(data: any, id: any) {
-    return this.httpPostResponse('users/upload-image', data, id, true, true);
+  setUserDescAndSkills(data: any, id: any){
+    return this.httpPostResponse('users/edit/update-desc-skills', data, id, false, false);
   }
-  postImage(data: any){
+
+  uploadUserImage(data: any, id: any) {
+    return this.httpPostResponse('users/upload-image', data, id, false, false);
+  }
+
+  addPost(data: any){
     return this.httpPostResponse('posts/post-add', data);
   }
 
@@ -139,9 +144,8 @@ export class NetworkService {
 
       seq.subscribe({
         next: (res: any) => {
-          if (showloader === true) {
-            this.utility.hideLoader();
-          }
+
+          this.utility.hideLoader();
 
           // if(showError){
           //   this.utility.presentSuccessToast(res.message)

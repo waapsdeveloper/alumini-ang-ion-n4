@@ -14,6 +14,8 @@ export class UsersService {
     }
 
 
+
+
     return false;
 
   }
@@ -33,6 +35,7 @@ export class UsersService {
   }
 
   setUser(user: any){
+    localStorage.removeItem('user')
     const u = JSON.stringify(user)
     localStorage.setItem('user', u)
   }

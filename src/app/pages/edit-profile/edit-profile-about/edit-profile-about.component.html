@@ -1,5 +1,5 @@
 <div class="border rounded bg-white mb-3">
-  <div class="box-title border-bottom p-3">
+  <div class="box-title border-bottom p-3 box-titles-67894">
      <h6 class="m-0">About</h6>
      <p class="mb-0 mt-0 small">Tell about yourself in two sentences.
      </p>
@@ -9,23 +9,36 @@
         <div class="form-group mb-4">
            <label class="mb-1">BIO</label>
            <div class="position-relative">
-              <textarea class="form-control" rows="4" name="text" placeholder="Enter Bio">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor :)</textarea>
+              <textarea class="form-control" [(ngModel)]="biotext" rows="4" name="text" placeholder="Write some thing in two sentences"></textarea>
            </div>
         </div>
         <div class="form-group mb-0">
-           <label class="mb-1 w-100">SKILLS</label>
-           <div class="custom-control custom-checkbox d-inline mr-3">
-              <input type="checkbox" class="custom-control-input" id="customCheck1">
-              <label class="custom-control-label" for="customCheck1">JavaScript, jQuery</label>
-           </div>
-           <div class="custom-control custom-checkbox d-inline">
-              <input type="checkbox" class="custom-control-input" id="customCheck2">
-              <label class="custom-control-label" for="customCheck2">HTML5, CSS3</label>
-           </div>
+              <ion-select placeholder="Programming Skills" [multiple]="true" [(ngModel)]="selectedSkills">
+                <ion-select-option value="javascript">JavaScript</ion-select-option>
+                <ion-select-option value="python">Python</ion-select-option>
+                <ion-select-option value="java">Java</ion-select-option>
+                <ion-select-option value="csharp">C#</ion-select-option>
+                <ion-select-option value="php">PHP</ion-select-option>
+                <ion-select-option value="ruby">Ruby</ion-select-option>
+                <ion-select-option value="typescript">TypeScript</ion-select-option>
+                <ion-select-option value="swift">Swift</ion-select-option>
+                <ion-select-option value="kotlin">Kotlin</ion-select-option>
+                <ion-select-option value="go">Go</ion-select-option>
+                <ion-select-option value="rust">Rust</ion-select-option>
+                <ion-select-option value="scala">Scala</ion-select-option>
+                <ion-select-option value="perl">Perl</ion-select-option>
+                <ion-select-option value="r">R</ion-select-option>
+                <ion-select-option value="sql">SQL</ion-select-option>
+                <ion-select-option value="html">HTML</ion-select-option>
+                <ion-select-option value="css">CSS</ion-select-option>
+                <ion-select-option value="sass">SASS</ion-select-option>
+                <ion-select-option value="bash">Bash</ion-select-option>
+                <ion-select-option value="shell">Shell Scripting</ion-select-option>
+              </ion-select>
         </div>
      </div>
-     <div class="overflow-hidden text-center p-3">
-        <a class="font-weight-bold btn btn-light rounded p-3 d-block" href="#"> SAVE </a>
+     <div class="overflow-hidden text-right p-3">
+        <ion-button (click)="saveMySkills()">SAVE</ion-button>
      </div>
   </div>
 </div>

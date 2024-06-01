@@ -49,7 +49,7 @@ export class AddPostComponent extends BasePage {
       description: this.description,
     };
 
-    const res = await this.network.postImage(this.obj);
+    // const res = await this.network.postImage(this.obj);
 
     window.location.reload();
     // this.profilePhoto = res.result.image;
