@@ -18,7 +18,7 @@
         <div class="text-truncate">{{ item.name }}</div>
         <div class="small text-gray-500">{{ item.occupation }}</div>
       </div>
-      <span class="ml-auto"><button type="button" class="btn btn-light btn-sm">
+      <span class="ml-auto"><button type="button" class="btn btn-light btn-sm" (click)="sendConnectionInvite(item)">
           <i class="feather-user-plus"></i>
         </button>
       </span>

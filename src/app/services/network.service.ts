@@ -53,6 +53,10 @@ export class NetworkService {
     return this.httpPostResponse('users/get-non-added-connections/' + id, data, null, false, true);
   }
 
+  sendConnectionRequest(data: any, id: any){
+    return this.httpPostResponse('invitations/add/' + id, data, null, false, true);
+  }
+
 
 
   serialize = (obj: any) => {

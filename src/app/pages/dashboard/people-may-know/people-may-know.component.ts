@@ -34,4 +34,19 @@ export class PeopleMayKnowComponent  implements OnInit {
 
   }
 
+  async sendConnectionInvite(item: any){
+    console.log(item);
+
+    let obj = {
+      sender_id: this.user.id,
+      receiver_id: item.id,
+      status: 0
+    }
+
+    const res = await this.network.sendConnectionRequest(obj, this.user.id)
+    console.log(res);
+    this.list = res;
+
+  }
+
 }
