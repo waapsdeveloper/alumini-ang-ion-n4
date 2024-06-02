@@ -11,6 +11,7 @@ import { GlobalHeaderModule } from 'src/app/components/global-header/global-head
 import { AddPostComponent } from './add-post/add-post.component';
 import { AddPostModule } from './add-post/add-post.module';
 import { DsTopProfileCardModule } from './ds-top-profile-card/ds-top-profile-card.module';
+import { DsPostsListModule } from './ds-posts-list/ds-posts-list.module';
 
 @NgModule({
   declarations: [DashboardPage],
@@ -21,7 +22,8 @@ import { DsTopProfileCardModule } from './ds-top-profile-card/ds-top-profile-car
     DashboardPageRoutingModule,
     GlobalHeaderModule,
     AddPostModule,
-    DsTopProfileCardModule
+    DsTopProfileCardModule,
+    DsPostsListModule
   ],
 })
 export class DashboardPageModule {}

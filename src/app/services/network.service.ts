@@ -37,7 +37,15 @@ export class NetworkService {
   }
 
   addPost(data: any){
-    return this.httpPostResponse('posts/post-add', data);
+    return this.httpPostResponse('posts/post-add', data, null, false, true);
+  }
+
+  getPosts(data: any){
+    return this.httpPostResponse('posts/get-posts', data, null, false, true);
+  }
+
+  getPostUser(id: any){
+    return this.httpGetResponse('posts/get-post-user', id, false, false);
   }
 
 

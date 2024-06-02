@@ -8,17 +8,11 @@ import { BasePage } from '../../base-page/base-page';
 })
 export class AddPostComponent extends BasePage {
 
-  profilePhoto: any;
   user: any;
   description: any;
   image: any;
-  obj:
-    | {
-        user_id: '';
-        image: '';
-        description: '';
-      }
-    | any;
+  obj: any;
+
   constructor(injector: Injector) {
     super(injector);
   }
@@ -28,9 +22,6 @@ export class AddPostComponent extends BasePage {
     const reader = new FileReader();
     reader.onload = async () => {
       this.image = reader.result as string;
-
-      // this.profilePhoto = this.image;
-
       console.log(this.image);
     };
     reader.readAsDataURL(file);
@@ -43,15 +34,35 @@ export class AddPostComponent extends BasePage {
   async postImage() {
     this.user = localStorage.getItem('user');
     let userId = JSON.parse(this.user);
+
+    if(!this.description){
+      this.utility.presentFailureToast("Please add your thoughts to the post");
+      return;
+    }
+
+
     this.obj = {
       user_id: userId.id,
-      image: this.image,
       description: this.description,
     };
 
-    // const res = await this.network.postImage(this.obj);
+    if(this.image){
+      this.obj['image'] = this.image
+    }
 
-    window.location.reload();
+    const res = await this.network.addPost(this.obj);
+    console.log(res);
+    if(res){
+      this.utility.presentSuccessToast('Post Uploaded');
+      this.description = '';
+      this.image = '';
+
+      this.events.publish('post-added', res);
+    }
+
+
+
+    // window.location.reload();
     // this.profilePhoto = res.result.image;
 
     // console.log(res);

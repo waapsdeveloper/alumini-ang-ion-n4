@@ -1,20 +1,11 @@
 <div class="box shadow-sm border rounded bg-white mb-3 osahan-share-post">
   <div class="tab-content" id="myTabContent">
-    <div
-      class="tab-pane fade show active"
-      id="home"
-      role="tabpanel"
-      aria-labelledby="home-tab"
-    >
+    <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
       <div class="p-3 d-flex align-items-center w-100" href="#">
         <div class="w-100">
-          <textarea
-            placeholder="Write your thoughts..."
-            [(ngModel)]="description"
-            (keyup)="result($event)"
-            class="form-control border-0 p-0 shadow-none"
-            rows="3"
-          ></textarea>
+          <textarea placeholder="Write your thoughts..." [(ngModel)]="description" (keyup)="result($event)"
+            class="form-control border-0 p-0 shadow-none" rows="3"></textarea>
+          <img *ngIf="image" [src]="image" />
         </div>
       </div>
     </div>
@@ -26,24 +17,14 @@
       <img *ngIf="!profilePhoto" src="assets/profile-photos.png" alt="Selected Image" >
     </div> -->
     <div class="flex-shrink-1">
-      <input
-        type="file"
-        id="photoInput"
-        style="display: none"
-        accept=".png, .jpg, .jpeg"
-        (change)="onProfileSelected($event)"
-        style="display: none"
-        #fileInput
-      />
-      <button
-        type="button"
-        class="btn btn-light btn-sm "
-        (click)="fileInput.click()"
-      >
+      <input type="file" id="photoInput" style="display: none" accept=".png, .jpg, .jpeg"
+        (change)="onProfileSelected($event)" style="display: none" #fileInput />
+      <button type="button" class="btn btn-light btn-sm " (click)="fileInput.click()">
         Add Photo
       </button>
 
-      <button type="button" style="margin-left: 10px;" class="btn btn-primary btn-sm"  (click)="postImage()">Post</button>
+      <button type="button" style="margin-left: 10px;" class="btn btn-primary btn-sm"
+        (click)="postImage()">Post</button>
     </div>
   </div>
 </div>
