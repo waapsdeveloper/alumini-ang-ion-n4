@@ -13,10 +13,27 @@ export class UsersService {
       return false;
     }
 
+    console.log("rrwewt", u);
+
+    if(
+    !u['name'] ||
+    !u['email'] ||
+    !u['username'] ||
+    !u['phone'] ||
+    !u['alum_registration'] ||
+    !u['batch'] ||
+    !u['department'] ||
+    !u['occupation'] ||
+    !u['date_of_birth'] ||
+    !u['location'] ||
+    !u['gender'] ||
+    !u['preferred_language']
+    ) {
+      return false;
+    }
 
 
-
-    return false;
+    return true;
 
   }
 

@@ -10,6 +10,7 @@ import { DashboardPage } from './dashboard.page';
 import { GlobalHeaderModule } from 'src/app/components/global-header/global-header.module';
 import { AddPostComponent } from './add-post/add-post.component';
 import { AddPostModule } from './add-post/add-post.module';
+import { DsTopProfileCardModule } from './ds-top-profile-card/ds-top-profile-card.module';
 
 @NgModule({
   declarations: [DashboardPage],
@@ -19,7 +20,8 @@ import { AddPostModule } from './add-post/add-post.module';
     IonicModule,
     DashboardPageRoutingModule,
     GlobalHeaderModule,
-    AddPostModule
+    AddPostModule,
+    DsTopProfileCardModule
   ],
 })
 export class DashboardPageModule {}

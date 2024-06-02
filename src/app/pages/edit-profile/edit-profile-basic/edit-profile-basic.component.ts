@@ -9,18 +9,19 @@ import { BasePage } from '../../base-page/base-page';
 })
 export class EditProfileBasicComponent extends BasePage implements OnInit {
   MyGroup: FormGroup | any;
-  user:any;
+  user: any;
 
-  constructor(private fb: FormBuilder, injector:Injector) {
+  constructor(private fb: FormBuilder, injector: Injector) {
     super(injector)
-   }
+  }
 
 
 
-   ngOnInit() {
+  ngOnInit() {
     this.MyGroup = this.fb.group({
       name: ['', [Validators.required]],
-      user_name: ['', [Validators.required]],
+      email: ['', [Validators.required]],
+      username: ['', [Validators.required]],
       phone: ['', [Validators.required]],
       alum_registration: ['', [Validators.required]],
       batch: ['', [Validators.required]],
@@ -31,34 +32,88 @@ export class EditProfileBasicComponent extends BasePage implements OnInit {
       month: ['', [Validators.required]],
       year: ['', [Validators.required]],
       location: ['', [Validators.required]],
-      organization: ['', [Validators.required]],
-      website: ['', [Validators.required]],
+      organization: [''],
+      website: [''],
       gender: ['', [Validators.required]],
       preferred_language: ['', [Validators.required]],
     });
+
+
+    this.user = this.users.getUser();
+
+    if(this.user.date_of_birth){
+
+      const dateOfBirth = new Date(this.user.date_of_birth);
+
+      const day = dateOfBirth.getDate().toString().padStart(2, '0');
+      const month = (dateOfBirth.getMonth() + 1).toString().padStart(2, '0'); // Months are 0-based
+      const year = dateOfBirth.getFullYear().toString();
+
+      this.MyGroup.controls['day'].setValue(day);
+      this.MyGroup.controls['date_of_birth'].setValue(this.user.date_of_birth);
+      this.MyGroup.controls['month'].setValue(month);
+      this.MyGroup.controls['year'].setValue(year);
+
+    }
+
+
+    this.MyGroup.controls['name'].setValue(this.user.name);
+    this.MyGroup.controls['email'].setValue(this.user.email);
+    this.MyGroup.controls['username'].setValue(this.user.username);
+    this.MyGroup.controls['phone'].setValue(this.user.phone);
+    this.MyGroup.controls['alum_registration'].setValue(this.user.alum_registration);
+    this.MyGroup.controls['batch'].setValue(this.user.batch);
+    this.MyGroup.controls['department'].setValue(this.user.department);
+    this.MyGroup.controls['occupation'].setValue(this.user.occupation);
+
+    this.MyGroup.controls['location'].setValue(this.user.location);
+    this.MyGroup.controls['organization'].setValue(this.user.organization);
+    this.MyGroup.controls['website'].setValue(this.user.website);
+    this.MyGroup.controls['gender'].setValue(this.user.gender);
+    this.MyGroup.controls['preferred_language'].setValue(this.user.preferred_language);
+
+
+
+
+
+
   }
-  
+
   async onSubmit() {
-      console.log(this.MyGroup.value);
-      const formdata = { ...this.MyGroup.value };
-      const day = formdata.day;
-      const month = formdata.month;
-      const year = formdata.year;
-      const date_of_birth = `${year}-${month}-${day}`;
-      console.log(date_of_birth);
-      delete formdata.day;
-      delete formdata.month;
-      delete formdata.year;
-      formdata.date_of_birth = date_of_birth;
-      this.user = localStorage.getItem('user');
-      let userId = JSON.parse(this.user);
-      console.log(formdata);
-      // return
-      const res = await this.network.editProfile(formdata, userId.id);
-      console.log(res);
-    
+    console.log(this.MyGroup.value);
+
+    let formdata = { ...this.MyGroup.value };
+    const day = formdata.day;
+    const month = formdata.month;
+    const year = formdata.year;
+    if(day && month && year){
+      let date_of_birth = year + '-' + month + '-' + day
+      console.log(date_of_birth)
+      this.MyGroup.controls['date_of_birth'].setValue(date_of_birth)
+    }
+
+    formdata = { ...this.MyGroup.value };
+
+    if (!this.MyGroup.valid) {
+      this.utility.presentFailureToast("All Fields required");
+      return;
+    }
+
+
+
+
+    // return
+    const res = await this.network.editProfile(formdata, this.user.id);
+    console.log(res);
+    if(res){
+      this.users.setUser(res);
+      this.events.publish('profile-updated')
+      this.utility.presentSuccessToast("Profile Saved");
+      this.nav.push('/pages/dl/dashboard')
+    }
+
   }
-  
+
 
   getYears(): number[] {
     const currentYear = new Date().getFullYear();

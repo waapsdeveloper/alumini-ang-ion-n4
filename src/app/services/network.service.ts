@@ -21,7 +21,7 @@ export class NetworkService {
   }
 
   editProfile(data: any, id: any) {
-    return this.httpPostResponse('users/edit/' + id, data, null, true, true);
+    return this.httpPostResponse('users/edit/' + id, data, null, false, false);
   }
 
   signup(data: any) {
