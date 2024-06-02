@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { NetworkService } from 'src/app/services/network.service';
+import { UsersService } from 'src/app/services/users.service';
 
 @Component({
   selector: 'app-people-may-know',
@@ -7,8 +9,29 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PeopleMayKnowComponent  implements OnInit {
 
-  constructor() { }
+  user: any;
+  list: any[] = [];
 
-  ngOnInit() {}
+  constructor(private users: UsersService, private network: NetworkService) {
+
+  }
+
+  ngOnInit() {
+    this.user = this.users.getUser()
+    this.initialize()
+  }
+
+  async initialize(){
+
+    let obj = {
+      search: '',
+      offset: 0,
+      limit: 5
+    }
+    const res = await this.network.getNonAddedConnections(obj, this.user.id)
+    console.log(res);
+    this.list = res;
+
+  }
 
 }

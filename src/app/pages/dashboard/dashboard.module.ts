@@ -12,6 +12,7 @@ import { AddPostComponent } from './add-post/add-post.component';
 import { AddPostModule } from './add-post/add-post.module';
 import { DsTopProfileCardModule } from './ds-top-profile-card/ds-top-profile-card.module';
 import { DsPostsListModule } from './ds-posts-list/ds-posts-list.module';
+import { PeopleMayKnowModule } from './people-may-know/people-may-know.module';
 
 @NgModule({
   declarations: [DashboardPage],
@@ -23,7 +24,8 @@ import { DsPostsListModule } from './ds-posts-list/ds-posts-list.module';
     GlobalHeaderModule,
     AddPostModule,
     DsTopProfileCardModule,
-    DsPostsListModule
+    DsPostsListModule,
+    PeopleMayKnowModule
   ],
 })
 export class DashboardPageModule {}

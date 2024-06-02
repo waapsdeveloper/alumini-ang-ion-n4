@@ -36,7 +36,6 @@ export class DsPostsListComponent  implements OnInit {
       }
 
       const res = await this.network.getPosts(obj);
-      console.log(res);
       resolve(res);
 
     })

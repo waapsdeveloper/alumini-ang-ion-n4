@@ -27,7 +27,7 @@ export class DsPostItemComponent implements OnInit {
   ngOnInit() { }
 
   initialize(value: any) {
-    console.log(value);
+    // console.log(value);
   }
 
   timeDilation(datetime: string){

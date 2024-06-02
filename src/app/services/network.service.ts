@@ -48,6 +48,11 @@ export class NetworkService {
     return this.httpGetResponse('posts/get-post-user', id, false, false);
   }
 
+  // connections
+  getNonAddedConnections(data: any, id: any){
+    return this.httpPostResponse('users/get-non-added-connections/' + id, data, null, false, true);
+  }
+
 
 
   serialize = (obj: any) => {
