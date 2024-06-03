@@ -20,13 +20,13 @@ export class GlobalHeaderComponent  implements OnInit {
     this.users.logout();
   }
 
-  jobsclick(){
-    console.log("ranaaaaaa");
-    this.nav.push("/pages/dl/jobs")
-  }
-  Eventclick(){
-    this.nav.push("/pages/dl/events")
-  }
+  // jobsclick(){
+  //   console.log("ranaaaaaa");
+  //   this.nav.push("/pages/dl/jobs")
+  // }
+  // Eventclick(){
+  //   this.nav.push("/pages/dl/events")
+  // }
   goToMessages(){
     // this.nav.push('/pages/messages')
   }

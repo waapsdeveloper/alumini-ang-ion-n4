@@ -42,6 +42,10 @@ const routes: Routes = [
         path: 'messages',
         loadChildren: () => import('./../messages/messages.module').then(m => m.MessagesPageModule)
       },
+      {
+        path: 'user-events',
+        loadChildren: () => import('./../user-events/user-events.module').then( m => m.UserEventsPageModule)
+      },
     ]
   }
 ];
