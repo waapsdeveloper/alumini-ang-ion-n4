@@ -1,0 +1,28 @@
+<div class="p-3">
+  <div class="p-3 w-100" *ngIf="list.length == 0">
+    <h6>No invitations found yet</h6>
+  </div>
+  <div class="row">
+    <div class="col-md-4" *ngFor="let item of list">
+        <div class="border network-item rounded mb-3">
+          <div class="p-3 d-flex align-items-center network-item-header">
+            <div class="dropdown-list-image mr-3">
+              <img style="width: 45px; height: 45px" class="rounded-circle" [src]="item.sender_image" alt="">
+            </div>
+            <div class="font-weight-bold">
+              <h6 class="font-weight-bold text-dark mb-0">{{ item.sender_name }}</h6>
+              <div class="small text-black-50">{{ item.sender_occupation }}</div>
+            </div>
+          </div>
+          <div class="network-item-footer py-3 d-flex text-center">
+            <div class="col-6 pl-3 pr-1">
+              <button class="btn btn-primary btn-sm btn-block" (click)="acceptInvitation(item)"> Connect </button>
+            </div>
+            <div class="col-6 pr-3 pl-1">
+              <button class="btn btn-outline-primary btn-sm btn-block" (click)="rejectInvitation(item)"> Reject </button>
+            </div>
+          </div>
+        </div>
+    </div>
+  </div>
+</div>

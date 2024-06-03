@@ -49,12 +49,36 @@ export class NetworkService {
   }
 
   // connections
+  getCnnStats(id: any){
+    return this.httpGetResponse('users/get-cnnp-stats', id, false, true);
+  }
+
   getNonAddedConnections(data: any, id: any){
     return this.httpPostResponse('users/get-non-added-connections/' + id, data, null, false, true);
   }
 
+  getAddedConnections(data: any, id: any){
+    return this.httpPostResponse('users/get-added-connections/' + id, data, null, false, true);
+  }
+
   sendConnectionRequest(data: any, id: any){
-    return this.httpPostResponse('invitations/add/' + id, data, null, false, true);
+    return this.httpPostResponse('users/send-connection-invite/' + id, data, null, false, true);
+  }
+
+  removeAddedConnection(data: any, id: any){
+    return this.httpPostResponse('users/remove-added-connections/' + id, data, null, false, true);
+  }
+
+  getReceivedInvitations(data: any, id: any){
+    return this.httpPostResponse('invitations/get-received-invitations/' + id, data, null, false, true);
+  }
+
+  setInvitationReject(data: any, id: any){
+    return this.httpPostResponse('invitations/set-invitation-reject/' + id, data, null, false, true);
+  }
+
+  setInvitationAccept(data: any, id: any){
+    return this.httpPostResponse('invitations/set-invitation-accept/' + id, data, null, false, true);
   }
 
 
