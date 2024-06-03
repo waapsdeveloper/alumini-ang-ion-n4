@@ -27,5 +27,8 @@ export class GlobalHeaderComponent  implements OnInit {
   Eventclick(){
     this.nav.push("/pages/dl/events")
   }
+  goToMessages(){
+    // this.nav.push('/pages/messages')
+  }
 
 }
