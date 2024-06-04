@@ -39,6 +39,10 @@ export class NetworkService {
   addPost(data: any){
     return this.httpPostResponse('posts/post-add', data, null, false, true);
   }
+
+  sendMessage(data: any){
+    return this.httpPostResponse('messages/add', data, null, false, true);
+  }
   getRoom(data: any){
     return this.httpPostResponse('rooms/add', data, null, false, true);
   }
@@ -49,6 +53,10 @@ export class NetworkService {
 
   getPostUser(id: any){
     return this.httpGetResponse('posts/get-post-user', id, false, false);
+  }
+
+  getMessages(id: any){
+    return this.httpGetResponse('messages/list/my-messages/'+ id, null, false);
   }
 
   // connections
