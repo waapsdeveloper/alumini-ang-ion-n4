@@ -7,13 +7,15 @@ import { IonicModule } from '@ionic/angular';
 import { UserEventsPageRoutingModule } from './user-events-routing.module';
 
 import { UserEventsPage } from './user-events.page';
+import { PeopleMayKnowModule } from '../dashboard/people-may-know/people-may-know.module';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    UserEventsPageRoutingModule
+    UserEventsPageRoutingModule,
+    PeopleMayKnowModule
   ],
   declarations: [UserEventsPage]
 })

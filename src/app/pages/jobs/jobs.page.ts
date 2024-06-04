@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import * as moment from 'moment';
 import { NavService } from 'src/app/services/nav.service';
 import { NetworkService } from 'src/app/services/network.service';
 import { UsersService } from 'src/app/services/users.service';
@@ -12,16 +13,18 @@ export class JobsPage implements OnInit {
 
   user: any
   list: any[]=[]
+  searchText = '';
 
   constructor(private users: UsersService, public nav: NavService , private network:NetworkService) {
 
    }
 
   ngOnInit() {
-    this.user = this.users.getUser
+    this.user = this.users.getUser()
+    this.initialize();
   }
 
-  jobDetail(){
+  jobDetail(item: any){
     this.nav.push("/pages/dl/job-profile")
   }
 
@@ -47,6 +50,16 @@ export class JobsPage implements OnInit {
     })
 
 
+  }
+
+  getNowDate(date: string){
+
+    return moment(date).fromNow();
+  }
+
+  async doSearch(){
+    const res = await this.getJobs(this.searchText,0, 10)
+    this.list = res as any[];
   }
 
 

@@ -85,7 +85,11 @@ export class NetworkService {
   }
 
   getJobs(data: any){
-    return this.httpPostResponse('/jobs/list', data, null, false, true);
+    return this.httpPostResponse('jobs/get-jobs', data, null, false, true);
+  }
+
+  getEvents(data: any){
+    return this.httpPostResponse('events/get-events', data, null, false, true);
   }
 
 
