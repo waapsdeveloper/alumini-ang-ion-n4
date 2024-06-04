@@ -33,8 +33,19 @@ export class MessagesPage implements OnInit {
 
   }
 
-  selectUserToChat(item: any){
+  async selectUserToChat(item: any){
+
     this.selectedItem = item;
+    console.log(this.selectedItem);
+    let obj ={
+      user_id_1: this.user.id,
+      user_id_2: this.selectedItem.id,
+    }
+    
+    let res = await this.network.getRoom(obj) as any [];
+    console.log('====================================');
+    console.log(res);
+    console.log('====================================');
 
 
   }

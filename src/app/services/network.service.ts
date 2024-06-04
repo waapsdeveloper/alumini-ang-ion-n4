@@ -39,6 +39,9 @@ export class NetworkService {
   addPost(data: any){
     return this.httpPostResponse('posts/post-add', data, null, false, true);
   }
+  getRoom(data: any){
+    return this.httpPostResponse('rooms/add', data, null, false, true);
+  }
 
   getPosts(data: any){
     return this.httpPostResponse('posts/get-posts', data, null, false, true);
