@@ -1,8 +1,14 @@
 .sidebar-chat-list{
-  display: flex;
-  flex-direction: column;
   height: calc(100vh - 100px);
   overflow-y: scroll;
+  // display: flex;
+  // flex-direction: column;
+  // height: calc(100vh - 100px);
+  // overflow-y: scroll;
+}
+
+.sidebar-chat-item {
+  cursor: pointer;
 }
 
 .osahan-chat-box {
