@@ -81,6 +81,11 @@ export class NetworkService {
     return this.httpPostResponse('invitations/set-invitation-accept/' + id, data, null, false, true);
   }
 
+  getJobs(data: any){
+    return this.httpPostResponse('/jobs/list', data, null, false, true);
+  }
+
+
 
 
   serialize = (obj: any) => {
