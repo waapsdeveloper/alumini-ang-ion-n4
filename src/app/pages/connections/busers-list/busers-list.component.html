@@ -5,7 +5,7 @@
   <div class="row">
     <div class="col-md-4" *ngFor="let item of list">
         <div class="border network-item rounded mb-3">
-          <div class="p-3 d-flex align-items-center network-item-header">
+          <a class="p-3 d-flex align-items-center network-item-header" href="/pages/dl/view-profile" >
             <div class="dropdown-list-image mr-3">
               <img style="width: 45px; height: 45px" class="rounded-circle" [src]="item.image" alt="">
             </div>
@@ -13,7 +13,7 @@
               <h6 class="font-weight-bold text-dark mb-0">{{ item.name }}</h6>
               <div class="small text-black-50">{{ item.occupation }}</div>
             </div>
-          </div>
+          </a>
           <div class="network-item-footer py-3 d-flex text-center">
             <div class="col-6 pl-3 pr-1">
               <button class="btn btn-primary btn-sm btn-block" (click)="sendConnectionInvite(item)"> Connect </button>

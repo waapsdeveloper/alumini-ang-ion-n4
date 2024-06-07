@@ -1,34 +1,38 @@
 import { Component, OnInit } from '@angular/core';
-import { NavService } from 'src/app/services/nav.service';
 import { NetworkService } from 'src/app/services/network.service';
 import { UsersService } from 'src/app/services/users.service';
 import { UtilityService } from 'src/app/services/utility.service';
 
 @Component({
-  selector: 'app-busers-list',
-  templateUrl: './busers-list.component.html',
-  styleUrls: ['./busers-list.component.scss'],
+  selector: 'app-who-view-profile',
+  templateUrl: './who-view-profile.component.html',
+  styleUrls: ['./who-view-profile.component.scss'],
 })
-export class BusersListComponent  implements OnInit {
+export class WhoViewProfileComponent  implements OnInit {
 
   user: any;
-  list: any[] = []
-  constructor(private users: UsersService, private network: NetworkService, private utility: UtilityService, public nav: NavService  ) { }
+  list: any[] = [];
+
+  constructor(private users: UsersService, private network: NetworkService, private utility: UtilityService) {
+
+  }
 
   ngOnInit() {
-    this.user = this.users.getUser();
-    this.initialize();
+    this.user = this.users.getUser()
+    this.initialize()
   }
 
   async initialize(){
+
     let obj = {
       search: '',
       offset: 0,
-      limit: 20
+      limit: 5
     }
     const res = await this.network.getNonAddedConnections(obj, this.user.id)
     console.log(res);
     this.list = res;
+
   }
 
   async sendConnectionInvite(item: any){

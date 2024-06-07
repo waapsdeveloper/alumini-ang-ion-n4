@@ -46,6 +46,14 @@ const routes: Routes = [
         path: 'user-events',
         loadChildren: () => import('./../user-events/user-events.module').then( m => m.UserEventsPageModule)
       },
+      {
+        path: 'notifications',
+        loadChildren: () => import('./../notifications/notifications.module').then( m => m.NotificationsPageModule)
+      },
+      {
+        path: 'view-profile',
+        loadChildren: () => import('./../view-profile/view-profile.module').then( m => m.ViewProfilePageModule)
+      },
     ]
   }
 ];

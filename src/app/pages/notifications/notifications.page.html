@@ -1,0 +1,43 @@
+<ion-content class="light-meroon-background">
+
+  <div class="py-4">
+    <div class="container">
+       <div class="row">
+          <!-- Main Content -->
+          <main class="col col-xl-6 order-xl-2 col-lg-12 order-lg-1 col-md-12 col-sm-12 col-12">
+
+             <div class="box shadow-sm border rounded bg-white mb-3">
+                <div class="box-body p-0">
+                   <div class="p-3 d-flex align-items-center border-bottom osahan-post-header" *ngFor="let item of list">
+                      <div class="dropdown-list-image mr-3"><img class="rounded-circle" style="width: 60px" src="assets/img/p9.png" alt=""></div>
+                      <div class="font-weight-bold mr-3">
+                         <div class="text-truncate">DAILY RUNDOWN: SATURDAY</div>
+                         <div class="small">Pellentesque semper ex diam, at tristique ipsum varius sed. Pellentesque non metus ullamcorper</div>
+                      </div>
+                      <span class="ml-auto mb-auto">
+                         <div class="text-right text-muted pt-1">3d</div>
+                      </span>
+                   </div>
+                </div>
+             </div>
+          </main>
+          <aside class="col col-xl-3 order-xl-1 col-lg-6 order-lg-2 col-md-6 col-sm-6 col-12">
+             <div class="box shadow-sm mb-3 rounded bg-white ads-box text-center">
+                <img src="assets/img/notifications.jpg" class="img-fluid" alt="Responsive image">
+                <div class="p-3 border-bottom">
+                   <h6 class="font-weight-bold text-dark">Notifications</h6>
+                   <p class="mb-0 text-muted">You’re all caught up! Check back later for new notifications
+                   </p>
+                </div>
+             </div>
+
+          </aside>
+          <aside class="col col-xl-3 order-xl-3 col-lg-6 order-lg-3 col-md-6 col-sm-6 col-12">
+            <app-who-view-profile></app-who-view-profile>
+            <app-people-may-know></app-people-may-know>
+          </aside>
+       </div>
+    </div>
+ </div>
+
+</ion-content>
