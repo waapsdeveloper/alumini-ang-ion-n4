@@ -59,6 +59,10 @@ export class NetworkService {
     return this.httpGetResponse('messages/list/my-messages/'+ id, null, false);
   }
 
+  getNotifications(data: any ){
+    return this.httpPostResponse('notifications/get-notifications', data, null, false, true);
+  }
+
   // connections
   getCnnStats(id: any){
     return this.httpGetResponse('users/get-cnnp-stats', id, false, true);

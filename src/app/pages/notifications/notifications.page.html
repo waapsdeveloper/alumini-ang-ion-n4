@@ -8,16 +8,15 @@
 
              <div class="box shadow-sm border rounded bg-white mb-3">
                 <div class="box-body p-0">
-                   <div class="p-3 d-flex align-items-center border-bottom osahan-post-header" *ngFor="let item of list">
-                      <div class="dropdown-list-image mr-3"><img class="rounded-circle" style="width: 60px" src="assets/img/p9.png" alt=""></div>
+                   <a href="/pages/dl/connections" class="p-3 d-flex align-items-center border-bottom osahan-post-header" *ngFor="let item of list" >
                       <div class="font-weight-bold mr-3">
-                         <div class="text-truncate">DAILY RUNDOWN: SATURDAY</div>
-                         <div class="small">Pellentesque semper ex diam, at tristique ipsum varius sed. Pellentesque non metus ullamcorper</div>
+                         <div class="text-truncate">{{ item.title }}</div>
+                         <div class="small">{{ item.description }}</div>
                       </div>
                       <span class="ml-auto mb-auto">
                          <div class="text-right text-muted pt-1">3d</div>
                       </span>
-                   </div>
+                    </a>
                 </div>
              </div>
           </main>

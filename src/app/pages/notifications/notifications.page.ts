@@ -1,17 +1,36 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Injector, OnInit } from '@angular/core';
+import { NetworkService } from 'src/app/services/network.service';
+import { BasePage } from '../base-page/base-page';
 
 @Component({
   selector: 'app-notifications',
   templateUrl: './notifications.page.html',
   styleUrls: ['./notifications.page.scss'],
 })
-export class NotificationsPage implements OnInit {
+export class NotificationsPage extends BasePage implements OnInit {
 
-  list: any[] = [1,2,3,4,5];
+  user: any;
+  list: any[] = [1, 2, 3, 4, 5];
 
-  constructor() { }
+  constructor(injector: Injector) {
+    super(injector)
+  }
 
   ngOnInit() {
+    this.user = this.users.getUser();
+    this.initialize()
+  }
+
+  async initialize() {
+
+    let obj = {
+      "user_id": this.user.id,
+      "offset": 0,
+      "limit": 10
+    }
+    const res = await this.network.getNotifications(obj);
+    console.log(res);
+    this.list = res;
   }
 
 }
