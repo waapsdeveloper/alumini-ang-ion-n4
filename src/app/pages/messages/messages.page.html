@@ -11,7 +11,7 @@
                   <div class="osahan-chat-list sidebar-chat-list">
                     <div *ngFor="let item of list" (click)="selectUserToChat(item)"
                       class="p-3 d-flex align-items-center border-bottom osahan-post-header overflow-hidden sidebar-chat-item active"
-                      [class.active]="item?.id == selectedItem?.id"
+                      [class.active]="item?.id === selectedItem?.id"
                     >
                       <div class="dropdown-list-image mr-3">
                         <img class="rounded-circle" style="width: 100px;" [src]="item.image ? item.image : 'assets/img/p9.png'" alt="" />
@@ -22,8 +22,7 @@
                           class="small text-truncate overflow-hidden text-black-50"
                         >
                           <i class="feather-check text-primary"></i>
-                          Pellentesque semper ex diam, at tristique ipsum varius
-                          sed. Pellentesque non metus ullamcorper
+                          {{ item['last_message'] }}
                         </div>
                       </div>
                       <span class="ml-auto mb-auto">
@@ -48,15 +47,10 @@
                   </div>
 
                 </div>
-                <div class="osahan-chat-box p-3 border-top border-bottom bg-light" >
-                  <div class="text-center my-3">
-                  </div>
+                <div class="osahan-chat-box p-3 border-top border-bottom bg-light" #scroll >
                   <div class="d-flex align-items-center osahan-post-header" *ngFor="let item of messages">
-                    <div class="dropdown-list-image mr-3 mb-auto">
-                      <img class="rounded-circle" src="img/p1.png" alt="" />
-                    </div>
                     <div class="mr-1">
-                      <div class="text-truncate h6 mb-3" style="color: green; font-weight: 600;">{{item?.username}}</div>
+                      <div class="text-truncate h6 mb-3" style="color: green; font-weight: 600;">{{item?.name}}</div>
                       <p>
                         {{item.message}}
                       </p>
