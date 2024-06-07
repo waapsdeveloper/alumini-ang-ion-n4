@@ -1,5 +1,6 @@
 import { Injectable } from "@angular/core";
 import { NgxPubSubService } from "@pscoped/ngx-pub-sub";
+import Pusher from 'pusher-js';
 
 @Injectable({
   providedIn: "root",
@@ -10,9 +11,29 @@ export class EventsService {
 
   subscriptions: any[] = [];
 
+  private pusher: Pusher;
+  chatChannel: any;
+
   constructor(public pubsubSvc: NgxPubSubService) {
     pubsubSvc.registerEventWithHistory(this.historicalEvent, 6);
     pubsubSvc.registerEventWithLastValue(this.latestEvent, undefined);
+
+    const options = {
+      cluster: 'ap2',
+      forceTLS: true
+    };
+
+    this.pusher = new Pusher('ac433fc5d9ffde9feb10', options);
+    this.chatChannel = this.pusher.subscribe("chats-channel");
+  }
+
+  registerPusherEvent(id: any){
+    this.chatChannel.bind("message-rec-" + id, this.chatChannelReceived.bind(this))
+  }
+
+  chatChannelReceived($event: any){
+    console.log($event);
+    this.publish('message-received-via-pusher', $event);
   }
 
   publish(key: string, data = {}) {
