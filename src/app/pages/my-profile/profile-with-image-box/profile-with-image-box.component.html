@@ -1,6 +1,6 @@
 <div class="box mb-3 shadow-sm border rounded bg-white profile-box text-center">
   <div class="py-4 px-3 border-bottom">
-     <img [src]="defaultImage" class="img-fluid mt-2 rounded-circle" alt="Responsive image" (click)="changeImage()">
+     <img [src]="user.image ? user.image : defaultImage" class="img-fluid mt-2 rounded-circle" alt="Responsive image" (click)="changeImage()">
      <h5 class="font-weight-bold text-dark mb-1 mt-4">{{ user?.name }}</h5>
      <div (click)="editDesignation = true">
         <p *ngIf="!editDesignation" class="mb-0 text-muted" style="cursor: pointer;">{{ editedDesignation }}</p>

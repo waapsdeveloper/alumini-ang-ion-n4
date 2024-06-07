@@ -7,13 +7,15 @@ import { IonicModule } from '@ionic/angular';
 import { ViewProfilePageRoutingModule } from './view-profile-routing.module';
 
 import { ViewProfilePage } from './view-profile.page';
+import { SkillsEndorsementsModule } from 'src/app/components/skills-endorsements/skills-endorsements.module';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    ViewProfilePageRoutingModule
+    ViewProfilePageRoutingModule,
+    SkillsEndorsementsModule
   ],
   declarations: [ViewProfilePage]
 })

@@ -11,6 +11,7 @@ import { ProfileWithImageBoxModule } from './profile-with-image-box/profile-with
 import { ProfileSkillsModule } from './profile-skills/profile-skills.module';
 import { ProfileAboutModule } from './profile-about/profile-about.module';
 import { ProfileViewedModule } from './profile-viewed/profile-viewed.module';
+import { SkillsEndorsementsModule } from 'src/app/components/skills-endorsements/skills-endorsements.module';
 
 @NgModule({
   imports: [
@@ -21,7 +22,8 @@ import { ProfileViewedModule } from './profile-viewed/profile-viewed.module';
     ProfileWithImageBoxModule,
     ProfileSkillsModule,
     ProfileViewedModule,
-    ProfileAboutModule
+    ProfileAboutModule,
+    SkillsEndorsementsModule
   ],
   declarations: [MyProfilePage]
 })

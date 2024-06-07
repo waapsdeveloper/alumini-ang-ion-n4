@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { NetworkService } from 'src/app/services/network.service';
 import { UsersService } from 'src/app/services/users.service';
 
 @Component({
@@ -13,7 +14,7 @@ export class ProfileWithImageBoxComponent  implements OnInit {
   editDesignation = false;
   editedDesignation = 'UI DEsigner'
 
-  constructor(private users: UsersService) { }
+  constructor(private users: UsersService, private network: NetworkService) { }
 
   ngOnInit() {
     this.setUserData();
@@ -21,6 +22,7 @@ export class ProfileWithImageBoxComponent  implements OnInit {
 
   setUserData(){
     this.user = this.users.getUser();
+    this.getCnnStats();
   }
 
   saveDesignation(){
@@ -33,6 +35,11 @@ export class ProfileWithImageBoxComponent  implements OnInit {
 
   logout(){
     this.users.logout();
+  }
+
+  async getCnnStats(){
+    const res = await this.network.getCnnStats(this.user.id);
+    console.log(res)
   }
 
 }

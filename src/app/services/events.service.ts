@@ -13,6 +13,7 @@ export class EventsService {
 
   private pusher: Pusher;
   chatChannel: any;
+  notificationChannel: any;
 
   constructor(public pubsubSvc: NgxPubSubService) {
     pubsubSvc.registerEventWithHistory(this.historicalEvent, 6);
@@ -25,11 +26,14 @@ export class EventsService {
 
     this.pusher = new Pusher('ac433fc5d9ffde9feb10', options);
     this.chatChannel = this.pusher.subscribe("chats-channel");
+    this.notificationChannel = this.pusher.subscribe('notification-channel')
   }
 
   registerPusherEvent(id: any){
     this.chatChannel.bind("message-rec-" + id, this.chatChannelReceived.bind(this))
   }
+
+
 
   chatChannelReceived($event: any){
     console.log($event);

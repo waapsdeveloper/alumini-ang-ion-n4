@@ -10,6 +10,7 @@ export class MyProfilePage extends BasePage implements OnInit {
 
   user: any;
   defaultImage = 'assets/img/p13.png';
+  skills: any = []
 
   constructor(injector: Injector) {
     super(injector)
@@ -21,6 +22,9 @@ export class MyProfilePage extends BasePage implements OnInit {
 
   setUserData(){
     this.user = this.users.getUser();
+    if(this.user.skills){
+      this.skills = this.user.skills.split(',');
+    }
   }
 
   changeImage(){

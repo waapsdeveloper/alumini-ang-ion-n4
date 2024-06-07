@@ -36,6 +36,10 @@ export class NetworkService {
     return this.httpPostResponse('users/upload-image', data, id, false, false);
   }
 
+  setUserProfileVIew(data: any){
+    return this.httpPostResponse('users/set-profile-view', data, null, false, false);
+  }
+
   addPost(data: any){
     return this.httpPostResponse('posts/post-add', data, null, false, true);
   }
@@ -49,6 +53,10 @@ export class NetworkService {
 
   getPosts(data: any){
     return this.httpPostResponse('posts/get-posts', data, null, false, true);
+  }
+
+  getViewUser(id: any){
+    return this.httpGetResponse('users/by-id', id, false, false);
   }
 
   getPostUser(id: any){
