@@ -77,20 +77,24 @@ export class MessagesPage implements OnInit {
 
   async sendMessage() {
     if (!this.message) {
-      return
+      return;
     }
+
     let obj = {
       user_id: this.user.id,
       message: this.message,
       room_id: this.room_id
-    }
+    };
 
     console.log(obj);
-    // return
+    // return;
 
-    let res = await this.network.sendMessage(obj) as any[]
+    let res = await this.network.sendMessage(obj) as any[];
     console.log(res);
     this.getMessages(this.room_id);
+
+    this.message = '';
   }
+
 
 }

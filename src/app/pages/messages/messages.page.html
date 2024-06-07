@@ -11,16 +11,14 @@
                   <div class="osahan-chat-list sidebar-chat-list">
                     <div *ngFor="let item of list" (click)="selectUserToChat(item)"
                       class="p-3 d-flex align-items-center border-bottom osahan-post-header overflow-hidden sidebar-chat-item active"
-                      [class.active]="item?.id == selectedItem?.id"
-                    >
+                      [class.active]="item?.id == selectedItem?.id">
                       <div class="dropdown-list-image mr-3">
-                        <img class="rounded-circle" style="width: 100px;" [src]="item.image ? item.image : 'assets/img/p9.png'" alt="" />
+                        <img class="rounded-circle" style="width: 100px;"
+                          [src]="item.image ? item.image : 'assets/img/p9.png'" alt="" />
                       </div>
                       <div class="font-weight-bold mr-1 overflow-hidden">
                         <div class="text-truncate">{{ item.name }}</div>
-                        <div
-                          class="small text-truncate overflow-hidden text-black-50"
-                        >
+                        <div class="small text-truncate overflow-hidden text-black-50">
                           <i class="feather-check text-primary"></i>
                           Pellentesque semper ex diam, at tristique ipsum varius
                           sed. Pellentesque non metus ullamcorper
@@ -36,8 +34,11 @@
                   </div>
                 </div>
               </div>
-              <div class="col-lg-7 col-xl-8 px-0 chat-box-large-789565 " *ngIf="!selectedItem"> <div class="small text-truncate overflow-hidden text-black-50 m-2">Select your contact to start chat</div></div>
-              <div class="col-lg-7 col-xl-8 px-0 chat-box-large-789565" *ngIf="selectedItem" >
+              <div class="col-lg-7 col-xl-8 px-0 chat-box-large-789565 " *ngIf="!selectedItem">
+                <div class="small text-truncate overflow-hidden text-black-50 m-2">Select your contact to start chat
+                </div>
+              </div>
+              <div class="col-lg-7 col-xl-8 px-0 chat-box-large-789565" *ngIf="selectedItem">
                 <div class="p-3 d-flex align-items-center border-bottom osahan-post-header">
                   <div class="font-weight-bold mr-1 overflow-hidden">
                     <div class="text-truncate">{{ selectedItem.name }}</div>
@@ -48,7 +49,7 @@
                   </div>
 
                 </div>
-                <div class="osahan-chat-box p-3 border-top border-bottom bg-light" >
+                <div class="osahan-chat-box p-3 border-top border-bottom bg-light">
                   <div class="text-center my-3">
                   </div>
                   <div class="d-flex align-items-center osahan-post-header" *ngFor="let item of messages">
@@ -56,7 +57,8 @@
                       <img class="rounded-circle" src="img/p1.png" alt="" />
                     </div>
                     <div class="mr-1">
-                      <div class="text-truncate h6 mb-3" style="color: green; font-weight: 600;">{{item?.username}}</div>
+                      <div class="text-truncate h6 mb-3" style="color: green; font-weight: 600;">{{item?.username}}
+                      </div>
                       <p>
                         {{item.message}}
                       </p>
@@ -71,13 +73,14 @@
                   </div>
                 </div>
                 <div class="w-100 border-top border-bottom">
-                  <textarea placeholder="Write a message…" class="form-control border-0 p-3 shadow-none"  (keyup)="onKeyUp($event)"
-                    rows="2"></textarea>
+                  <textarea [(ngModel)]="message" placeholder="Write a message…"
+                    class="form-control border-0 p-3 shadow-none" (keyup)="onKeyUp($event)" rows="2"></textarea>
+
                 </div>
                 <div class="p-3 d-flex align-items-center">
 
                   <span class="ml-auto">
-                    <button type="button"  class="btn btn-primary btn-sm rounded" (click)="sendMessage()">
+                    <button type="button" class="btn btn-primary btn-sm rounded" (click)="sendMessage()">
                       <i class="feather-send"></i> Send
                     </button>
                   </span>
