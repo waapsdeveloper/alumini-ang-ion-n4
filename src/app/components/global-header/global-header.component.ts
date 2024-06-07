@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { EventsService } from 'src/app/services/events.service';
 import { NavService } from 'src/app/services/nav.service';
 import { UsersService } from 'src/app/services/users.service';
 
@@ -10,10 +11,15 @@ import { UsersService } from 'src/app/services/users.service';
 export class GlobalHeaderComponent  implements OnInit {
 
   user: any;
-  constructor(private users: UsersService, public nav: NavService) { }
+  constructor(private users: UsersService, private events: EventsService, public nav: NavService) { }
 
   ngOnInit() {
-    this.user = this.users.getUser()
+    this.user = this.users.getUser();
+
+    this.events.subscribe('user-image-updated', (obj: any) => {
+      console.log(obj)
+      this.user.image = obj.image
+    })
   }
 
   logout(){

@@ -1,4 +1,5 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { EventsService } from 'src/app/services/events.service';
 import { NetworkService } from 'src/app/services/network.service';
 import { UsersService } from 'src/app/services/users.service';
 
@@ -13,7 +14,7 @@ export class EditProfileImageComponent  implements OnInit {
   designatedImage = '/assets/img/p13.png';
   @ViewChild('fileInput') fileInput!: ElementRef;
 
-  constructor(private users: UsersService, private network: NetworkService) { }
+  constructor(private users: UsersService, private network: NetworkService, private events: EventsService) { }
 
   ngOnInit() {
     this.user = this.users.getUser();
@@ -57,6 +58,9 @@ export class EditProfileImageComponent  implements OnInit {
     if(res && res.image){
       this.users.setUser(res);
       this.designatedImage = res.image;
+      this.events.publish('user-image-updated', {
+        image: res.image
+      })
     }
 
   }
