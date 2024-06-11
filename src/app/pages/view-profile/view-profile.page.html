@@ -10,6 +10,12 @@
                    <h5 class="font-weight-bold text-dark mb-1 mt-4">{{user?.name}}</h5>
                    <p class="mb-0 text-muted">{{ user?.occupation }}</p>
                 </div>
+                <div class="overflow-hidden border-top" *ngIf="visiter?.id != user?.id">
+
+                  <a class="font-weight-bold p-3 d-block" href="javascript:void(0)" *ngIf="cStatus == 'c'" (click)="blAction('c')"> Connect </a>
+                  <a class="font-weight-bold p-3 d-block" href="javascript:void(0)" *ngIf="cStatus == 'r'" (click)="blAction('r')"> Requested </a>
+                  <a class="font-weight-bold p-3 d-block" href="javascript:void(0)" *ngIf="cStatus == 'd'" (click)="blAction('d')"> Remove </a>
+               </div>
              </div>
              <app-skills-endorsements [skills]="skills"></app-skills-endorsements>
 
@@ -20,10 +26,7 @@
                    <h6 class="m-0">About You</h6>
                 </div>
                 <div class="box-body p-3">
-                   <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).
-                   </p>
-                   <p class="mb-0">Find the most qualified people in the most unexpected places. Information for applicants to consider when applying for local positions. The largest community on the web to find and list jobs that aren't restricted by commutes or a specific location.
-                   </p>
+                   <p>{{user?.description}}</p>
                 </div>
              </div>
              <div class="box shadow-sm border rounded bg-white mb-3">
@@ -94,78 +97,8 @@
              </div>
           </main>
           <aside class="col col-xl-3 order-xl-3 col-lg-12 order-lg-3 col-12">
-             <div class="box shadow-sm border rounded bg-white mb-3">
-                <div class="box-title border-bottom p-3">
-                   <h6 class="m-0">Who viewed your profile</h6>
-                </div>
-                <div class="box-body p-3">
-                   <div class="d-flex align-items-center osahan-post-header mb-3 people-list">
-                      <div class="dropdown-list-image mr-3">
-                         <img class="rounded-circle" src="img/p4.png" alt="">
-                         <div class="status-indicator bg-success"></div>
-                      </div>
-                      <div class="font-weight-bold mr-2">
-                         <div class="text-truncate">Sophia Lee</div>
-                         <div class="small text-gray-500">Harvard
-                         </div>
-                      </div>
-                      <span class="ml-auto"><button type="button" class="btn btn-light btn-sm">Connent</button>
-                      </span>
-                   </div>
-                   <div class="d-flex align-items-center osahan-post-header mb-3 people-list">
-                      <div class="dropdown-list-image mr-3">
-                         <img class="rounded-circle" src="img/p9.png" alt="">
-                         <div class="status-indicator bg-success"></div>
-                      </div>
-                      <div class="font-weight-bold mr-2">
-                         <div class="text-truncate">John Doe</div>
-                         <div class="small text-gray-500">Traveler
-                         </div>
-                      </div>
-                      <span class="ml-auto"><button type="button" class="btn btn-light btn-sm">Connent</button>
-                      </span>
-                   </div>
-                   <div class="d-flex align-items-center osahan-post-header mb-3 people-list">
-                      <div class="dropdown-list-image mr-3">
-                         <img class="rounded-circle" src="img/p10.png" alt="">
-                         <div class="status-indicator bg-success"></div>
-                      </div>
-                      <div class="font-weight-bold mr-2">
-                         <div class="text-truncate">Julia Cox</div>
-                         <div class="small text-gray-500">Art Designer
-                         </div>
-                      </div>
-                      <span class="ml-auto"><button type="button" class="btn btn-light btn-sm">Connent</button>
-                      </span>
-                   </div>
-                   <div class="d-flex align-items-center osahan-post-header mb-3 people-list">
-                      <div class="dropdown-list-image mr-3">
-                         <img class="rounded-circle" src="img/p11.png" alt="">
-                         <div class="status-indicator bg-success"></div>
-                      </div>
-                      <div class="font-weight-bold mr-2">
-                         <div class="text-truncate">Robert Cook</div>
-                         <div class="small text-gray-500">Photography
-                         </div>
-                      </div>
-                      <span class="ml-auto"><button type="button" class="btn btn-light btn-sm">Connent</button>
-                      </span>
-                   </div>
-                   <div class="d-flex align-items-center osahan-post-header people-list">
-                      <div class="dropdown-list-image mr-3">
-                         <img class="rounded-circle" src="img/p12.png" alt="">
-                         <div class="status-indicator bg-success"></div>
-                      </div>
-                      <div class="font-weight-bold mr-2">
-                         <div class="text-truncate">Richard Bell</div>
-                         <div class="small text-gray-500">Envato
-                         </div>
-                      </div>
-                      <span class="ml-auto"><button type="button" class="btn btn-light btn-sm">Connent</button>
-                      </span>
-                   </div>
-                </div>
-             </div>
+            <app-who-view-profile></app-who-view-profile>
+
              <div class="box shadow-sm mb-3 rounded bg-white ads-box text-center overflow-hidden">
                 <img src="img/ads1.png" class="img-fluid" alt="Responsive image">
                 <div class="p-3 border-bottom">

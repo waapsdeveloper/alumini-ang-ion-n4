@@ -12,7 +12,9 @@ import { UtilityService } from 'src/app/services/utility.service';
 export class BusersListComponent  implements OnInit {
 
   user: any;
-  list: any[] = []
+  list: any[] = [];
+  searchText = '';
+
   constructor(private users: UsersService, private network: NetworkService, private utility: UtilityService, public nav: NavService  ) { }
 
   ngOnInit() {
@@ -49,6 +51,33 @@ export class BusersListComponent  implements OnInit {
 
     this.list.splice(findIndex, 1);
 
+  }
+
+  async doSearch($event: any){
+
+    let v = $event.target.value;
+
+    let obj = {
+      search: v,
+      offset: 0,
+      limit: 20
+    }
+    const res = await this.network.getNonAddedConnections(obj, this.user.id)
+    console.log(res);
+    this.list = res;
+
+  }
+
+  async loadMore(){
+
+    let obj = {
+      search: this.searchText,
+      offset: this.list.length,
+      limit: 20
+    }
+    const res = await this.network.getNonAddedConnections(obj, this.user.id)
+    console.log(res);
+    this.list = [...this.list, ...res];
   }
 
 }

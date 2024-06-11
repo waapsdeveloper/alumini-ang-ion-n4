@@ -12,7 +12,10 @@ export class ProfileWithImageBoxComponent  implements OnInit {
   user: any;
   defaultImage = 'assets/img/p13.png';
   editDesignation = false;
-  editedDesignation = 'UI DEsigner'
+  editedDesignation = 'UI DEsigner';
+  totalConnections = 0;
+  totalViews = 0;
+
 
   constructor(private users: UsersService, private network: NetworkService) { }
 
@@ -39,7 +42,10 @@ export class ProfileWithImageBoxComponent  implements OnInit {
 
   async getCnnStats(){
     const res = await this.network.getCnnStats(this.user.id);
-    console.log(res)
+    console.log(res);
+
+    this.totalConnections = res['connection_count'] ? res['connection_count'] : 0;
+    this.totalViews = res['views_count'] ? res['views_count'] : 0;
   }
 
 }

@@ -12,6 +12,7 @@ export class ViewProfilePage extends BasePage implements OnInit {
   visiter: any;
   user: any;
   skills: any[] = [];
+  cStatus = '';
   constructor(injector: Injector, private route: ActivatedRoute) {
     super(injector)
   }
@@ -34,9 +35,7 @@ export class ViewProfilePage extends BasePage implements OnInit {
       this.skills = this.user.skills.split(',');
     }
 
-
-
-
+    this.getIfUserConnected(id);
 
   }
 
@@ -48,6 +47,36 @@ export class ViewProfilePage extends BasePage implements OnInit {
     }
     const res = await this.network.setUserProfileVIew(obj)
 
+
+  }
+
+  async getIfUserConnected(id: any){
+
+
+    let obj = {
+      viewer_id: this.visiter.id,
+      user_id: id
+    }
+    const res = await this.network.isUserCOnnected(obj);
+    console.log(res);
+    this.cStatus = res.cstatus
+
+
+  }
+
+  blAction(type: string){
+
+    switch(type){
+      case 'c':
+
+
+
+      break;
+      case 'r':
+      break;
+      case 'd':
+      break;
+    }
 
   }
 
