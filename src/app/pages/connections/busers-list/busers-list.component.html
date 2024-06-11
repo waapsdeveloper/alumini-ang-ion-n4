@@ -1,7 +1,14 @@
 <div class="p-3">
+
+  <form class="form-inline mr-auto w-100 navbar-search mb-2">
+    <div class="input-group border">
+       <input type="text" class="form-control border-0" placeholder="Search people" aria-label="Search" aria-describedby="basic-addon2" [(ngModel)]="searchText" (input)="doSearch($event)">
+    </div>
+ </form>
   <div class="p-3 w-100" *ngIf="list.length == 0">
     <h6>No people found yet</h6>
   </div>
+
   <div class="row">
     <div class="col-md-4" *ngFor="let item of list">
         <div class="border network-item rounded mb-3">
@@ -21,5 +28,11 @@
           </div>
         </div>
     </div>
+  </div>
+  <div class="row">
+    <div class="col-12">
+      <ion-button size="small" style="float: right;" (click)="loadMore()" >load more</ion-button>
+    </div>
+
   </div>
 </div>

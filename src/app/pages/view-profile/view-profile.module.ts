@@ -8,6 +8,7 @@ import { ViewProfilePageRoutingModule } from './view-profile-routing.module';
 
 import { ViewProfilePage } from './view-profile.page';
 import { SkillsEndorsementsModule } from 'src/app/components/skills-endorsements/skills-endorsements.module';
+import { WhoViewProfileModule } from 'src/app/components/who-view-profile/who-view-profile.module';
 
 @NgModule({
   imports: [
@@ -15,7 +16,8 @@ import { SkillsEndorsementsModule } from 'src/app/components/skills-endorsements
     FormsModule,
     IonicModule,
     ViewProfilePageRoutingModule,
-    SkillsEndorsementsModule
+    SkillsEndorsementsModule,
+    WhoViewProfileModule
   ],
   declarations: [ViewProfilePage]
 })

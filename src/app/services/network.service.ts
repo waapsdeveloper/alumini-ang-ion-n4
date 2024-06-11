@@ -40,6 +40,10 @@ export class NetworkService {
     return this.httpPostResponse('users/set-profile-view', data, null, false, false);
   }
 
+  isUserCOnnected(data: any){
+    return this.httpPostResponse('users/is-user-connected', data, null, false, false);
+  }
+
   addPost(data: any){
     return this.httpPostResponse('posts/post-add', data, null, false, true);
   }
