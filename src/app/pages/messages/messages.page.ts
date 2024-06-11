@@ -83,7 +83,7 @@ export class MessagesPage implements OnInit {
     }
     const res = await this.network.getAddedConnections(obj, this.user.id)
     console.log(res);
-    if (res && res.result) {
+    if (res) {
       this.list = res;
       this.chat = true;
     }
