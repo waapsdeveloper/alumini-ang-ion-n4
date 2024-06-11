@@ -9,6 +9,10 @@ import { NetworkService } from 'src/app/services/network.service';
 })
 export class DsPostItemComponent implements OnInit {
 
+  user: any;
+  like: any;
+  flag= false;
+  data: any
   private _item: any;
 
   @Input('item')
@@ -22,17 +26,59 @@ export class DsPostItemComponent implements OnInit {
 
   }
 
-  constructor(private network: NetworkService) { }
+  constructor(private network: NetworkService) {
+    this.initialize(null);
+   }
 
-  ngOnInit() { }
+  async ngOnInit() {
+    this.data = await this.network.getLikes(this.item.id) as any [];
+    console.log(this.data);
+    
+    this.like = this.data.totalLikes;
+   }
 
   initialize(value: any) {
-    // console.log(value);
+    console.log(value);
+    
+    
+
   }
 
-  timeDilation(datetime: string){
+  timeDilation(datetime: string) {
     const d = moment(datetime).fromNow()
     return d;
+  }
+  async addLike(item: any) {
+    this.user = localStorage.getItem('user')
+    let user = JSON.parse(this.user);
+
+    console.log(user);
+    
+    // return
+    let obj = {
+      post_id: item.id,
+      user_id: user.id
+    }
+    console.log('====================================');
+    console.log(obj);
+    console.log('====================================');
+    let res = await this.network.addLike(obj)
+    console.log(res);
+    this.flag = true;
+  }
+  async removeLike(item: any){
+    let user = JSON.parse(this.user);
+    console.log(user);
+    let obj = {
+      post_id: item.id,
+      user_id: user.id
+    }
+    let res = await this.network.removeLike(obj)
+    console.log('====================================');
+    console.log(res);
+    console.log('====================================');
+    this.flag = false;
+
   }
 
 }

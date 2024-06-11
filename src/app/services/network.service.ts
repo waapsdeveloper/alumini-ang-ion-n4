@@ -47,6 +47,13 @@ export class NetworkService {
   addPost(data: any){
     return this.httpPostResponse('posts/post-add', data, null, false, true);
   }
+  
+  addLike(data: any){
+    return this.httpPostResponse('posts/like', data, null, false, true);
+  }
+  removeLike(data: any){
+    return this.httpPostResponse('posts/dis-like', data, null, false, true);
+  }
 
   sendMessage(data: any){
     return this.httpPostResponse('messages/add', data, null, false, true);
@@ -65,6 +72,9 @@ export class NetworkService {
 
   getPostUser(id: any){
     return this.httpGetResponse('posts/get-post-user', id, false, false);
+  }
+  getLikes(id: any){
+    return this.httpGetResponse('posts/likes/count/' + id, null, false);
   }
 
   getMessages(id: any){

@@ -9,7 +9,10 @@
       <div class="small text-gray-500">{{ item?.occupation }}</div>
     </div>
 
-    <a href="#" class="ml-auto text-secondary"><i class="feather-heart text-danger"></i> 16</a>
+    <a class="ml-auto text-secondary">
+      <i class="feather-heart " *ngIf="flag == false" (click)="addLike(item)"></i>
+      <i class="feather-heart text-danger" *ngIf="flag == true"  (click)="removeLike(item)"></i>
+      {{like}}</a>
   </div>
   <div class="p-3 border-bottom osahan-post-body">
     <p>{{item.description}}</p>
