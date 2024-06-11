@@ -19,6 +19,7 @@ export class MessagesPage implements OnInit {
   message = ""
   messages: any;
   selectedItem: any;
+  chat = false;
   room_id: any;
   data: any;
   formattedDate: any;
@@ -31,22 +32,22 @@ export class MessagesPage implements OnInit {
     this.messageReceivedViaPusher()
   }
 
-  messageReceivedViaPusher(){
+  messageReceivedViaPusher() {
     this.events.registerPusherEvent(this.user.id);
     this.events.subscribe('message-received-via-pusher', this.updateChatsByMessageReceived.bind(this))
   }
 
-  updateChatsByMessageReceived(data: any){
+  updateChatsByMessageReceived(data: any) {
     console.log(data);
 
     // create logic here
     console.log(this.list, data)
-    let rlistIndex = this.list.findIndex( x => x.id == data.user_id);
-    if(rlistIndex != -1){
+    let rlistIndex = this.list.findIndex(x => x.id == data.user_id);
+    if (rlistIndex != -1) {
       this.list[rlistIndex]['last_message'] = data['message'];
 
-      if(this.messages.length > 0){
-        if(this.messages[0]['room_id'] == data['room_id']){
+      if (this.messages.length > 0) {
+        if (this.messages[0]['room_id'] == data['room_id']) {
           this.messages.push(data);
 
           setTimeout(() => {
@@ -64,7 +65,7 @@ export class MessagesPage implements OnInit {
   scrollToBottom(): void {
     try {
       console.log(this.scrollableDiv)
-      if(this.scrollableDiv){
+      if (this.scrollableDiv) {
         this.scrollableDiv.nativeElement.scrollTop = this.scrollableDiv.nativeElement.scrollHeight;
       }
 
@@ -82,7 +83,10 @@ export class MessagesPage implements OnInit {
     }
     const res = await this.network.getAddedConnections(obj, this.user.id)
     console.log(res);
-    this.list = res;
+    if (res && res.result) {
+      this.list = res;
+      this.chat = true;
+    }
 
   }
 
@@ -103,7 +107,7 @@ export class MessagesPage implements OnInit {
   }
 
 
-  async getMessages(id: any){
+  async getMessages(id: any) {
 
     let res = await this.network.getMessages(id)
     console.log(res);
