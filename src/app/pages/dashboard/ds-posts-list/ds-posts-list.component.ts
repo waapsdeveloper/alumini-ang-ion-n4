@@ -43,5 +43,17 @@ export class DsPostsListComponent  implements OnInit {
 
   }
 
+  async loadMore(){
+
+    let obj = {
+      search: '',
+      offset: this.list.length,
+      limit: 20
+    }
+    const res = await this.network.getPosts(obj)
+    console.log(res);
+    this.list = [...this.list, ...res];
+  }
+
 
 }
