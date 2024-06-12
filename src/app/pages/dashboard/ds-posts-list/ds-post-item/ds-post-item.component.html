@@ -1,7 +1,7 @@
 <div class="box mb-3 shadow-sm border rounded bg-white osahan-post">
   <div class="p-3 d-flex align-items-center border-bottom osahan-post-header">
     <div class="dropdown-list-image mr-3">
-      <img class="rounded-circle profile-cl-76895" [src]="item?.user_image" alt="" />
+      <img class="rounded-circle profile-cl-76895" [src]="item && item.user_image ? item.user_image : '/assets/img/user/default.jpeg' " alt="" />
       <div class="status-indicator bg-success"></div>
     </div>
     <div class="font-weight-bold">

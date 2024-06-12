@@ -64,7 +64,13 @@ export class UsersService {
       return null;
     }
 
-    const u = JSON.parse(str)
+    let u = JSON.parse(str)
+
+    if(!u.image){
+      u.image = '/assets/img/default.jpeg'
+    }
+
+
     return u;
   }
 }
