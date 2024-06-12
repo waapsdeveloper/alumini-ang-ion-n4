@@ -37,14 +37,7 @@ export class GlobalHeaderComponent  implements OnInit {
     console.log("fghsafggshfdhsdhfh",res);
     this.notification = res.totalnotification;
   }
-  async initialize(){
-    let user = JSON.parse(this.user);
-    console.log(user);
 
-    let res= await this.network.getNotificationsCount(user.id)
-    console.log("fghsafggshfdhsdhfh",res);
-    this.notification = res.totalnotification;
-  }
 
   logout(){
     this.users.logout();
