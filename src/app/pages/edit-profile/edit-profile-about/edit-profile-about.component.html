@@ -1,44 +1,55 @@
 <div class="border rounded bg-white mb-3">
   <div class="box-title border-bottom p-3 box-titles-67894">
-     <h6 class="m-0">About</h6>
-     <p class="mb-0 mt-0 small">Tell about yourself in two sentences.
-     </p>
+    <h6 class="m-0">About</h6>
+    <p class="mb-0 mt-0 small">Tell about yourself in two sentences.
+    </p>
   </div>
   <div class="box-body">
-     <div class="p-3 border-bottom">
-        <div class="form-group mb-4">
-           <label class="mb-1">BIO</label>
-           <div class="position-relative">
-              <textarea class="form-control" [(ngModel)]="biotext" rows="4" name="text" placeholder="Write some thing in two sentences"></textarea>
-           </div>
+    <div class="p-3 border-bottom">
+      <div class="form-group mb-4">
+        <label class="mb-1">BIO</label>
+        <div class="position-relative">
+          <textarea class="form-control" [(ngModel)]="biotext" rows="4" name="text"
+            placeholder="Write some thing in two sentences"></textarea>
         </div>
-        <div class="form-group mb-0">
-              <ion-select placeholder="Programming Skills" [multiple]="true" [(ngModel)]="selectedSkills">
-                <ion-select-option value="javascript">JavaScript</ion-select-option>
-                <ion-select-option value="python">Python</ion-select-option>
-                <ion-select-option value="java">Java</ion-select-option>
-                <ion-select-option value="csharp">C#</ion-select-option>
-                <ion-select-option value="php">PHP</ion-select-option>
-                <ion-select-option value="ruby">Ruby</ion-select-option>
-                <ion-select-option value="typescript">TypeScript</ion-select-option>
-                <ion-select-option value="swift">Swift</ion-select-option>
-                <ion-select-option value="kotlin">Kotlin</ion-select-option>
-                <ion-select-option value="go">Go</ion-select-option>
-                <ion-select-option value="rust">Rust</ion-select-option>
-                <ion-select-option value="scala">Scala</ion-select-option>
-                <ion-select-option value="perl">Perl</ion-select-option>
-                <ion-select-option value="r">R</ion-select-option>
-                <ion-select-option value="sql">SQL</ion-select-option>
-                <ion-select-option value="html">HTML</ion-select-option>
-                <ion-select-option value="css">CSS</ion-select-option>
-                <ion-select-option value="sass">SASS</ion-select-option>
-                <ion-select-option value="bash">Bash</ion-select-option>
-                <ion-select-option value="shell">Shell Scripting</ion-select-option>
-              </ion-select>
-        </div>
-     </div>
-     <div class="overflow-hidden text-right p-3">
-        <ion-button (click)="saveMySkills()">SAVE</ion-button>
-     </div>
+      </div>
+      <div class="form-group mb-0">
+        <ion-select placeholder="Programming Skills" [multiple]="true" [(ngModel)]="selectedSkills">
+          <ion-select-option value="python_programming">Python Programming (CS)</ion-select-option>
+          <ion-select-option value="circuit_design">Circuit Design (Electrical)</ion-select-option>
+          <ion-select-option value="microcontroller_programming">Microcontroller Programming (Electronics)</ion-select-option>
+          <ion-select-option value="financial_analysis">Financial Analysis (Commerce)</ion-select-option>
+          <ion-select-option value="graphic_design">Graphic Design (Arts)</ion-select-option>
+          <ion-select-option value="data_structures_algorithms">Data Structures and Algorithms (CS)</ion-select-option>
+          <ion-select-option value="power_systems_engineering">Power Systems Engineering (Electrical)</ion-select-option>
+          <ion-select-option value="vlsi_design">VLSI Design (Electronics)</ion-select-option>
+          <ion-select-option value="accounting_principles">Accounting Principles (Commerce)</ion-select-option>
+          <ion-select-option value="creative_writing">Creative Writing (Arts)</ion-select-option>
+          <ion-select-option value="machine_learning">Machine Learning (CS)</ion-select-option>
+          <ion-select-option value="signal_processing">Signal Processing (Electrical)</ion-select-option>
+          <ion-select-option value="embedded_systems">Embedded Systems (Electronics)</ion-select-option>
+          <ion-select-option value="marketing_strategies">Marketing Strategies (Commerce)</ion-select-option>
+          <ion-select-option value="digital_photography">Digital Photography (Arts)</ion-select-option>
+          <ion-select-option value="database_management">Database Management (CS)</ion-select-option>
+          <ion-select-option value="control_systems">Control Systems (Electrical)</ion-select-option>
+          <ion-select-option value="pcb_design">PCB Design (Electronics)</ion-select-option>
+          <ion-select-option value="business_law">Business Law (Commerce)</ion-select-option>
+          <ion-select-option value="painting">Painting (Arts)</ion-select-option>
+          <ion-select-option value="cloud_computing">Cloud Computing (CS)</ion-select-option>
+          <ion-select-option value="renewable_energy_systems">Renewable Energy Systems (Electrical)</ion-select-option>
+          <ion-select-option value="analog_circuit_design">Analog Circuit Design (Electronics)</ion-select-option>
+          <ion-select-option value="investment_management">Investment Management (Commerce)</ion-select-option>
+          <ion-select-option value="sculpture">Sculpture (Arts)</ion-select-option>
+          <ion-select-option value="cybersecurity">Cybersecurity (CS)</ion-select-option>
+          <ion-select-option value="electric_machines">Electric Machines (Electrical)</ion-select-option>
+          <ion-select-option value="fpga_programming">FPGA Programming (Electronics)</ion-select-option>
+          <ion-select-option value="ecommerce_management">E-commerce Management (Commerce)</ion-select-option>
+          <ion-select-option value="theatre_acting">Theatre Acting (Arts)</ion-select-option>
+        </ion-select>
+      </div>
+    </div>
+    <div class="overflow-hidden text-right p-3">
+      <ion-button (click)="saveMySkills()">SAVE</ion-button>
+    </div>
   </div>
 </div>
