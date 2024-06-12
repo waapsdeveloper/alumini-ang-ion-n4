@@ -28,30 +28,10 @@
               <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
                 <div class="p-3 border-top">
                   <div class="row">
-                    <div class="col-md-12" *ngFor="let item of list">
-                      <div class="border job-item mb-3">
-                        <div class="d-flex align-items-center p-3 job-item-header">
-                          <div class="overflow-hidden mr-2">
-                            <h6 class="font-weight-bold text-dark mb-0 text-truncate">
-                              {{item.title}}
-                            </h6>
-                            <div class="text-muted">
-                              {{item.description}}
-                            </div>
-                          </div>
-                        </div>
-                        <div style="padding-left: 12px;">
-                          <ion-radio-group value="strawberries" *ngFor="let item of item.options">
-                            <div style="display: flex; align-items: center; gap: 8px;">
-                              <ion-radio slot="start" value="grapes"></ion-radio><span>{{item.option}}</span>
-                            </div>
-                          </ion-radio-group>
-                        </div>
-                        <div class="p-3 job-item-footer">
-                          <small class="text-gray-500"><i class="feather-clock"></i> {{ getNowDate(item.created_at)
-                            }}</small>
-                        </div>
-                      </div>
+                    <div class="col-md-12">
+
+                      <app-election-list *ngFor="let item of list" [item]="item">
+                      </app-election-list>
                     </div>
                   </div>
                 </div>

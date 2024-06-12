@@ -8,6 +8,7 @@ import { ElectionsPageRoutingModule } from './elections-routing.module';
 
 import { ElectionsPage } from './elections.page';
 import { PeopleMayKnowModule } from '../dashboard/people-may-know/people-may-know.module';
+import { ElectionListModule } from './election-list/election-list.module';
 
 @NgModule({
   imports: [
@@ -15,7 +16,8 @@ import { PeopleMayKnowModule } from '../dashboard/people-may-know/people-may-kno
     FormsModule,
     IonicModule,
     ElectionsPageRoutingModule,
-    PeopleMayKnowModule
+    PeopleMayKnowModule,
+    ElectionListModule
   ],
   declarations: [ElectionsPage]
 })

@@ -1,0 +1,24 @@
+<div class="border job-item mb-3">
+  <div class="d-flex align-items-center p-3 job-item-header">
+    <div class="overflow-hidden mr-2">
+      <h6 class="font-weight-bold text-dark mb-0 text-truncate">
+        {{item.title}}
+      </h6>
+      <div class="text-muted">
+        {{item.description}}
+      </div>
+    </div>
+  </div>
+  <div style="padding-left: 12px;">
+    <ion-radio-group [(ngModel)]="selectedOption">
+      <div *ngFor="let item of item.options" style="display: flex; align-items: center; gap: 8px;">
+        <ion-radio slot="start" [value]="item.option" (click)="selectedOptions(item.option)"></ion-radio>
+        <span>{{ item.option }}</span>
+      </div>
+    </ion-radio-group>
+  </div>
+  <div class="p-3 job-item-footer">
+    <small class="text-gray-500"><i class="feather-clock"></i> {{ getNowDate(item.created_at)
+      }}</small>
+  </div>
+</div>

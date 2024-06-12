@@ -13,6 +13,7 @@ export class ElectionsPage implements OnInit {
 
   user: any;
   options: any[] = [];
+  selectedOption: string = '';
   list: any[] = []
   searchText = '';
 
@@ -46,7 +47,7 @@ export class ElectionsPage implements OnInit {
 
       const res = await this.network.getElections(obj);
       console.log(res);
-      
+
       resolve(res);
 
 
@@ -55,10 +56,7 @@ export class ElectionsPage implements OnInit {
 
   }
 
-  getNowDate(date: string) {
 
-    return moment(date).fromNow();
-  }
 
   async doSearch() {
     const res = await this.getElections(this.searchText, 0, 10)

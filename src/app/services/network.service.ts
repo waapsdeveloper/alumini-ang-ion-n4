@@ -95,6 +95,9 @@ export class NetworkService {
   getNotifications(data: any ){
     return this.httpPostResponse('notifications/get-notifications', data, null, false, true);
   }
+  seletedElectionOption(data: any ){
+    return this.httpPostResponse('elections/selected-option', data, null, false, true);
+  }
 
   // connections
   getCnnStats(id: any){
