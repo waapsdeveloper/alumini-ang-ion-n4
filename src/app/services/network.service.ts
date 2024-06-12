@@ -51,6 +51,12 @@ export class NetworkService {
   addLike(data: any){
     return this.httpPostResponse('posts/like', data, null, false, true);
   }
+
+  eventInterest(data: any){
+    return this.httpPostResponse('events/response', data, null, false, true);
+  
+  }
+
   removeLike(data: any){
     return this.httpPostResponse('posts/dis-like', data, null, false, true);
   }
@@ -81,8 +87,16 @@ export class NetworkService {
     return this.httpGetResponse('messages/list/my-messages/'+ id, null, false);
   }
 
+  
+  getNotificationsCount(id: any){
+    return this.httpGetResponse('notifications/count/'+ id, null, false);
+  }
+
   getNotifications(data: any ){
     return this.httpPostResponse('notifications/get-notifications', data, null, false, true);
+  }
+  seletedElectionOption(data: any ){
+    return this.httpPostResponse('elections/selected-option', data, null, false, true);
   }
 
   // connections
@@ -120,6 +134,9 @@ export class NetworkService {
 
   getJobs(data: any){
     return this.httpPostResponse('jobs/get-jobs', data, null, false, true);
+  }
+  getElections(data: any){
+    return this.httpPostResponse('elections/get-elections', data, null, false, true);
   }
 
   getEvents(data: any){

@@ -50,6 +50,19 @@ export class UserEventsPage implements OnInit {
 
 
   }
+  async getInterst(id: any){
+    this.user = localStorage.getItem('user')
+    let user = JSON.parse(this.user);
+    console.log(user);
+    let obj ={
+      event_id : id,
+      user_id: user.id
+    }
+
+    let res = await this.network.eventInterest(obj);
+    console.log(res);
+    
+  }
 
   getNowDate(date: string){
     return moment(date).fromNow();
