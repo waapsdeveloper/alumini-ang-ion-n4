@@ -10,6 +10,7 @@ import { UsersService } from 'src/app/services/users.service';
 })
 export class GlobalHeaderComponent  implements OnInit {
 
+  notificationCount = 0;
   user: any;
   constructor(private users: UsersService, private events: EventsService, public nav: NavService) { }
 
@@ -20,6 +21,10 @@ export class GlobalHeaderComponent  implements OnInit {
       console.log(obj)
       this.user.image = obj.image
     })
+
+    this.events.subscribe('message-received-via-pusher', () => {
+
+    });
   }
 
   logout(){
@@ -36,5 +41,7 @@ export class GlobalHeaderComponent  implements OnInit {
   goToMessages(){
     // this.nav.push('/pages/messages')
   }
+
+
 
 }
