@@ -54,6 +54,10 @@ const routes: Routes = [
         path: 'view-profile/:id',
         loadChildren: () => import('./../view-profile/view-profile.module').then( m => m.ViewProfilePageModule)
       },
+      {
+        path: 'elections',
+        loadChildren: () => import('./../elections/elections.module').then( m => m.ElectionsPageModule)
+      },
     ]
   }
 ];

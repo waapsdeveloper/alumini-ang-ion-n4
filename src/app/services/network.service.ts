@@ -81,6 +81,11 @@ export class NetworkService {
     return this.httpGetResponse('messages/list/my-messages/'+ id, null, false);
   }
 
+  
+  getNotificationsCount(id: any){
+    return this.httpGetResponse('notifications/count/'+ id, null, false);
+  }
+
   getNotifications(data: any ){
     return this.httpPostResponse('notifications/get-notifications', data, null, false, true);
   }
