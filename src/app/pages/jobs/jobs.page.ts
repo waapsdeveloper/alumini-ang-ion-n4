@@ -62,6 +62,18 @@ export class JobsPage implements OnInit {
     this.list = res as any[];
   }
 
+  async loadMore(){
+
+    let obj = {
+      search: this.searchText,
+      offset: this.list.length,
+      limit: 20
+    }
+    const res = await this.network.getJobs(obj)
+    console.log(res);
+    this.list = [...this.list, ...res];
+  }
+
 
 
 }
