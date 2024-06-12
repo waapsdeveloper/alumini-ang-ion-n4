@@ -21,7 +21,7 @@
                     <i class="feather-search"></i>
                   </button>
                 </div>
-              </div>
+              </div>  
             </form>
 
             <div class="tab-content" id="myTabContent">
@@ -42,8 +42,9 @@
                           </div>
 
                         </div>
-                        <div class="p-3 job-item-footer">
+                        <div class="p-3 job-item-footer" style="display: flex; align-items: center; justify-content: space-between;">
                           <small class="text-gray-500"><i class="feather-clock"></i> {{ getNowDate(item.created_at) }}</small>
+                          <button (click)="getInterst(item.id)" style="background-color: #81181B; color: white; padding: 8px;border-radius: 8px; font-size: 12px;">Interested!</button>
                         </div>
                       </div>
                     </div>

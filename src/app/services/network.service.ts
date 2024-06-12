@@ -51,6 +51,12 @@ export class NetworkService {
   addLike(data: any){
     return this.httpPostResponse('posts/like', data, null, false, true);
   }
+
+  eventInterest(data: any){
+    return this.httpPostResponse('events/response', data, null, false, true);
+  
+  }
+
   removeLike(data: any){
     return this.httpPostResponse('posts/dis-like', data, null, false, true);
   }
@@ -125,6 +131,9 @@ export class NetworkService {
 
   getJobs(data: any){
     return this.httpPostResponse('jobs/get-jobs', data, null, false, true);
+  }
+  getElections(data: any){
+    return this.httpPostResponse('elections/get-elections', data, null, false, true);
   }
 
   getEvents(data: any){

@@ -11,7 +11,8 @@ import { UsersService } from 'src/app/services/users.service';
 })
 export class ElectionsPage implements OnInit {
 
-  user: any
+  user: any;
+  options: any[] = [];
   list: any[] = []
   searchText = '';
 
@@ -29,12 +30,12 @@ export class ElectionsPage implements OnInit {
   }
 
   async initialize() {
-    const res = await this.getJobs('', 0, 10)
+    const res = await this.getElections('', 0, 10)
     this.list = res as any[];
 
   }
 
-  getJobs(search = '', offset = 0, limit = 10) {
+  getElections(search = '', offset = 0, limit = 10) {
 
     return new Promise(async resolve => {
       let obj = {
@@ -43,9 +44,11 @@ export class ElectionsPage implements OnInit {
         limit
       }
 
-      const res = await this.network.getJobs(obj);
+      const res = await this.network.getElections(obj);
       console.log(res);
+      
       resolve(res);
+
 
     })
 
@@ -58,7 +61,7 @@ export class ElectionsPage implements OnInit {
   }
 
   async doSearch() {
-    const res = await this.getJobs(this.searchText, 0, 10)
+    const res = await this.getElections(this.searchText, 0, 10)
     this.list = res as any[];
   }
 
