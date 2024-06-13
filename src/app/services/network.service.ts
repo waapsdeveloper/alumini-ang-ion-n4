@@ -28,7 +28,7 @@ export class NetworkService {
     return this.httpPostResponse('users/register', data, null, true, true);
   }
 
-  setUserDescAndSkills(data: any, id: any){
+  setUserDescAndSkills(data: any, id: any) {
     return this.httpPostResponse('users/edit/update-desc-skills', data, id, false, false);
   }
 
@@ -36,110 +36,119 @@ export class NetworkService {
     return this.httpPostResponse('users/upload-image', data, id, false, false);
   }
 
-  setUserProfileVIew(data: any){
+  setUserProfileVIew(data: any) {
     return this.httpPostResponse('users/set-profile-view', data, null, false, false);
   }
 
-  isUserCOnnected(data: any){
+  isUserCOnnected(data: any) {
     return this.httpPostResponse('users/is-user-connected', data, null, false, false);
   }
 
-  addPost(data: any){
+  addPost(data: any) {
     return this.httpPostResponse('posts/post-add', data, null, false, true);
   }
-  
-  addLike(data: any){
+
+  addLike(data: any) {
     return this.httpPostResponse('posts/like', data, null, false, true);
   }
 
-  eventInterest(data: any){
+  eventInterest(data: any) {
     return this.httpPostResponse('events/response', data, null, false, true);
-  
+
   }
 
-  removeLike(data: any){
+  removeLike(data: any) {
     return this.httpPostResponse('posts/dis-like', data, null, false, true);
   }
 
-  sendMessage(data: any){
+  sendMessage(data: any) {
     return this.httpPostResponse('messages/add', data, null, false, true);
   }
-  getRoom(data: any){
+
+  postComment(data: any) {
+    return this.httpPostResponse('posts/comment', data, null, false, true);
+  }
+
+  getRoom(data: any) {
     return this.httpPostResponse('rooms/add', data, null, false, true);
   }
 
-  getPosts(data: any){
+  getPosts(data: any) {
     return this.httpPostResponse('posts/get-posts', data, null, false, true);
   }
 
-  getViewUser(id: any){
+  getViewUser(id: any) {
     return this.httpGetResponse('users/by-id', id, false, false);
   }
 
-  getPostUser(id: any){
+  getPostUser(id: any) {
     return this.httpGetResponse('posts/get-post-user', id, false, false);
   }
-  getLikes(id: any){
+  getLikes(id: any) {
     return this.httpGetResponse('posts/likes/count/' + id, null, false);
   }
 
-  getMessages(id: any){
-    return this.httpGetResponse('messages/list/my-messages/'+ id, null, false);
+  getMessages(id: any) {
+    return this.httpGetResponse('messages/list/my-messages/' + id, null, false);
   }
 
-  
-  getNotificationsCount(id: any){
-    return this.httpGetResponse('notifications/count/'+ id, null, false);
+
+  getNotificationsCount(id: any) {
+    return this.httpGetResponse('notifications/count/' + id, null, false);
   }
 
-  getNotifications(data: any ){
+  getNotifications(data: any) {
     return this.httpPostResponse('notifications/get-notifications', data, null, false, true);
   }
-  seletedElectionOption(data: any ){
+  seletedElectionOption(data: any) {
     return this.httpPostResponse('elections/selected-option', data, null, false, true);
   }
 
+  getComments(data: any) {
+    return this.httpPostResponse('posts/comment/list', data, null, false);
+  }
+
   // connections
-  getCnnStats(id: any){
+  getCnnStats(id: any) {
     return this.httpGetResponse('users/get-cnnp-stats', id, false, true);
   }
 
-  getNonAddedConnections(data: any, id: any){
+  getNonAddedConnections(data: any, id: any) {
     return this.httpPostResponse('users/get-non-added-connections/' + id, data, null, false, true);
   }
 
-  getAddedConnections(data: any, id: any){
+  getAddedConnections(data: any, id: any) {
     return this.httpPostResponse('users/get-added-connections/' + id, data, null, false, true);
   }
 
-  sendConnectionRequest(data: any, id: any){
+  sendConnectionRequest(data: any, id: any) {
     return this.httpPostResponse('users/send-connection-invite/' + id, data, null, false, true);
   }
 
-  removeAddedConnection(data: any, id: any){
+  removeAddedConnection(data: any, id: any) {
     return this.httpPostResponse('users/remove-added-connections/' + id, data, null, false, true);
   }
 
-  getReceivedInvitations(data: any, id: any){
+  getReceivedInvitations(data: any, id: any) {
     return this.httpPostResponse('invitations/get-received-invitations/' + id, data, null, false, true);
   }
 
-  setInvitationReject(data: any, id: any){
+  setInvitationReject(data: any, id: any) {
     return this.httpPostResponse('invitations/set-invitation-reject/' + id, data, null, false, true);
   }
 
-  setInvitationAccept(data: any, id: any){
+  setInvitationAccept(data: any, id: any) {
     return this.httpPostResponse('invitations/set-invitation-accept/' + id, data, null, false, true);
   }
 
-  getJobs(data: any){
+  getJobs(data: any) {
     return this.httpPostResponse('jobs/get-jobs', data, null, false, true);
   }
-  getElections(data: any){
+  getElections(data: any) {
     return this.httpPostResponse('elections/get-elections', data, null, false, true);
   }
 
-  getEvents(data: any){
+  getEvents(data: any) {
     return this.httpPostResponse('events/get-events', data, null, false, true);
   }
 

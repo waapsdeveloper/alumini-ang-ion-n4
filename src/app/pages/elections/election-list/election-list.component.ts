@@ -16,10 +16,9 @@ export class ElectionListComponent extends BasePage implements OnInit {
   }
 
   ngOnInit() {
-    this.user = localStorage.getItem('user')
-    console.log('====================================');
+    this.user = localStorage.getItem('user');
+    
     console.log(this.item);
-    console.log('====================================');
 
    }
   getNowDate(date: string) {

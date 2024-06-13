@@ -1,13 +1,15 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Injector, Input, OnInit } from '@angular/core';
 import * as moment from 'moment';
+import { BasePage } from 'src/app/pages/base-page/base-page';
 import { NetworkService } from 'src/app/services/network.service';
+import { CommentBoxComponent } from './comment-box/comment-box.component';
 
 @Component({
   selector: 'app-ds-post-item',
   templateUrl: './ds-post-item.component.html',
   styleUrls: ['./ds-post-item.component.scss'],
 })
-export class DsPostItemComponent implements OnInit {
+export class DsPostItemComponent extends BasePage implements OnInit {
 
   user: any;
   like: any;
@@ -26,7 +28,8 @@ export class DsPostItemComponent implements OnInit {
 
   }
 
-  constructor(private network: NetworkService) {
+  constructor(injector:Injector) {
+    super(injector)
     this.initialize(null);
    }
 
@@ -79,6 +82,10 @@ export class DsPostItemComponent implements OnInit {
     console.log('====================================');
     this.flag = false;
 
+  }
+  openComments(item: any): void {
+    console.log(item);
+    this.modals.present(CommentBoxComponent, { item });
   }
 
 }

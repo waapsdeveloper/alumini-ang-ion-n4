@@ -1,0 +1,24 @@
+<div class="p-3 d-flex align-items-top border-bottom osahan-post-comment">
+  <div class="dropdown-list-image mr-3">
+    <img class="rounded-circle" src="assets/img/p7.png" alt="" />
+    <div class="status-indicator bg-success"></div>
+  </div>
+  <div class="font-weight-bold">
+    <div class="text-truncate">
+      James Spiegel <span class="float-right small">2 min</span>
+    </div>
+    <div class="small text-gray-500">
+      Ratione voluptatem sequi en lod nesciunt. Neque porro quisquam
+      est, quinder dolorem ipsum quia dolor sit amet, consectetur
+    </div>
+  </div>
+</div>
+<div style="display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px; padding: 20px;">
+  <textarea placeholder="Add Comment..." class="form-control border-1 p-0 shadow-none" rows="1"
+    [(ngModel)]="comment"></textarea>
+  <button (click)="sendComment()"
+    style="display: flex; padding: 4px 8px; align-items: center; justify-content: center; background-color: #81181B; color: white;">Send</button>
+</div>

@@ -1,7 +1,7 @@
 import { Injector } from "@angular/core";
+import { ModalService } from "src/app/services/basic/modal.service";
 import { EventsService } from "src/app/services/events.service";
 import { NavService } from "src/app/services/nav.service";
-// import { ModalService } from "../services/basic/modal.service";
 
 
 import { NetworkService } from "src/app/services/network.service";
@@ -18,7 +18,7 @@ export abstract class BasePage {
   public events: EventsService;
   public users: UsersService;
   // public profiles: ProfileService;
-  // public modals: ModalService;
+  public modals: ModalService;
 
   constructor(injector: Injector) {
     this.users = injector.get(UsersService);
@@ -27,7 +27,7 @@ export abstract class BasePage {
     this.utility = injector.get(UtilityService);
     this.events = injector.get(EventsService);
     this.nav = injector.get(NavService);
-    // this.modals = injector.get(ModalService);
+    this.modals = injector.get(ModalService);
   }
 
 

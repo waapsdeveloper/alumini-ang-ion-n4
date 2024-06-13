@@ -1,17 +1,21 @@
 <div class="box mb-3 shadow-sm border rounded bg-white osahan-post">
   <div class="p-3 d-flex align-items-center border-bottom osahan-post-header">
     <div class="dropdown-list-image mr-3">
-      <img class="rounded-circle profile-cl-76895" [src]="item && item.user_image ? item.user_image : '/assets/img/user/default.jpeg' " alt="" />
+      <img class="rounded-circle profile-cl-76895"
+        [src]="item && item.user_image ? item.user_image : '/assets/img/user/default.jpeg' " alt="" />
       <div class="status-indicator bg-success"></div>
     </div>
-    <div class="font-weight-bold">
-      <div class="text-truncate">{{ item?.name }}</div>
-      <div class="small text-gray-500">{{ item?.occupation }}</div>
-    </div>
+    <a class="p-3 d-flex align-items-center network-item-header" [href]="'/pages/dl/view-profile/' + item.id">
+
+      <div class="font-weight-bold">
+        <div class=" text-dark mb-0">{{ item?.name }}</div>
+        <div class="small text-dark mb-0 text-gray-500">{{ item?.occupation }}</div>
+      </div>
+    </a>
 
     <a class="ml-auto text-secondary">
       <i class="feather-heart " *ngIf="flag == false" (click)="addLike(item)"></i>
-      <i class="feather-heart text-danger" *ngIf="flag == true"  (click)="removeLike(item)"></i>
+      <i class="feather-heart text-danger" *ngIf="flag == true" (click)="removeLike(item)"></i>
       {{like}}</a>
   </div>
   <div class="p-3 border-bottom osahan-post-body">
@@ -20,25 +24,8 @@
   </div>
   <div class="p-3 border-bottom osahan-post-footer">
     <span class="ml-auto small">{{ timeDilation(item.created_at) }}</span>
-    <!-- <a href="#" class="mr-3 text-secondary"><i class="feather-message-square"></i> 8</a> -->
+    <span (click)="openComments(item)" class="mr-3 text-secondary"><i class="feather-message-square"></i> 8</span>
     <!-- <a href="#" class="mr-3 text-secondary"><i class="feather-share-2"></i> 2</a> -->
   </div>
-  <!-- <div class="p-3 d-flex align-items-top border-bottom osahan-post-comment">
-    <div class="dropdown-list-image mr-3">
-      <img class="rounded-circle" src="assets/img/p7.png" alt="" />
-      <div class="status-indicator bg-success"></div>
-    </div>
-    <div class="font-weight-bold">
-      <div class="text-truncate">
-        James Spiegel <span class="float-right small">2 min</span>
-      </div>
-      <div class="small text-gray-500">
-        Ratione voluptatem sequi en lod nesciunt. Neque porro quisquam
-        est, quinder dolorem ipsum quia dolor sit amet, consectetur
-      </div>
-    </div>
-  </div>
-  <div class="p-3">
-    <textarea placeholder="Add Comment..." class="form-control border-0 p-0 shadow-none" rows="1"></textarea>
-  </div> -->
+  
 </div>
