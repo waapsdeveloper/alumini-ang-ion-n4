@@ -12,8 +12,8 @@ import { UsersService } from 'src/app/services/users.service';
 export class GlobalHeaderComponent  implements OnInit {
   notification: any;
   user: any;
-  constructor(private users: UsersService, private events: EventsService, public nav: NavService, public network: NetworkService) { 
-   
+  constructor(private users: UsersService, private events: EventsService, public nav: NavService, public network: NetworkService) {
+
   }
 
   ngOnInit() {
@@ -24,6 +24,10 @@ export class GlobalHeaderComponent  implements OnInit {
       console.log(obj)
       this.user.image = obj.image
     })
+
+    this.events.subscribe('message-received-via-pusher', () => {
+
+    });
   }
   async initialize(){
     let user = JSON.parse(this.user);
@@ -33,6 +37,7 @@ export class GlobalHeaderComponent  implements OnInit {
     console.log("fghsafggshfdhsdhfh",res);
     this.notification = res.totalnotification;
   }
+
 
   logout(){
     this.users.logout();
@@ -48,6 +53,8 @@ export class GlobalHeaderComponent  implements OnInit {
   goToMessages(){
     // this.nav.push('/pages/messages')
   }
+
+
 
 
 

@@ -39,25 +39,38 @@ export class MessagesPage implements OnInit {
 
   updateChatsByMessageReceived(data: any) {
     console.log(data);
+    if(data.length <= 0){
+      return;
+    }
 
+    const dm = data[0];
     // create logic here
-    console.log(this.list, data)
-    let rlistIndex = this.list.findIndex(x => x.id == data.user_id);
-    if (rlistIndex != -1) {
-      this.list[rlistIndex]['last_message'] = data['message'];
+    // console.log(this.list, data)
+    // let rlistIndex = this.list.findIndex(x => x.id == data.user_id);
+    // if (rlistIndex != -1) {
+    //   this.list[rlistIndex]['last_message'] = data['message'];
 
-      if (this.messages.length > 0) {
-        if (this.messages[0]['room_id'] == data['room_id']) {
-          this.messages.push(data);
+    //   if (this.messages.length > 0) {
+    //     if (this.messages[0]['room_id'] == data['room_id']) {
+    //       this.messages.push(data);
 
-          setTimeout(() => {
-            this.scrollToBottom()
-          }, 1000);
+    //       setTimeout(() => {
+    //         this.scrollToBottom()
+    //       }, 1000);
 
-        }
+    //     }
 
 
-      }
+    //   }
+    // }
+
+    console.log(dm.room_id, this.room_id, dm.roon_id == this.room_id)
+    if(dm.room_id == this.room_id){
+      this.messages.push(dm);
+      setTimeout(() => {
+        this.scrollToBottom()
+      }, 200);
+
     }
 
   }
@@ -102,7 +115,7 @@ export class MessagesPage implements OnInit {
     this.room_id = this.data.id;
     this.getMessages(this.room_id);
 
-    this.events.registerPusherEvent(this.room_id);
+    // this.events.registerPusherEvent(this.room_id);
 
   }
 

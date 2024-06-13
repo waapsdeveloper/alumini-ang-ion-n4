@@ -12,6 +12,7 @@ export class EventsService {
   subscriptions: any[] = [];
 
   private pusher: Pusher;
+  private messageNotificationElement: HTMLAudioElement;
   chatChannel: any;
   notificationChannel: any;
 
@@ -27,6 +28,17 @@ export class EventsService {
     this.pusher = new Pusher('ac433fc5d9ffde9feb10', options);
     this.chatChannel = this.pusher.subscribe("chats-channel");
     this.notificationChannel = this.pusher.subscribe('notification-channel')
+
+    this.messageNotificationElement = new Audio('assets/sounds/message-notification.mp3');
+
+  }
+
+  playMessageNotificationSound() {
+    this.messageNotificationElement.play().then(() => {
+      console.log('Audio played');
+    }).catch((error) => {
+      console.error('Error playing audio', error);
+    });
   }
 
   registerPusherEvent(id: any){
@@ -37,6 +49,8 @@ export class EventsService {
 
   chatChannelReceived($event: any){
     console.log($event);
+
+    this.playMessageNotificationSound();
     this.publish('message-received-via-pusher', $event);
   }
 

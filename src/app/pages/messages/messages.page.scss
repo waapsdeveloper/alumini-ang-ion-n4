@@ -22,3 +22,12 @@
   height: calc(100vh - 100px);
   overflow-y: hidden;
 }
+
+.sidebar-chat-item.active {
+  background: #81181b;
+  color: white;
+}
+
+.sidebar-chat-item.active *{
+  color: white;
+}
