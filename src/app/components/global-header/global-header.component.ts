@@ -17,7 +17,7 @@ export class GlobalHeaderComponent  implements OnInit {
   }
 
   ngOnInit() {
-    this.user = localStorage.getItem('user')
+    this.user = this.users.getUser()
     this.initialize();
 
     this.events.subscribe('user-image-updated', (obj: any) => {
@@ -30,10 +30,7 @@ export class GlobalHeaderComponent  implements OnInit {
     });
   }
   async initialize(){
-    let user = JSON.parse(this.user);
-    console.log(user);
-
-    let res= await this.network.getNotificationsCount(user.id)
+    let res= await this.network.getNotificationsCount(this.user.id)
     console.log("fghsafggshfdhsdhfh",res);
     this.notification = res.totalnotification;
   }

@@ -2,7 +2,7 @@
   <div class="p-3 d-flex align-items-center border-bottom osahan-post-header">
     <div class="dropdown-list-image mr-3">
       <img class="rounded-circle profile-cl-76895"
-        [src]="item && item.user_image ? item.user_image : '/assets/img/user/default.jpeg' " alt="" />
+        [src]="item && item.user_image ? item.user_image : '/assets/img/user/default.png' " alt="" />
       <div class="status-indicator bg-success"></div>
     </div>
     <a class="p-3 d-flex align-items-center network-item-header" [href]="'/pages/dl/view-profile/' + item.id">
@@ -27,5 +27,5 @@
     <span (click)="openComments(item)" class="mr-3 text-secondary"><i class="feather-message-square"></i> 8</span>
     <!-- <a href="#" class="mr-3 text-secondary"><i class="feather-share-2"></i> 2</a> -->
   </div>
-  
+
 </div>

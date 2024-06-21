@@ -67,7 +67,7 @@ export class UsersService {
     let u = JSON.parse(str)
 
     if(!u.image){
-      u.image = '/assets/img/default.jpeg'
+      u.image = '/assets/img/default.png'
     }
 
 
