@@ -1,5 +1,5 @@
 <div class="box mb-3 shadow-sm border rounded bg-white osahan-post">
-  <div class="p-3 d-flex align-items-center border-bottom osahan-post-header">
+  <!-- <div class="p-3 d-flex align-items-center border-bottom osahan-post-header">
     <div class="dropdown-list-image mr-3">
       <img class="rounded-circle profile-cl-76895"
         [src]="item && item.user_image ? item.user_image : '/assets/img/user/default.png' " alt="" />
@@ -13,19 +13,40 @@
       </div>
     </a>
 
-    <a class="ml-auto text-secondary">
-      <i class="feather-heart " *ngIf="flag == false" (click)="addLike(item)"></i>
-      <i class="feather-heart text-danger" *ngIf="flag == true" (click)="removeLike(item)"></i>
-      {{like}}</a>
-  </div>
+    <span class="ml-auto small">{{ timeDilation(item.created_at) }}</span>
+
+  </div> -->
+  <div class="p-3 d-flex align-items-center border-bottom osahan-post-header">
+    <div class="dropdown-list-image mr-3">
+       <img class="rounded-circle profile-cl-76895" [src]="item && item.user_image ? item.user_image : '/assets/img/user/default.png'" alt="">
+       <div class="status-indicator bg-success"></div>
+    </div>
+    <div class="font-weight-bold">
+       <div class="text-truncate">{{ item?.name }}</div>
+       <div class="small text-gray-500">{{ item?.occupation }}</div>
+    </div>
+    <span class="ml-auto small">{{ timeDilation(item.created_at) }}</span>
+ </div>
   <div class="p-3 border-bottom osahan-post-body">
     <p>{{item.description}}</p>
     <img style="width: 100%;" *ngIf="item.image" [src]="item.image" class="img-fluid" alt="Responsive image" />
   </div>
   <div class="p-3 border-bottom osahan-post-footer">
-    <span class="ml-auto small">{{ timeDilation(item.created_at) }}</span>
-    <span (click)="openComments(item)" class="mr-3 text-secondary"><i class="feather-message-square"></i> 8</span>
-    <!-- <a href="#" class="mr-3 text-secondary"><i class="feather-share-2"></i> 2</a> -->
+      <a href="javascript:void(0)" class="mr-3 text-secondary" (click)="addLike(item)"><i class="feather-heart {{ flag == false ? 'text-mute' : 'text-danger'}}"></i> {{like}}</a>
+      <a href="javascript:void(0)" class="mr-3 text-secondary"><i class="feather-message-square"></i> 8</a>
   </div>
+  <!-- <div class="p-3 border-bottom osahan-post-footer">
+    <div class="d-flex gap-3"> -->
+      <!-- <a class="ml-auto text-secondary">
+        <i class="feather-heart " *ngIf="flag == false" (click)="addLike(item)"></i>
+        <i class="feather-heart text-danger" *ngIf="flag == true" (click)="removeLike(item)"></i>
+        {{like}}</a>
+      <span (click)="openComments(item)" class="mr-3 text-secondary"><i class="feather-message-square"></i> 8</span> -->
+    <!-- </div> -->
+
+    <!-- <a href="#" class="mr-3 text-secondary"><i class="feather-share-2"></i> 2</a> -->
+  <!-- </div> -->
+  <app-comment-box [item]="this.item"></app-comment-box>
+
 
 </div>

@@ -1,13 +1,15 @@
-import { Component, Injector, Input, OnInit } from '@angular/core';
-import { BasePage } from 'src/app/pages/base-page/base-page';
+import { Component, Input, OnInit } from '@angular/core';
+import { NetworkService } from 'src/app/services/network.service';
+import { UsersService } from 'src/app/services/users.service';
 
 @Component({
   selector: 'app-comment-box',
   templateUrl: './comment-box.component.html',
   styleUrls: ['./comment-box.component.scss'],
 })
-export class CommentBoxComponent extends BasePage implements OnInit {
+export class CommentBoxComponent implements OnInit {
   private _item: any;
+  list: any[] = [];
   @Input('item')
   public get item() {
     return this._item;
@@ -19,47 +21,42 @@ export class CommentBoxComponent extends BasePage implements OnInit {
   user: any;
   comment:any;
 
-
-  constructor(injector: Injector) {
-    super(injector);
+  constructor(private network: NetworkService, private users: UsersService) {
 
   }
 
   ngOnInit() {
 
-
   }
+
   async callApi(){
     // let user = JSON.parse(this.user);
-    console.log(this.item);
     let obj = {
       post_id: this.item.id,
     }
 
     let res = await this.network.getComments(obj);
     console.log(res);
-    
+    this.list = res.comments;
+
   }
   async sendComment(){
-    this.user = localStorage.getItem('user');
-    let userId = JSON.parse(this.user);
+    this.user = this.users.getUser();
 
     if(!this.comment){
-      this.utility.presentFailureToast("Please add your thoughts to the post");
       return;
     }
 
-
     let obj = {
-      user_id: userId.id,
+      user_id: this.user.id,
       post_id: this.item.id,
       comment: this.comment,
     };
 
     let res = await this.network.postComment(obj);
-    console.log('====================================');
     console.log(res);
-    console.log('====================================');
+    this.list.push(res)
+    this.comment = null;
 
   }
 }

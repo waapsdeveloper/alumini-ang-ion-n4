@@ -35,15 +35,13 @@ export class DsPostItemComponent extends BasePage implements OnInit {
 
   async ngOnInit() {
     this.data = await this.network.getLikes(this.item.id) as any [];
-    console.log(this.data);
-    
     this.like = this.data.totalLikes;
    }
 
   initialize(value: any) {
     console.log(value);
-    
-    
+
+
 
   }
 
@@ -56,7 +54,7 @@ export class DsPostItemComponent extends BasePage implements OnInit {
     let user = JSON.parse(this.user);
 
     console.log(user);
-    
+
     // return
     let obj = {
       post_id: item.id,

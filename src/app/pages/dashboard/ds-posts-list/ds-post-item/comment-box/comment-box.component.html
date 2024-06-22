@@ -1,4 +1,4 @@
-<div class="p-3 d-flex align-items-top border-bottom osahan-post-comment">
+<!-- <div class="p-3 d-flex align-items-top border-bottom osahan-post-comment">
   <div class="dropdown-list-image mr-3">
     <img class="rounded-circle" src="assets/img/p7.png" alt="" />
     <div class="status-indicator bg-success"></div>
@@ -21,4 +21,18 @@
     [(ngModel)]="comment"></textarea>
   <button (click)="sendComment()"
     style="display: flex; padding: 4px 8px; align-items: center; justify-content: center; background-color: #81181B; color: white;">Send</button>
+</div> -->
+
+<div class="p-3 d-flex align-items-top border-bottom osahan-post-comment" *ngFor="let it of list">
+  <!-- <div class="dropdown-list-image mr-3">
+     <img class="rounded-circle" src="assets/img/p7.png" alt="">
+     <div class="status-indicator bg-success"></div>
+  </div> -->
+  <div class="font-weight-bold w-100" >
+     <div class="text-truncate"> {{ it.name }} <span class="float-right small">2 min</span></div>
+     <div class="small text-gray-500">{{ it.comment }}</div>
+  </div>
+</div>
+<div class="p-3">
+  <textarea placeholder="Add Comment..." [(ngModel)]="comment" (keydown.enter)="sendComment()" class="form-control border-0 p-0 shadow-none" rows="1"></textarea>
 </div>
