@@ -46,9 +46,28 @@ export class ElectionsPage implements OnInit {
       }
 
       const res = await this.network.getElections(obj);
-      console.log(res);
 
-      resolve(res);
+
+      let rg: any[] = [];
+
+      for(var i = 0; i < res.length; i++){
+        let re = Object.assign({}, res[i]);
+        let ops = JSON.parse(res[i].options);
+
+        re.options = ops.map( (it: any) => {
+          return {
+            option: it,
+            percentage: 0
+          }
+        });
+
+
+        rg.push(re)
+      }
+
+      console.log(rg);
+      resolve(rg)
+
 
 
     })

@@ -1,4 +1,4 @@
-<div class="border job-item mb-3">
+<div class="job-item mb-3">
   <div class="d-flex align-items-center p-3 job-item-header">
     <div class="overflow-hidden mr-2">
       <h6 class="font-weight-bold text-dark mb-0 text-truncate">
@@ -9,13 +9,24 @@
       </div>
     </div>
   </div>
-  <div style="padding-left: 12px;">
-    <ion-radio-group [(ngModel)]="selectedOption">
+  <div style="padding-left: 16px; padding-right: 16px;">
+
+    <div class="percentage-boxes-outer">
+
+      <div class="round-box-outer" *ngFor="let opt of item.options"  (click)="selectedOptions(opt.option)" [ngStyle]="getGradientStyle( opt.percentage )">
+
+        <div class="label-67895">{{ opt.option }}</div>
+        <div class="percentage-67895">{{ opt.percentage ? opt.percentage : '0' }}%</div>
+      </div>
+
+    </div>
+
+    <!-- <ion-radio-group [(ngModel)]="selectedOption">
       <div *ngFor="let item of item.options" style="display: flex; align-items: center; gap: 8px;">
         <ion-radio slot="start" [value]="item.option" (click)="selectedOptions(item.option)"></ion-radio>
         <span>{{ item.option }}</span>
       </div>
-    </ion-radio-group>
+    </ion-radio-group> -->
   </div>
   <div class="p-3 job-item-footer">
     <small class="text-gray-500"><i class="feather-clock"></i> {{ getNowDate(item.created_at)

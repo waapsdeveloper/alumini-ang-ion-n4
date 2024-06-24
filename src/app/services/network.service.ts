@@ -148,6 +148,12 @@ export class NetworkService {
     return this.httpPostResponse('elections/get-elections', data, null, false, true);
   }
 
+  getElectionItem(data: any) {
+    return this.httpPostResponse('elections/election-list-item', data, null, false, true);
+  }
+
+
+
   getEvents(data: any) {
     return this.httpPostResponse('events/get-events', data, null, false, true);
   }
