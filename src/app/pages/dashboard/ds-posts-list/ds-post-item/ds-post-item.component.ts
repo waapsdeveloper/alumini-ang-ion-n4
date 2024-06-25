@@ -1,4 +1,4 @@
-import { Component, Injector, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Injector, Input, OnInit, Output } from '@angular/core';
 import * as moment from 'moment';
 import { BasePage } from 'src/app/pages/base-page/base-page';
 import { NetworkService } from 'src/app/services/network.service';
@@ -17,6 +17,8 @@ export class DsPostItemComponent extends BasePage implements OnInit {
   data: any
   private _item: any;
 
+  @Output('deletePostEvent') deletePostEvent: EventEmitter<any> = new EventEmitter<any>();
+
   @Input('item')
   public get item(): any {
     return this._item;
@@ -34,6 +36,7 @@ export class DsPostItemComponent extends BasePage implements OnInit {
    }
 
   async ngOnInit() {
+    this.user = this.users.getUser()
     this.data = await this.network.getLikes(this.item.id) as any [];
     this.like = this.data.totalLikes;
    }
@@ -50,15 +53,11 @@ export class DsPostItemComponent extends BasePage implements OnInit {
     return d;
   }
   async addLike(item: any) {
-    this.user = localStorage.getItem('user')
-    let user = JSON.parse(this.user);
-
-    console.log(user);
 
     // return
     let obj = {
       post_id: item.id,
-      user_id: user.id
+      user_id: this.user.id
     }
     console.log('====================================');
     console.log(obj);
@@ -68,11 +67,10 @@ export class DsPostItemComponent extends BasePage implements OnInit {
     this.flag = true;
   }
   async removeLike(item: any){
-    let user = JSON.parse(this.user);
-    console.log(user);
+
     let obj = {
       post_id: item.id,
-      user_id: user.id
+      user_id: this.user.id
     }
     let res = await this.network.removeLike(obj)
     console.log('====================================');
@@ -84,6 +82,21 @@ export class DsPostItemComponent extends BasePage implements OnInit {
   openComments(item: any): void {
     console.log(item);
     this.modals.present(CommentBoxComponent, { item });
+  }
+
+  async deletePost(item: any){
+
+    const flag = await this.utility.presentConfirm("Yes", "No", "Delete Post", "Are you sure you want to delete post?")
+
+    if(flag){
+      let res = await this.network.deletePost(item.id)
+      console.log(res)
+      this.deletePostEvent.emit(item)
+    }
+
+
+
+
   }
 
 }

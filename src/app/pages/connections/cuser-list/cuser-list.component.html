@@ -7,7 +7,7 @@
       <div class="border network-item rounded mb-3">
         <a class="p-3 d-flex align-items-center network-item-header" [href]="'/pages/dl/view-profile/' + item.id">
           <div class="dropdown-list-image mr-3">
-            <img style="width: 45px; height: 45px" class="rounded-circle" [src]="item.image" alt="">
+            <img style="width: 45px; height: 45px" class="rounded-circle" [src]="item.image ? item.image : '/assets/img/user/default.jpeg'" alt="">
           </div>
           <div class="font-weight-bold">
             <h6 class="font-weight-bold text-dark mb-0">{{ item.name }}</h6>

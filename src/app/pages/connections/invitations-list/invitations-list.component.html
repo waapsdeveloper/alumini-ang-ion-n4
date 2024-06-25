@@ -7,7 +7,7 @@
         <div class="border network-item rounded mb-3">
           <div class="p-3 d-flex align-items-center network-item-header">
             <div class="dropdown-list-image mr-3">
-              <img style="width: 45px; height: 45px" class="rounded-circle" [src]="item.sender_image" alt="">
+              <img style="width: 45px; height: 45px" class="rounded-circle" [src]="item.sender_image ? item.sender_image : '/assets/img/user/default.jpeg'" alt="">
             </div>
             <div class="font-weight-bold">
               <h6 class="font-weight-bold text-dark mb-0">{{ item.sender_name }}</h6>

@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import * as moment from 'moment';
 import { NetworkService } from 'src/app/services/network.service';
 import { UsersService } from 'src/app/services/users.service';
 
@@ -58,5 +59,10 @@ export class CommentBoxComponent implements OnInit {
     this.list.push(res)
     this.comment = null;
 
+  }
+
+  timeDilation(datetime: string) {
+    const d = moment(datetime).fromNow()
+    return d;
   }
 }

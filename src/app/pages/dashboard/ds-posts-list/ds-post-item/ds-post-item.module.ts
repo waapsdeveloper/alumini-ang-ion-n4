@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { DsPostItemComponent } from './ds-post-item.component';
 import { CommentBoxModule } from './comment-box/comment-box.module';
+import { IonicModule } from '@ionic/angular';
 
 
 
@@ -9,7 +10,8 @@ import { CommentBoxModule } from './comment-box/comment-box.module';
   declarations: [DsPostItemComponent],
   imports: [
     CommonModule,
-    CommentBoxModule
+    CommentBoxModule,
+    IonicModule
   ],
   exports: [
     DsPostItemComponent

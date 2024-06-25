@@ -29,7 +29,7 @@
      <div class="status-indicator bg-success"></div>
   </div> -->
   <div class="font-weight-bold w-100" >
-     <div class="text-truncate"> {{ it.name }} <span class="float-right small">2 min</span></div>
+     <div class="text-truncate"> {{ it.name }} <span class="float-right small">{{ timeDilation(it.comment_created_at) }}</span></div>
      <div class="small text-gray-500">{{ it.comment }}</div>
   </div>
 </div>

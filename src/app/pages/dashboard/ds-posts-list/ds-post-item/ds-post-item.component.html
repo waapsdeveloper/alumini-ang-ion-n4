@@ -31,9 +31,10 @@
     <p>{{item.description}}</p>
     <img style="width: 100%;" *ngIf="item.image" [src]="item.image" class="img-fluid" alt="Responsive image" />
   </div>
-  <div class="p-3 border-bottom osahan-post-footer">
+  <div class="p-3 border-bottom osahan-post-footer" style="position: relative;">
       <a href="javascript:void(0)" class="mr-3 text-secondary" (click)="addLike(item)"><i class="feather-heart {{ flag == false ? 'text-mute' : 'text-danger'}}"></i> {{like}}</a>
       <a href="javascript:void(0)" class="mr-3 text-secondary"><i class="feather-message-square"></i> 8</a>
+      <div (click)="deletePost(item)" class="delete-btn-7867" *ngIf="user?.id == item?.user_id" >Delete Post</div>
   </div>
   <!-- <div class="p-3 border-bottom osahan-post-footer">
     <div class="d-flex gap-3"> -->

@@ -55,5 +55,12 @@ export class DsPostsListComponent  implements OnInit {
     this.list = [...this.list, ...res];
   }
 
+  deletePost(item: any){
+
+    const index = this.list.findIndex( x => x.id == item.id);
+    this.list.splice(index, 1);
+
+  }
+
 
 }

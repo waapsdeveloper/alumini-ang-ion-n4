@@ -1,5 +1,5 @@
 <div *ngFor="let item of list">
-  <app-ds-post-item [item]="item"></app-ds-post-item>
+  <app-ds-post-item [item]="item" (deletePostEvent)="deletePost($event)"></app-ds-post-item>
 
 
 </div>

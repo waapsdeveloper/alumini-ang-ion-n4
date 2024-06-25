@@ -77,6 +77,10 @@ export class NetworkService {
     return this.httpPostResponse('posts/get-posts', data, null, false, true);
   }
 
+  deletePost(id: any) {
+    return this.httpDeleteResponse('posts/delete/' + id);
+  }
+
   getViewUser(id: any) {
     return this.httpGetResponse('users/by-id', id, false, false);
   }
