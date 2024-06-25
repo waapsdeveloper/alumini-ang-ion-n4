@@ -7,13 +7,15 @@ import { IonicModule } from '@ionic/angular';
 import { JobProflePageRoutingModule } from './job-profle-routing.module';
 
 import { JobProflePage } from './job-profle.page';
+import { SimilarJobsModule } from './similar-jobs/similar-jobs.module';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    JobProflePageRoutingModule
+    JobProflePageRoutingModule,
+    SimilarJobsModule
   ],
   declarations: [JobProflePage]
 })

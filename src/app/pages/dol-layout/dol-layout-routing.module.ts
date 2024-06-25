@@ -31,7 +31,7 @@ const routes: Routes = [
         loadChildren: () => import('./../jobs/jobs.module').then(m => m.JobsPageModule)
       },
       {
-        path: 'job-profle',
+        path: 'job-profle/:id',
         loadChildren: () => import('./../job-profle/job-profle.module').then(m => m.JobProflePageModule)
       },
       {

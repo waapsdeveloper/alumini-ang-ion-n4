@@ -149,6 +149,12 @@ export class NetworkService {
   getJobs(data: any) {
     return this.httpPostResponse('jobs/get-jobs', data, null, false, true);
   }
+
+  getJobsById(id: any) {
+    return this.httpGetResponse('jobs/by-id', id, false, true);
+  }
+
+
   getElections(data: any) {
     return this.httpPostResponse('elections/get-elections', data, null, false, true);
   }

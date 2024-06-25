@@ -23,6 +23,35 @@
                 </div>
               </div>
             </form>
+            <div class="border-top">
+              <div class="row">
+                 <div class="col-md-6" *ngFor="let item of list">
+                       <div class="border job-item mb-3 job-item-bg-set-2532 bg-white" (click)="openJobDetails(item)">
+                          <div class="d-flex align-items-center p-3 job-item-header justify-content-between">
+                             <div class="overflow-hidden mr-2">
+                                <h6 class="font-weight-bold text-dark mb-0 text-truncate">{{item.title}}</h6>
+                                <div class="text-truncate text-primary">Organization</div>
+                                <!-- <div class="small text-gray-500"><i class="feather-map-pin"></i> click to expand and view details ...</div> -->
+                             </div>
+                             <img class="job-image-class-5643264" [src]="item.job_image" alt="">
+                          </div>
+                          <!-- <div class="d-flex align-items-center p-3 border-top border-bottom job-item-body">
+                             <div class="overlap-rounded-circle">
+                                <img class="rounded-circle shadow-sm" data-toggle="tooltip" data-placement="top" title="Sophia Lee" src="img/p1.png" alt="">
+                                <img class="rounded-circle shadow-sm" data-toggle="tooltip" data-placement="top" title="John Doe" src="img/p2.png" alt="">
+                                <img class="rounded-circle shadow-sm" data-toggle="tooltip" data-placement="top" title="Julia Cox" src="img/p3.png" alt="">
+                                <img class="rounded-circle shadow-sm" data-toggle="tooltip" data-placement="top" title="Robert Cook" src="img/p4.png" alt="">
+                                <img class="rounded-circle shadow-sm" data-toggle="tooltip" data-placement="top" title="Sophia Lee" src="img/p5.png" alt="">
+                             </div>
+                             <span class="font-weight-bold text-primary">18 connections</span>
+                          </div> -->
+                          <div class="p-3 job-item-footer">
+                             <small class="text-gray-500"><i class="feather-clock"></i> {{ getNowDate(item.created_at) }}</small>
+                          </div>
+                       </div>
+                 </div>
+              </div>
+           </div>
             <div class="row">
               <div class="col-md-12" *ngFor="let item of list">
                 <div class="border job-item mb-3 bg-white" >

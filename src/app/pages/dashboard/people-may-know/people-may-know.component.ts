@@ -8,7 +8,7 @@ import { UtilityService } from 'src/app/services/utility.service';
   templateUrl: './people-may-know.component.html',
   styleUrls: ['./people-may-know.component.scss'],
 })
-export class PeopleMayKnowComponent  implements OnInit {
+export class PeopleMayKnowComponent implements OnInit {
 
   user: any;
   list: any[] = [];

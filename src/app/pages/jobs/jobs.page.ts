@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import * as moment from 'moment';
+import { ModalService } from 'src/app/services/basic/modal.service';
 import { NavService } from 'src/app/services/nav.service';
 import { NetworkService } from 'src/app/services/network.service';
 import { UsersService } from 'src/app/services/users.service';
@@ -72,6 +73,10 @@ export class JobsPage implements OnInit {
     const res = await this.network.getJobs(obj)
     console.log(res);
     this.list = [...this.list, ...res];
+  }
+
+  async openJobDetails(item: any){
+    this.nav.push('/pages/dl/job-profle/' + item.id )
   }
 
 
