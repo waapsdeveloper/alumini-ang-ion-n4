@@ -12,6 +12,8 @@ import { UsersService } from 'src/app/services/users.service';
 export class GlobalHeaderComponent  implements OnInit {
   notification: any;
   user: any;
+  list: any[] = [];
+  searchText = '';
   constructor(private users: UsersService, private events: EventsService, public nav: NavService, public network: NetworkService) {
 
   }
@@ -51,6 +53,29 @@ export class GlobalHeaderComponent  implements OnInit {
     // this.nav.push('/pages/messages')
   }
 
+  async searchUsers($event: any){
+
+    let v = $event.target.value;
+    console.log(v);
+    this.searchText = v;
+
+    let obj = {
+      search: v,
+      limit: 5,
+      offset: 0
+    }
+
+
+
+    const res = await this.network.getAllUsers(obj, this.user.id);
+    console.log(res);
+    this.list = res;
+
+  }
+
+  openProfile(item: any){
+    window.location.href = '/pages/dl/view-profile/' + item.id
+  }
 
 
 

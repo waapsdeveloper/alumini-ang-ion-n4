@@ -109,6 +109,11 @@ export class NetworkService {
   }
 
   // connections
+
+  getAllUsers(data: any, id: any){
+    return this.httpPostResponse('users/get-all-users/' + id, data, null, false, true);
+  }
+
   getCnnStats(id: any) {
     return this.httpGetResponse('users/get-cnnp-stats', id, false, true);
   }

@@ -8,7 +8,7 @@
 
   .global-nav-top-search{
     background: transparent;
-    color: #fff;
+    // color: #fff;
   }
 }
 .nav-item{
@@ -19,4 +19,21 @@
     color: #81181B;
    }
 
+}
+
+.option-dropdown-543254325 {
+  max-height: 200px;
+  height: auto;
+  width: 248px;
+  background: #ffffff;
+  position: absolute;
+  top: 38px;
+  left: 0;
+  z-index: 50;
+  border: 0.5px solid lightgray;
+  overflow-y: scroll;
+}
+
+.people-list {
+  cursor: pointer;
 }
