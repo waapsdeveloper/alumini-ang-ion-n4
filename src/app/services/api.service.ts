@@ -8,8 +8,8 @@ export class ApiService {
   url: string;
 
   constructor(public http: HttpClient) {
-    this.url = 'http://127.0.0.1:3600/api';
-    // this.url = 'https://api.aluminiconnect.online/api';
+    // this.url = 'http://127.0.0.1:3600/api';
+    this.url = 'https://api.aluminiconnect.online/api';
 
   }
 
