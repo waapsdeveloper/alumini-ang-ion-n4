@@ -6,7 +6,7 @@
     <div class="d-flex align-items-center osahan-post-header mb-3 people-list" *ngFor="let item of list">
 
       <div class="dropdown-list-image mr-3" >
-        <img style="width: 50px; height: 50px;" class="rounded-circle" [src]="item.image ? item.image : '/assets/img/user/default.png'" alt="" />
+        <img style="width: 50px; height: 50px;" class="rounded-circle" [src]="item.image ? item.image : '/assets/img/user/default.jpeg'" alt="" />
         <!-- <div class="status-indicator bg-success"></div> -->
       </div>
 
@@ -14,10 +14,10 @@
         <img class="rounded-circle" src="assets/img/p8.png" alt="" />
         <div class="status-indicator bg-success"></div>
       </div> -->
-      <div class="font-weight-bold mr-2">
+      <a class="font-weight-bold mr-2 " [href]="'/pages/dl/view-profile/' + item.id">
         <div class="text-truncate" style="max-width: 115px;">{{ item.name }}</div>
         <div class="small text-gray-500">{{ item.occupation }}</div>
-      </div>
+      </a>
       <span class="ml-auto"><button type="button" class="btn btn-light btn-sm" (click)="sendConnectionInvite(item)">
           <i class="feather-user-plus"></i>
         </button>
