@@ -36,9 +36,14 @@ export class DsPostItemComponent extends BasePage implements OnInit {
    }
 
   async ngOnInit() {
-    this.user = this.users.getUser()
-    this.data = await this.network.getLikes(this.item.id) as any [];
+    this.user = this.users.getUser();
+    let obj = {
+      post_id: this.item.id,
+      user_id: this.user.id
+    }
+    this.data = await this.network.getLikes(obj) as any [];
     this.like = this.data.totalLikes;
+    this.flag = this.data.mylike >= 1;
    }
 
   initialize(value: any) {
@@ -64,7 +69,10 @@ export class DsPostItemComponent extends BasePage implements OnInit {
     console.log('====================================');
     let res = await this.network.addLike(obj)
     console.log(res);
-    this.flag = true;
+    this.data = await this.network.getLikes(obj) as any [];
+    this.like = this.data.totalLikes;
+    this.flag = this.data.mylike >= 1;
+
   }
   async removeLike(item: any){
 

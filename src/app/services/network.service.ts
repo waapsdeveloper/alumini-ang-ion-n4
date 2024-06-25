@@ -88,8 +88,8 @@ export class NetworkService {
   getPostUser(id: any) {
     return this.httpGetResponse('posts/get-post-user', id, false, false);
   }
-  getLikes(id: any) {
-    return this.httpGetResponse('posts/likes/count/' + id, null, false);
+  getLikes(data: any) {
+    return this.httpPostResponse('posts/likes/count', data, null, false);
   }
 
   getMessages(id: any) {

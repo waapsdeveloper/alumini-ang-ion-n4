@@ -1,6 +1,7 @@
 import { Component, Injector, OnInit } from '@angular/core';
 import { NetworkService } from 'src/app/services/network.service';
 import { BasePage } from '../base-page/base-page';
+import * as moment from 'moment';
 
 @Component({
   selector: 'app-notifications',
@@ -31,6 +32,11 @@ export class NotificationsPage extends BasePage implements OnInit {
     const res = await this.network.getNotifications(obj);
     console.log(res);
     this.list = res;
+  }
+
+  timeDilation(datetime: string) {
+    const d = moment(datetime).fromNow()
+    return d;
   }
 
 }
