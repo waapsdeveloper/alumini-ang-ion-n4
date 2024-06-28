@@ -2,6 +2,7 @@ import { Component, Injector, OnInit } from '@angular/core';
 import { BasePage } from '../base-page/base-page';
 import { ActivatedRoute } from '@angular/router';
 import * as moment from 'moment';
+import { JobApplyComponent } from './job-apply/job-apply.component';
 @Component({
   selector: 'app-job-profle',
   templateUrl: './job-profle.page.html',
@@ -32,6 +33,11 @@ export class JobProflePage extends BasePage implements OnInit {
   getNowDate(date: string){
 
     return moment(date).fromNow();
+  }
+  applyToJob(id:any){
+
+    this.modals.present(JobApplyComponent, {id:id})
+
   }
 
 }

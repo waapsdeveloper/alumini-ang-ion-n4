@@ -8,6 +8,7 @@ import { JobProflePageRoutingModule } from './job-profle-routing.module';
 
 import { JobProflePage } from './job-profle.page';
 import { SimilarJobsModule } from './similar-jobs/similar-jobs.module';
+import { JobApplyModule } from './job-apply/job-apply.module';
 
 @NgModule({
   imports: [
@@ -15,7 +16,8 @@ import { SimilarJobsModule } from './similar-jobs/similar-jobs.module';
     FormsModule,
     IonicModule,
     JobProflePageRoutingModule,
-    SimilarJobsModule
+    SimilarJobsModule,
+    JobApplyModule
   ],
   declarations: [JobProflePage]
 })

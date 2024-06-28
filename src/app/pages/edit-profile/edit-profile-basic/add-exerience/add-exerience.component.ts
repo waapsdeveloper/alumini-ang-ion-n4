@@ -42,9 +42,7 @@ export class AddExerienceComponent extends BasePage implements OnInit {
     this.obj['user_id'] = user_id;
     console.log(this.obj);
     let res = await this.network.AddExperince(this.obj);
-    console.log('====================================');
     console.log(res);
-    console.log('====================================');
     this.modals.dismiss(res)
   }
 

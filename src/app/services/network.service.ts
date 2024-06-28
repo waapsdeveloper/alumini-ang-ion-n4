@@ -64,7 +64,11 @@ export class NetworkService {
     return this.httpPostResponse('experiences/add', data, null, false, true);
   }
 
-  
+  applyJob(data: any) {
+    return this.httpPostResponse('job-application/add', data, null, false, true);
+  }
+
+
   editExperince(data: any, id: any) {
     return this.httpPostResponse('experiences/edit/' + id, data, null, false, true);
   }

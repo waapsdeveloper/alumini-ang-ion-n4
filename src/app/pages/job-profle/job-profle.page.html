@@ -1,65 +1,104 @@
 <ion-content class="light-meroon-background">
   <div class="profile-cover text-center">
-    <img class="img-fluid" src="img/job-profile.jpg" alt="">
- </div>
- <div class="bg-white shadow-sm border-bottom">
+    <img class="img-fluid" [src]="job?.job_image" alt="">
+  </div>
+  <div class="bg-white shadow-sm border-bottom">
     <div class="container">
-       <div class="row">
-          <div class="col-md-12">
-             <div class="d-flex align-items-center py-3">
-                <div class="profile-left">
-                   <h5 class="font-weight-bold text-dark mb-1 mt-0">{{ job?.title }}</h5>
-                   <p class="mb-0 text-muted">{{ job?.description}}</p>
-                </div>
-                <!-- <div class="profile-right ml-auto">
-                   <button type="button" class="btn btn-light mr-1"> &nbsp; Save &nbsp; </button>
-                   <button type="button" class="btn btn-primary"> &nbsp; Apply &nbsp; </button>
-                </div> -->
-             </div>
+      <div class="row">
+        <div class="col-md-12">
+          <div class="d-flex align-items-center py-3">
+            <div class="profile-left">
+              <h5 class="font-weight-bold text-dark mb-1 mt-0">{{ job?.title }}</h5>
+              <p class="mb-0 text-muted">{{ job?.description}}</p>
+            </div>
+            <div class="profile-right ml-auto">
+              <!-- <button type="button" class="btn btn-light mr-1"> &nbsp; Save &nbsp; </button> -->
+              <button type="button" class="btn btn-primary" (click)="applyToJob(job.id)"> &nbsp; Apply &nbsp; </button>
+            </div>
           </div>
-       </div>
+        </div>
+      </div>
     </div>
- </div>
- <div class="py-4">
+  </div>
+  <div class="py-4">
     <div class="container">
-       <div class="row">
-          <!-- Main Content -->
+      <div class="row">
+        <!-- Main Content -->
 
-          <main class="col col-xl-6 order-xl-2 col-lg-12 order-lg-1 col-md-12 col-sm-12 col-12">
+        <main class="col col-xl-6 order-xl-2 col-lg-12 order-lg-1 col-md-12 col-sm-12 col-12">
 
-             <div class="box shadow-sm border rounded bg-white mb-3">
+          <!-- <div class="box shadow-sm border rounded bg-white mb-3">
               <img [src]="job?.job_image" />
 
-             </div>
-          </main>
-          <aside class="col col-xl-3 order-xl-1 col-lg-6 order-lg-2 col-md-6 col-sm-6 col-12">
-             <div class="box mb-3 shadow-sm border rounded bg-white profile-box text-center">
-                <div class="p-5">
-                   <img [src]="job?.job_image" class="img-fluid" alt="Responsive image">
-                </div>
-                <div class="p-3 border-top border-bottom">
-                   <h5 class="font-weight-bold text-dark mb-1 mt-0">{{ job?.title }}</h5>
-                   <p class="mb-0 text-muted">{{ job?.type }}
-                   </p>
-                </div>
-                <div class="p-3">
-                   <div class="d-flex align-items-top mb-2">
-                      <p class="mb-0 text-muted">Posted</p>
-                      <p class="font-weight-bold text-dark mb-0 mt-0 ml-auto">{{ getNowDate(job?.created_at) }}</p>
-                   </div>
-                   <div class="d-flex align-items-top">
-                      <p class="mb-0 text-muted">Applicant Rank</p>
-                      <p class="font-weight-bold text-dark mb-0 mt-0 ml-auto">25</p>
-                   </div>
-                </div>
-             </div>
+             </div> -->
+          <div class="box shadow-sm border rounded bg-white mb-3">
+            <div class="box-title border-bottom p-3">
+              <h6 class="m-0">Overview</h6>
+            </div>
+            <div class="box-body p-3">
+              <p>
+                {{job?.over_view}}
+              </p>
+            </div>
+          </div>
+          <div class="box shadow-sm border rounded bg-white mb-3">
+            <div class="box-title border-bottom p-3">
+              <h6 class="m-0">Job Details</h6>
+            </div>
+            <div class="box-body">
+              <table class="table table-borderless mb-0">
+                <tbody>
+                  <tr class="border-bottom">
+                    <th class="p-3">Seniority Level</th>
+                    <td class="p-3">{{job?.seniority_level}}
+                    </td>
+                  </tr>
+                  <tr class="border-bottom">
+                    <th class="p-3">Industry</th>
+                    <td class="p-3">{{job?.industry}}</td>
+                  </tr>
+                  <tr class="border-bottom">
+                    <th class="p-3">Employment Type</th>
+                    <td class="p-3">{{job?.employment_type}}
+                    </td>
+                  </tr>
+                  <tr class="border-bottom">
+                    <th class="p-3">Job Functions</th>
+                    <td class="p-3">{{job?.job_functions}}</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </main>
+        <aside class="col col-xl-3 order-xl-1 col-lg-6 order-lg-2 col-md-6 col-sm-6 col-12">
+          <div class="box mb-3 shadow-sm border rounded bg-white profile-box text-center">
+            <div class="p-5">
+              <img [src]="job?.job_image" class="img-fluid" alt="Responsive image">
+            </div>
+            <div class="p-3 border-top border-bottom">
+              <h5 class="font-weight-bold text-dark mb-1 mt-0">{{ job?.title }}</h5>
+              <p class="mb-0 text-muted">{{ job?.type }}
+              </p>
+            </div>
+            <div class="p-3">
+              <div class="d-flex align-items-top mb-2">
+                <p class="mb-0 text-muted">Posted</p>
+                <p class="font-weight-bold text-dark mb-0 mt-0 ml-auto">{{ getNowDate(job?.created_at) }}</p>
+              </div>
+              <div class="d-flex align-items-top">
+                <p class="mb-0 text-muted">Applicant Rank</p>
+                <p class="font-weight-bold text-dark mb-0 mt-0 ml-auto">25</p>
+              </div>
+            </div>
+          </div>
 
 
-          </aside>
-          <aside class="col col-xl-3 order-xl-3 col-lg-6 order-lg-3 col-md-6 col-sm-6 col-12">
-            <app-similar-jobs></app-similar-jobs>
-          </aside>
-       </div>
+        </aside>
+        <aside class="col col-xl-3 order-xl-3 col-lg-6 order-lg-3 col-md-6 col-sm-6 col-12">
+          <app-similar-jobs></app-similar-jobs>
+        </aside>
+      </div>
     </div>
- </div>
+  </div>
 </ion-content>

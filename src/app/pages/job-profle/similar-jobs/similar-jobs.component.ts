@@ -28,8 +28,8 @@ export class SimilarJobsComponent implements OnInit {
 
     let obj = {
       search: '',
-      offset: 0,
-      limit: 5
+      offset: 1,
+      limit: 2
     }
     const res = await this.network.getJobs(obj)
     console.log(res);
