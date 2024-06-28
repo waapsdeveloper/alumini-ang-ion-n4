@@ -8,8 +8,9 @@
           <span class="text-danger">*</span>
         </label>
         <div class="form-group">
-          <input type="text" class="form-control" [(ngModel)]="obj.institute_name" placeholder="Enter your Institute Name" aria-label="Enter your name"
-            required="" aria-describedby="nameLabel" data-msg="Please enter your name." data-error-class="u-has-error"
+          <input type="text" class="form-control" [(ngModel)]="obj.institute_name"
+            placeholder="Enter your Institute Name" aria-label="Enter your name" required=""
+            aria-describedby="nameLabel" data-msg="Please enter your name." data-error-class="u-has-error"
             data-success-class="u-has-success">
         </div>
       </div>
@@ -21,9 +22,9 @@
           <span class="text-danger">*</span>
         </label>
         <div class="form-group">
-          <input type="text" class="form-control" [(ngModel)]="obj.degree" placeholder="Degree" aria-label="Enter your username" required=""
-            aria-describedby="usernameLabel" data-msg="Please enter your username." data-error-class="u-has-error"
-            data-success-class="u-has-success">
+          <input type="text" class="form-control" [(ngModel)]="obj.degree" placeholder="Degree"
+            aria-label="Enter your username" required="" aria-describedby="usernameLabel"
+            data-msg="Please enter your username." data-error-class="u-has-error" data-success-class="u-has-success">
         </div>
       </div>
     </div>
@@ -36,9 +37,9 @@
           <span class="text-danger">*</span>
         </label>
         <div class="form-group">
-          <input type="text" class="form-control" [(ngModel)]="obj.field_of_study" placeholder="Field of study" aria-label="Enter your name"
-            required="" aria-describedby="nameLabel" data-msg="Please enter your name." data-error-class="u-has-error"
-            data-success-class="u-has-success">
+          <input type="text" class="form-control" [(ngModel)]="obj.field_of_study" placeholder="Field of study"
+            aria-label="Enter your name" required="" aria-describedby="nameLabel" data-msg="Please enter your name."
+            data-error-class="u-has-error" data-success-class="u-has-success">
         </div>
       </div>
     </div>
@@ -49,9 +50,9 @@
           <span class="text-danger">*</span>
         </label>
         <div class="form-group">
-          <input type="text" class="form-control" [(ngModel)]="obj.description" placeholder="Degree" aria-label="Enter Description" required=""
-            aria-describedby="usernameLabel" data-msg="Please enter your username." data-error-class="u-has-error"
-            data-success-class="u-has-success">
+          <input type="text" class="form-control" [(ngModel)]="obj.description" placeholder="Degree"
+            aria-label="Enter Description" required="" aria-describedby="usernameLabel"
+            data-msg="Please enter your username." data-error-class="u-has-error" data-success-class="u-has-success">
         </div>
       </div>
     </div>
@@ -64,9 +65,9 @@
           <span class="text-danger">*</span>
         </label>
         <div class="form-group">
-          <input type="text" class="form-control" [(ngModel)]="obj.grade" placeholder="Enter your Grade" aria-label="Enter your name"
-            required="" aria-describedby="nameLabel" data-msg="Please enter your name." data-error-class="u-has-error"
-            data-success-class="u-has-success">
+          <input type="text" class="form-control" [(ngModel)]="obj.grade" placeholder="Enter your Grade"
+            aria-label="Enter your name" required="" aria-describedby="nameLabel" data-msg="Please enter your name."
+            data-error-class="u-has-error" data-success-class="u-has-success">
         </div>
       </div>
     </div>
@@ -77,9 +78,9 @@
           <span class="text-danger">*</span>
         </label>
         <div class="form-group">
-          <input type="date" class="form-control" [(ngModel)]="obj.start_date" placeholder="Enter Start Date" aria-label="" required=""
-            aria-describedby="usernameLabel" data-msg="Please enter your username." data-error-class="u-has-error"
-            data-success-class="u-has-success">
+          <input type="date" class="form-control" [(ngModel)]="obj.start_date" placeholder="Enter Start Date"
+            aria-label="" required="" aria-describedby="usernameLabel" data-msg="Please enter your username."
+            data-error-class="u-has-error" data-success-class="u-has-success">
         </div>
       </div>
     </div>
@@ -92,14 +93,15 @@
           <span class="text-danger">*</span>
         </label>
         <div class="form-group">
-          <input type="date" class="form-control" [(ngModel)]="obj.end_date" placeholder="Enter end Date" aria-label="e" required=""
-            aria-describedby="usernameLabel" data-msg="Please enter your username." data-error-class="u-has-error"
-            data-success-class="u-has-success">
+          <input type="date" class="form-control" [(ngModel)]="obj.end_date" placeholder="Enter end Date" aria-label="e"
+            required="" aria-describedby="usernameLabel" data-msg="Please enter your username."
+            data-error-class="u-has-error" data-success-class="u-has-success">
         </div>
       </div>
     </div>
   </div>
   <div class="box-footer d-flex justify-content-end border-top p-3">
-    <button (click)="saveMyEducation()" class="btn btn-primary">Add</button>
+    <button (click)="saveMyEducation()" class="btn btn-primary" *ngIf="!data">Add</button>
+    <button (click)="EditMyEducation()" class="btn btn-primary" *ngIf="data">Edit</button>
   </div>
 </div>

@@ -55,8 +55,18 @@ export class NetworkService {
   AddEducaion(data: any) {
     return this.httpPostResponse('educations/add', data, null, false, true);
   }
+
+  editEducaion(data: any, id: any) {
+    return this.httpPostResponse('educations/edit/' + id, data, null, false, true);
+  }
+
   AddExperince(data: any) {
     return this.httpPostResponse('experiences/add', data, null, false, true);
+  }
+
+  
+  editExperince(data: any, id: any) {
+    return this.httpPostResponse('experiences/edit/' + id, data, null, false, true);
   }
 
   eventInterest(data: any) {

@@ -141,6 +141,24 @@ export class EditProfileBasicComponent extends BasePage implements OnInit {
 
     this.getMyEducation();
   }
+  
+  async editEducation(data: any) {
+
+    let res = await this.modals.present(AddExerienceComponent, {data: data});
+    console.log('====================================');
+    console.log(res);
+    console.log('====================================');
+
+    this.getMyEducation();
+  }
+  async editExperince(data: any){
+    let res = await this.modals.present(AddExerienceComponent, {data: data});
+    console.log('====================================');
+    console.log(res);
+    console.log('====================================');
+
+    this.getMyEducation();
+  }
 
   async addExperince() {
     let res = await this.modals.present(AddExerienceComponent);

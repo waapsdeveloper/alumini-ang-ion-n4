@@ -268,11 +268,13 @@
     <img src="../../../../assets/add.svg" alt="" (click)="addExperince()">
   </div>
   <div class="box-body p-3 border-bottom" *ngFor="let item of experince">
+
     <div class="d-flex align-items-top job-item-header pb-2">
       <div class="mr-2">
-        <h6 class="font-weight-bold text-dark mb-0">{{item.title}}</h6>
+        <h6 class="font-weight-bold text-dark mb-0" style="display: flex; align-items: center; justify-content: flex-start; gap: 8px;">{{item.title}}<ion-icon name="pencil-outline"
+            (click)="editExperince(item)"></ion-icon> </h6>
         <div class="text-truncate text-primary">{{item.company_name}}</div>
-        <div class="small text-gray-500">{{start_date}} - {{   end_date}}</div>
+        <div class="small text-gray-500">{{start_date}} - {{ end_date}}</div>
       </div>
       <img class="img-fluid ml-auto mb-auto" src="img/l3.png" alt="">
     </div>
@@ -285,11 +287,13 @@
     <img src="../../../../assets/add.svg" alt="" (click)="addEducation()">
   </div>
   <div class="box-body p-3 border-bottom" *ngFor="let item of education">
+
     <div class="d-flex align-items-top job-item-header pb-2">
       <div class="mr-2">
-        <h6 class="font-weight-bold text-dark mb-0">{{item.institute_name}}</h6>
+        <h6 class="font-weight-bold text-dark mb-0" style="display: flex; align-items: center; justify-content: flex-start; gap: 8px;">{{item.institute_name}} <ion-icon name="pencil-outline"
+            (click)="editEducation(item)"></ion-icon> </h6>
         <div class="text-truncate text-primary">{{item.degree}}</div>
-        <div class="small text-gray-500">{{start_date}} - {{   end_date}}</div>
+        <div class="small text-gray-500">{{start_date}} - {{ end_date}}</div>
       </div>
       <img class="img-fluid ml-auto mb-auto" src="img/e1.png" alt="">
     </div>
