@@ -12,6 +12,7 @@ export class ViewProfilePage extends BasePage implements OnInit {
 
   visiter: any;
   user: any;
+  link = '';
   skills: any[] = [];
   cStatus = '';
   MyGroup: FormGroup | any;
@@ -45,7 +46,15 @@ export class ViewProfilePage extends BasePage implements OnInit {
     this.visiter = this.users.getUser();
     this.getViewUser()
   }
-
+  copyToClipboard() {
+    const inputElement = document.createElement('input');
+    inputElement.setAttribute('value', this.link);
+    document.body.appendChild(inputElement);
+    inputElement.select();
+    document.execCommand('copy');
+    document.body.removeChild(inputElement);
+    alert('Link copied to clipboard!');
+  }
   async getViewUser(){
     const id = this.route.snapshot.paramMap.get('id');
     console.log('W', id);
@@ -54,6 +63,7 @@ export class ViewProfilePage extends BasePage implements OnInit {
 
     const res = await this.network.getViewUser(id);
     console.log(res);
+    this.link = 'https://aluminiconnect.online//pages/dl/view-profile/' + id;
     this.user = res;
     if(this.user.skills){
       this.skills = this.user.skills.split(',');

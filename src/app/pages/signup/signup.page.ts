@@ -31,13 +31,13 @@ export class SignupPage extends BasePage implements OnInit {
       const res = await this.network.signup(formdata);
       console.log(res);
 
-      if(res && res.token){
-        this.users.setToken(res.token);
+      // if(res && res.token){
+      //   this.users.setToken(res.token);
 
         if(res && res.user){
           this.users.setUser(res.user)
-          this.nav.push('/pages/dl/dashboard')
-        }
+          this.nav.push('pages/login')
+        // }
 
       }
 
