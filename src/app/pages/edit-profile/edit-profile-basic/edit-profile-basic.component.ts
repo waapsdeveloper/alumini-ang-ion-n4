@@ -148,7 +148,7 @@ export class EditProfileBasicComponent extends BasePage implements OnInit {
     console.log(res);
     console.log('====================================');
 
-    this.getMyEducation();
+    this.getMyExperince();
   }
 
   async getMyEducation() {
