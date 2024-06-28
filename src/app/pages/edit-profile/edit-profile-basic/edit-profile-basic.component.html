@@ -45,7 +45,7 @@
           <div class="js-form-message">
             <div class="form-group">
               <select class="form-control custom-select" required="" data-msg="Please select month."
-                formControlName= "month" data-error-class="u-has-error" data-success-class="u-has-success">
+                formControlName="month" data-error-class="u-has-error" data-success-class="u-has-success">
                 <option value="" disabled>Select month</option>
                 <option value="01">January</option>
                 <option value="02">February</option>
@@ -106,7 +106,7 @@
               <span class="text-danger">*</span>
             </label>
             <div class="form-group">
-              <input type="email" class="form-control"  placeholder="Enter your email address" formControlName="email"
+              <input type="email" class="form-control" placeholder="Enter your email address" formControlName="email"
                 aria-label="Enter your email address" required="" aria-describedby="emailLabel"
                 data-msg="Please enter a valid email address." data-error-class="u-has-error"
                 data-success-class="u-has-success" readonly>
@@ -229,7 +229,8 @@
             <div class="js-form-message">
               <div class="form-group">
                 <select class="form-control custom-select" required="" data-msg="Please select your gender."
-                  formControlName="preferred_language" data-error-class="u-has-error" data-success-class="u-has-success">
+                  formControlName="preferred_language" data-error-class="u-has-error"
+                  data-success-class="u-has-success">
                   <option value="male">English</option>
                   <option value="female">Urdu</option>
                   <option value="other">Punjabi</option>
@@ -259,4 +260,39 @@
       <button type="submit" class="btn btn-primary">Save Changes</button>
     </div>
   </form>
+
+</div>
+<div class="box shadow-sm border rounded bg-white mb-3">
+  <div class="box-title border-bottom p-3" style="display: flex; align-items: center; justify-content: space-between;">
+    <h6 class="m-0">Experience</h6>
+    <img src="../../../../assets/add.svg" alt="" (click)="addExperince()">
+  </div>
+  <div class="box-body p-3 border-bottom" *ngFor="let item of experince">
+    <div class="d-flex align-items-top job-item-header pb-2">
+      <div class="mr-2">
+        <h6 class="font-weight-bold text-dark mb-0">{{item.title}}</h6>
+        <div class="text-truncate text-primary">{{item.company_name}}</div>
+        <div class="small text-gray-500">{{start_date}} - {{   end_date}}</div>
+      </div>
+      <img class="img-fluid ml-auto mb-auto" src="img/l3.png" alt="">
+    </div>
+    <p class="mb-0">{{item.description}} </p>
+  </div>
+</div>
+<div class="box shadow-sm border rounded bg-white mb-3">
+  <div class="box-title border-bottom p-3" style="display: flex; align-items: center; justify-content: space-between;">
+    <h6 class="m-0">Education</h6>
+    <img src="../../../../assets/add.svg" alt="" (click)="addExperince()">
+  </div>
+  <div class="box-body p-3 border-bottom" *ngFor="let item of education">
+    <div class="d-flex align-items-top job-item-header pb-2">
+      <div class="mr-2">
+        <h6 class="font-weight-bold text-dark mb-0">{{item.institute_name}}</h6>
+        <div class="text-truncate text-primary">{{item.degree}}</div>
+        <div class="small text-gray-500">{{start_date}} - {{   end_date}}</div>
+      </div>
+      <img class="img-fluid ml-auto mb-auto" src="img/e1.png" alt="">
+    </div>
+    <p class="mb-0"> {{item.description}}</p>
+  </div>
 </div>

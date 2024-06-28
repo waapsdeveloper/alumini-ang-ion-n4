@@ -52,6 +52,13 @@ export class NetworkService {
     return this.httpPostResponse('posts/like', data, null, false, true);
   }
 
+  AddEducaion(data: any) {
+    return this.httpPostResponse('educations/add', data, null, false, true);
+  }
+  AddExperince(data: any) {
+    return this.httpPostResponse('experiences/add', data, null, false, true);
+  }
+
   eventInterest(data: any) {
     return this.httpPostResponse('events/response', data, null, false, true);
 
@@ -114,8 +121,16 @@ export class NetworkService {
 
   // connections
 
-  getAllUsers(data: any, id: any){
+  getAllUsers(data: any, id: any) {
     return this.httpPostResponse('users/get-all-users/' + id, data, null, false, true);
+  }
+
+  getEducation(id: any) {
+    return this.httpGetResponse('educations/list/my-educations/' + id, null, false);
+  }
+
+  getExperince(id: any) {
+    return this.httpGetResponse('experiences/list/my-experiences/' + id, null, false);
   }
 
   getCnnStats(id: any) {

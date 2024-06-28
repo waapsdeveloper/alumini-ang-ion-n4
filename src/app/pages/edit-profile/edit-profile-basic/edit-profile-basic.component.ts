@@ -1,6 +1,9 @@
 import { Component, Injector, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { BasePage } from '../../base-page/base-page';
+import { AddExerienceComponent } from './add-exerience/add-exerience.component';
+import { AddEducationComponent } from './add-education/add-education.component';
+import * as moment from 'moment';
 
 @Component({
   selector: 'app-edit-profile-basic',
@@ -10,7 +13,10 @@ import { BasePage } from '../../base-page/base-page';
 export class EditProfileBasicComponent extends BasePage implements OnInit {
   MyGroup: FormGroup | any;
   user: any;
-
+  education: any;
+  start_date: any;
+  end_date: any;
+  experince:any;
   constructor(private fb: FormBuilder, injector: Injector) {
     super(injector)
   }
@@ -37,11 +43,13 @@ export class EditProfileBasicComponent extends BasePage implements OnInit {
       gender: ['', [Validators.required]],
       preferred_language: ['', [Validators.required]],
     });
+    this.getMyEducation();
+    this.getMyExperince();
 
 
     this.user = this.users.getUser();
 
-    if(this.user.date_of_birth){
+    if (this.user.date_of_birth) {
 
       const dateOfBirth = new Date(this.user.date_of_birth);
 
@@ -86,7 +94,7 @@ export class EditProfileBasicComponent extends BasePage implements OnInit {
     const day = formdata.day;
     const month = formdata.month;
     const year = formdata.year;
-    if(day && month && year){
+    if (day && month && year) {
       let date_of_birth = year + '-' + month + '-' + day
       console.log(date_of_birth)
       this.MyGroup.controls['date_of_birth'].setValue(date_of_birth)
@@ -105,7 +113,7 @@ export class EditProfileBasicComponent extends BasePage implements OnInit {
     // return
     const res = await this.network.editProfile(formdata, this.user.id);
     console.log(res);
-    if(res){
+    if (res) {
       this.users.setUser(res);
       this.events.publish('profile-updated')
       this.utility.presentSuccessToast("Profile Saved");
@@ -122,6 +130,50 @@ export class EditProfileBasicComponent extends BasePage implements OnInit {
       years.push(year);
     }
     return years;
+  }
+
+  async addEducation() {
+
+    let res = await this.modals.present(AddEducationComponent);
+    console.log('====================================');
+    console.log(res);
+    console.log('====================================');
+
+    this.getMyEducation();
+  }
+
+  async addExperince() {
+    let res = await this.modals.present(AddExerienceComponent);
+    console.log('====================================');
+    console.log(res);
+    console.log('====================================');
+
+    this.getMyEducation();
+  }
+
+  async getMyEducation() {
+    this.user = this.users.getUser();
+    let user_id = this.user.id;
+
+    let res = await this.network.getEducation(user_id);
+    console.log(res);
+
+    this.education = res;
+
+  }
+  async getMyExperince() {
+    this.user = this.users.getUser();
+    let user_id = this.user.id;
+
+    let res = await this.network.getExperince(user_id);
+    console.log(res);
+
+    this.experince = res;
+    const startdate = this.experince.start_date;
+    const endTime = this.experince.end_date;
+    this.start_date = moment(startdate).format('Y-MM-DD');
+    this.end_date = moment(startdate).format('Y-MM-DD');
+
   }
 
 }

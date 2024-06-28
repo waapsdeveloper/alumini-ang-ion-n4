@@ -1,17 +1,17 @@
 <ion-content class="light-meroon-background">
-  <div class="py-4">
+  <div style="padding-top: 1.5rem;padding-bottom: 0;">
     <div class="container chrt-7896756">
       <div class="row">
         <!-- Main Content -->
         <main class="col col-xl-12 order-xl-2 col-lg-12 order-lg-1 col-md-12 col-sm-12 col-12">
-          <div class="box shadow-sm rounded bg-white mb-3 osahan-chat">
-            <div class="row m-0" >
-              <div class="border-right col-lg-5 col-xl-4 px-0 ">
+          <div class="box shadow-sm rounded bg-white  osahan-chat">
+            <div class="row m-0" style="flex-wrap: nowrap;">
+              <div class="border-right col-lg-5 col-xl-4 col-md-3 col-sm-4  col-4 px-0 ">
                 <div class="osahan-chat-left">
                   <div class="osahan-chat-list sidebar-chat-list">
                     <div *ngFor="let item of list" (click)="selectUserToChat(item)"
                       class="p-3 d-flex align-items-center border-bottom osahan-post-header overflow-hidden sidebar-chat-item active"
-                      [class.active]="item?.id === selectedItem?.id">
+                      style="flex-wrap: wrap;" [class.active]="item?.id === selectedItem?.id">
                       <div class="font-weight-bold mr-1 overflow-hidden">
                         <div class="text-truncate">{{ item.name }}</div>
                         <div class="small text-truncate overflow-hidden text-black-50">
@@ -29,17 +29,16 @@
                   </div>
                 </div>
               </div>
-              <div class="col-lg-7 col-xl-8 px-0 chat-box-large-789565 " *ngIf="!selectedItem">
+              <div class="col-lg-7 col-xl-8 col-md-8 col-sm-8 col-8 px-0 chat-box-large-789565 " *ngIf="!selectedItem">
                 <div class="small text-truncate overflow-hidden text-black-50 m-2">Select your contact to start chat
                 </div>
               </div>
-              <div class="col-lg-7 col-xl-8 px-0 chat-box-large-789565" *ngIf="selectedItem">
+              <div class="col-lg-7 col-xl-8 col-md-8 px-0 col-sm-8  col-8 chat-box-large-789565" *ngIf="selectedItem">
                 <div class="p-3 d-flex align-items-center border-bottom osahan-post-header">
                   <div class="font-weight-bold mr-1 overflow-hidden">
                     <div class="text-truncate">{{ selectedItem.name }}</div>
                     <div class="small text-truncate overflow-hidden text-black-50">
-                      Askbootstap.com - Become a Product Manager with super
-                      power
+                      {{selectedItem.occupation}}
                     </div>
                   </div>
 
@@ -69,7 +68,8 @@
                 <div class="p-3 d-flex align-items-center">
 
                   <span class="ml-auto">
-                    <button type="button" class="btn btn-primary btn-sm rounded" (click)="sendMessage()">
+                    <button style="display: flex; align-items: center; justify-content: center; flex-wrap: wrap;"
+                      type="button" class="btn btn-primary btn-sm rounded" (click)="sendMessage()">
                       <i class="feather-send"></i> Send
                     </button>
                   </span>
