@@ -11,31 +11,31 @@ import { UsersService } from 'src/app/services/users.service';
 })
 export class UserEventsPage implements OnInit {
   user: any
-  list: any[]=[]
+  list: any[] = []
   searchText = '';
 
-  constructor(private users: UsersService, public nav: NavService , private network:NetworkService) {
+  constructor(private users: UsersService, public nav: NavService, private network: NetworkService) {
 
-   }
+  }
 
   ngOnInit() {
     this.user = this.users.getUser()
     this.initialize();
   }
 
-  jobDetail(item: any){
+  jobDetail(item: any) {
     this.nav.push("/pages/dl/job-profile")
   }
 
-  async initialize(){
-    const res = await this.getEvents('',0, 10)
+  async initialize() {
+    const res = await this.getEvents('', 0, 10)
     this.list = res as any[];
 
   }
 
-  getEvents(search = '', offset = 0, limit = 10){
+  getEvents(search = '', offset = 0, limit = 10) {
 
-    return new Promise( async resolve => {
+    return new Promise(async resolve => {
       let obj = {
         search,
         offset,
@@ -50,30 +50,27 @@ export class UserEventsPage implements OnInit {
 
 
   }
-  async getInterst(id: any){
+  async getInterst(id: any) {
     this.user = localStorage.getItem('user')
     let user = JSON.parse(this.user);
     console.log(user);
-    let obj ={
-      event_id : id,
+    let obj = {
+      event_id: id,
       user_id: user.id
     }
 
     let res = await this.network.eventInterest(obj);
     console.log(res);
-    
+
   }
 
-  getNowDate(date: string){
-    return moment(date).fromNow();
-  }
 
-  async doSearch(){
-    const res = await this.getEvents(this.searchText,0, 10)
+  async doSearch() {
+    const res = await this.getEvents(this.searchText, 0, 10)
     this.list = res as any[];
   }
 
-  async loadMore(){
+  async loadMore() {
 
     let obj = {
       search: this.searchText,

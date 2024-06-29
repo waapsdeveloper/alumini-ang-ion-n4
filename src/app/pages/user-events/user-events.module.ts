@@ -8,6 +8,7 @@ import { UserEventsPageRoutingModule } from './user-events-routing.module';
 
 import { UserEventsPage } from './user-events.page';
 import { PeopleMayKnowModule } from '../dashboard/people-may-know/people-may-know.module';
+import { EventBoxModule } from './event-box/event-box.module';
 
 @NgModule({
   imports: [
@@ -15,7 +16,8 @@ import { PeopleMayKnowModule } from '../dashboard/people-may-know/people-may-kno
     FormsModule,
     IonicModule,
     UserEventsPageRoutingModule,
-    PeopleMayKnowModule
+    PeopleMayKnowModule,
+    EventBoxModule
   ],
   declarations: [UserEventsPage]
 })

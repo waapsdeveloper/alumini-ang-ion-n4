@@ -1,8 +1,8 @@
 <ion-content class="light-meroon-background">
-  <div class="profile-cover text-center">
+  <!-- <div class="profile-cover text-center">
     <img class="img-fluid" [src]="job?.job_image" alt="">
-  </div>
-  <div class="bg-white shadow-sm border-bottom">
+  </div> -->
+  <!-- <div class="bg-white shadow-sm border-bottom">
     <div class="container">
       <div class="row">
         <div class="col-md-12">
@@ -12,14 +12,14 @@
               <p class="mb-0 text-muted">{{ job?.description}}</p>
             </div>
             <div class="profile-right ml-auto">
-              <!-- <button type="button" class="btn btn-light mr-1"> &nbsp; Save &nbsp; </button> -->
+              <button type="button" class="btn btn-light mr-1"> &nbsp; Save &nbsp; </button>
               <button type="button" class="btn btn-primary" (click)="applyToJob(job.id)"> &nbsp; Apply &nbsp; </button>
             </div>
           </div>
         </div>
       </div>
     </div>
-  </div>
+  </div> -->
   <div class="py-4">
     <div class="container">
       <div class="row">
@@ -31,6 +31,16 @@
               <img [src]="job?.job_image" />
 
              </div> -->
+          <div class="box shadow-sm border rounded bg-white mb-3">
+            <div class="box-title border-bottom p-3">
+              <h6 class="m-0">{{ job?.title }}</h6>
+            </div>
+            <div class="box-body p-3">
+              <p>
+                {{ job?.description}}
+              </p>
+            </div>
+          </div>
           <div class="box shadow-sm border rounded bg-white mb-3">
             <div class="box-title border-bottom p-3">
               <h6 class="m-0">Overview</h6>
@@ -89,6 +99,14 @@
               <div class="d-flex align-items-top">
                 <p class="mb-0 text-muted">Applicant Rank</p>
                 <p class="font-weight-bold text-dark mb-0 mt-0 ml-auto">25</p>
+              </div>
+              <div class="profile-right ml-auto" style="    display: flex;
+              align-items: center;
+              justify-content: flex-end;
+              padding-top: 8px;">
+                <!-- <button type="button" class="btn btn-light mr-1"> &nbsp; Save &nbsp; </button> -->
+                <button type="button" class="btn btn-primary" (click)="applyToJob(job.id)"> &nbsp; Apply &nbsp;
+                </button>
               </div>
             </div>
           </div>

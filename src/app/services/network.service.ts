@@ -159,6 +159,10 @@ export class NetworkService {
     return this.httpPostResponse('users/get-added-connections/' + id, data, null, false, true);
   }
 
+  getEventInterst( data: any) {
+    return this.httpPostResponse('events/get-response-list',  data, null, false);
+  }
+
   sendConnectionRequest(data: any, id: any) {
     return this.httpPostResponse('users/send-connection-invite/' + id, data, null, false, true);
   }

@@ -6,13 +6,13 @@
       </div>
     </div>
   </div>
-  <div >
+  <div>
     <div class="container">
       <div class="row">
         <!-- Main Content -->
         <main class="col col-xl-6 order-xl-2 col-lg-12 order-lg-1 col-md-12 col-sm-12 col-12">
           <div class="box shadow-sm border rounded bg-white mb-3 osahan-share-post">
-            <form class="job-search p-3 border-bottom" >
+            <form class="job-search p-3 border-bottom">
               <div class="input-group">
                 <input type="text" class="form-control" placeholder="Search Events" aria-label="Search"
                   [(ngModel)]="searchText" name="searchText" aria-describedby="basic-addon2" />
@@ -21,37 +21,19 @@
                     <i class="feather-search"></i>
                   </button>
                 </div>
-              </div>  
+              </div>
             </form>
 
             <div class="tab-content" id="myTabContent">
               <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
                 <div class="p-3 border-top">
                   <div class="row">
-                    <div class="col-md-12" *ngFor="let item of list">
-                      <div class="border job-item mb-3" >
-                        <img class="img-fluid" style="width: 100%;" [src]="item.event_image" alt="" />
-                        <div class="d-flex align-items-center p-3 job-item-header">
-                          <div class="overflow-hidden mr-2">
-                            <h6 class="font-weight-bold text-dark mb-0 text-truncate">
-                              {{item.title}}
-                            </h6>
-                            <div class="text-muted">
-                              {{item.description}}
-                            </div>
-                          </div>
-
-                        </div>
-                        <div class="p-3 job-item-footer" style="display: flex; align-items: center; justify-content: space-between;">
-                          <small class="text-gray-500"><i class="feather-clock"></i> {{ getNowDate(item.created_at) }}</small>
-                          <button (click)="getInterst(item.id)" style="background-color: #81181B; color: white; padding: 8px;border-radius: 8px; font-size: 12px;">Interested!</button>
-                        </div>
-                      </div>
-                    </div>
+                    <app-event-box *ngFor="let item of list" [item]="item"></app-event-box>
+                    
                   </div>
                   <div class="row">
                     <div class="col-12">
-                      <ion-button size="small" style="float: right;" (click)="loadMore()" >load more</ion-button>
+                      <ion-button size="small" style="float: right;" (click)="loadMore()">load more</ion-button>
                     </div>
 
                   </div>
