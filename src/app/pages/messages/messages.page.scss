@@ -19,7 +19,7 @@
 .chat-box-large-789565{
   display: flex;
   flex-direction: column;
-  height: calc(100vh - 100px);
+  height: calc(100vh - 150px);
   overflow-y: hidden;
 }
 
@@ -30,4 +30,75 @@
 
 .sidebar-chat-item.active *{
   color: white;
+}
+
+.no-connection-box-67895 {
+  display: flex; align-items: center; justify-content: center;
+}
+.no-connection-box-67895-inner {
+  padding: 32px;
+  text-align: center; color: #81181B; font-size: 24px;
+  max-width: 450px;
+}
+
+
+#main-chat-box-outer-798655675{
+  height: calc(100vh - 200px);
+}
+
+#main-chat-box-outer-798655675 .osahan-chat-list{
+  height: calc(100vh - 200px);
+}
+
+.message-text-box-outer-678956 {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px;
+}
+
+.message-text-box-outer-678956 button{
+  min-width: 100px;
+}
+
+@media (max-width: 990px) {
+  #message-indexes-7896785 {
+    max-width: 100% !important;
+  }
+}
+
+
+
+
+
+
+@media (max-width: 1200px) {
+  .chat-box-large-789565{
+    height: calc(100vh - 200px);
+  }
+
+  #main-chat-box-outer-798655675{
+    height: calc(100vh - 250px);
+  }
+
+  #main-chat-box-outer-798655675 .osahan-chat-list{
+    height: calc(100vh - 250px);
+  }
+
+}
+
+@media (max-width: 500px) {
+  .chat-box-large-789565{
+    height: calc(100vh - 250px);
+  }
+
+  #main-chat-box-outer-798655675{
+    height: calc(100vh - 300px);
+  }
+
+  #main-chat-box-outer-798655675 .osahan-chat-list{
+    height: calc(100vh - 300px);
+  }
+
 }

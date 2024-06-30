@@ -1,0 +1,87 @@
+<ion-content class="light-meroon-background">
+  <div style="padding-top: 1.5rem;padding-bottom: 0;">
+    <div class="container chrt-7896756">
+      <div class="row">
+        <!-- Main Content -->
+        <main class="col col-xl-12 order-xl-2 col-lg-12 order-lg-1 col-md-12 col-sm-12 col-12">
+          <div class="box shadow-sm rounded bg-white  osahan-chat">
+            <div class="row m-0" id="message-indexes-7896785" style="flex-wrap: nowrap;" *ngIf="chat == true">
+              <div id="main-chat-box-outer-798655675" class="border-right col-lg-5 col-xl-4 col-md-3 col-sm-4 col-4 px-0 ">
+                <div class="osahan-chat-left">
+                  <div class="osahan-chat-list sidebar-chat-list">
+                    <div *ngFor="let item of list" (click)="selectUserToChat(item)"
+                      class="p-3 d-flex align-items-center border-bottom osahan-post-header overflow-hidden sidebar-chat-item active"
+                      style="flex-wrap: wrap;" [class.active]="item?.id === selectedItem?.id">
+                      <div class="font-weight-bold mr-1 overflow-hidden">
+                        <div class="text-truncate">{{ item.name }}</div>
+                        <div class="small text-truncate overflow-hidden text-black-50">
+                          <i class="feather-check text-primary"></i>
+                          {{ item['last_message'] }}
+                        </div>
+                      </div>
+                      <span class="ml-auto mb-auto">
+                        <div class="text-right text-muted pt-1 small">
+                          00:21PM
+                        </div>
+                      </span>
+                    </div>
+
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-7 col-xl-8 col-md-8 col-sm-8 col-8 px-0 chat-box-large-789565 " *ngIf="!selectedItem">
+                <div class="small text-truncate overflow-hidden text-black-50 m-2">Select your contact to start chat
+                </div>
+              </div>
+              <div  class="col-lg-7 col-xl-8 col-md-8 px-0 col-sm-8 col-8 chat-box-large-789565" *ngIf="selectedItem">
+                <div class="p-3 d-flex align-items-center border-bottom osahan-post-header">
+                  <div class="font-weight-bold mr-1 overflow-hidden">
+                    <div class="text-truncate">{{ selectedItem.name }}</div>
+                    <div class="small text-truncate overflow-hidden text-black-50">
+                      {{selectedItem.occupation}}
+                    </div>
+                  </div>
+
+                </div>
+                <div class="osahan-chat-box p-3 border-top border-bottom bg-light" #scroll>
+                  <div class="d-flex align-items-center osahan-post-header" *ngFor="let item of messages">
+                    <div class="mr-1">
+                      <div class="text-truncate h6 mb-3" style="color: green; font-weight: 600;">{{item?.name}}</div>
+                      <p>
+                        {{item.message}}
+                      </p>
+                    </div>
+                    <span class="ml-auto mb-auto">
+                      <div class="text-right text-muted pt-1 small">
+                        {{formattedDate}}
+                      </div>
+                    </span>
+                  </div>
+                  <div class="text-center my-3">
+                  </div>
+                </div>
+                <div class="message-text-box-outer-678956">
+                    <textarea [(ngModel)]="message" placeholder="Write a message…"
+                    class="form-control border-0 p-1 shadow-none" (keyup)="onKeyUp($event)" rows="1"></textarea>
+                    <button style="display: flex; align-items: center; justify-content: center; flex-wrap: wrap;"
+                      type="button" class="btn btn-primary btn-sm rounded" (click)="sendMessage()">
+                      <i class="feather-send"></i> Send
+                    </button>
+                </div>
+              </div>
+            </div>
+            <div class="row m-0" *ngIf="chat == false">
+
+              <div class="col-lg-12 col-xl-12 px-0 chat-box-large-789565 no-connection-box-67895">
+                <div class="no-connection-box-67895-inner"
+                  style="">You dont have any connections right now."Please add connections to start chat."
+                </div>
+              </div>
+            </div>
+          </div>
+        </main>
+        <!--  -->
+      </div>
+    </div>
+  </div>
+</ion-content>
