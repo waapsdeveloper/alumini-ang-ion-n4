@@ -29,13 +29,20 @@ export class LoginPage extends BasePage implements OnInit {
       const res = await this.network.login(formdata);
       console.log(res);
       if (res && res.token) {
-        this.users.setToken(res.token);
+        const verified = parseInt(res.user.is_verified);
+        if (verified != 1) {
+          this.utility.presentFailureToast("Your Account needs to be verify from admin or check your email")
+          return;
+        }
+
         if (res && res.user) {
-          this.users.setUser(res.user)
-          this.nav.push('/pages/dl/dashboard')
+            this.users.setToken(res.token);
+            this.users.setUser(res.user);
+            this.nav.push('/pages/dl/dashboard');
         }
       }
     }
   }
+
 
 }
