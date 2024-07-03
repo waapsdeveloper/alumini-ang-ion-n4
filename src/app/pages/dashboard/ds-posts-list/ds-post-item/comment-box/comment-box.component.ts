@@ -59,7 +59,7 @@ export class CommentBoxComponent implements OnInit {
   }
 
   timeDilation(datetime: string) {
-    const d = moment(datetime).format('hh:mm a');
-    return d;
+    const adjustedTime = moment(datetime).subtract(5, 'hours').format('hh:mm a');
+    return adjustedTime;
   }
 }

@@ -32,8 +32,8 @@ export class EventBoxComponent extends BasePage implements OnInit {
     console.log(this.count);
   }
   getNowDate(date: string) {
-    const d = moment(date).format('hh:mm a');
-    return d;
+    const adjustedTime = moment(date).subtract(5, 'hours').format('hh:mm a');
+    return adjustedTime;
   }
 
   async getInterst(id: any) {

@@ -55,8 +55,8 @@ export class JobsPage implements OnInit {
 
   getNowDate(date: string) {
 
-    const d = moment(date).format('hh:mm a');
-    return d;
+    const adjustedTime = moment(date).subtract(5, 'hours').format('hh:mm a');
+    return adjustedTime;
   }
 
   async doSearch() {
