@@ -39,7 +39,7 @@ export class MessagesPage implements OnInit {
 
   updateChatsByMessageReceived(data: any) {
     console.log(data);
-    if(data.length <= 0){
+    if (data.length <= 0) {
       return;
     }
 
@@ -65,7 +65,7 @@ export class MessagesPage implements OnInit {
     // }
 
     console.log(dm.room_id, this.room_id, dm.roon_id == this.room_id)
-    if(dm.room_id == this.room_id){
+    if (dm.room_id == this.room_id) {
       this.messages.push(dm);
       setTimeout(() => {
         this.scrollToBottom()
@@ -165,8 +165,9 @@ export class MessagesPage implements OnInit {
     this.message = '';
   }
 
-  getRsTime(time: string){
-    return moment(time).fromNow()
+  getRsTime(time: string) {
+    const d = moment(time).format('hh:mm a');
+    return d;
   }
 
 

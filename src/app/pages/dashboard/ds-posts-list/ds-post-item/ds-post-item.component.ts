@@ -59,7 +59,8 @@ export class DsPostItemComponent extends BasePage implements OnInit {
   }
 
   timeDilation(datetime: string) {
-    const d = moment(datetime).tz('Asia/Karachi').fromNow()
+    
+    const d = moment(datetime).format('hh:mm a') ;
     return d;
   }
   async addLike(item: any) {

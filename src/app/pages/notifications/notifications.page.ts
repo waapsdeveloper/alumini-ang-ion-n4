@@ -35,7 +35,7 @@ export class NotificationsPage extends BasePage implements OnInit {
   }
 
   timeDilation(datetime: string) {
-    const d = moment(datetime).fromNow()
+    const d = moment(datetime).format('hh:mm a');
     return d;
   }
 

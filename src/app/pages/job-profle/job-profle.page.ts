@@ -12,7 +12,7 @@ export class JobProflePage extends BasePage implements OnInit {
 
   job: any;
   jobId: any;
-  constructor(injector: Injector, private route: ActivatedRoute ) {
+  constructor(injector: Injector, private route: ActivatedRoute) {
     super(injector)
   }
 
@@ -23,20 +23,21 @@ export class JobProflePage extends BasePage implements OnInit {
     this.initialize()
   }
 
-  async initialize(){
+  async initialize() {
     const res = await this.network.getJobsById(this.jobId);
     console.log(res)
     this.job = res;
 
   }
 
-  getNowDate(date: string){
+  getNowDate(date: string) {
 
-    return moment(date).fromNow();
+    const d = moment(date).format('hh:mm a');
+    return d;
   }
-  applyToJob(id:any){
+  applyToJob(id: any) {
 
-    this.modals.present(JobApplyComponent, {id:id})
+    this.modals.present(JobApplyComponent, { id: id })
 
   }
 

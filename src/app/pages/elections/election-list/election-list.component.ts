@@ -23,9 +23,9 @@ export class ElectionListComponent implements OnInit {
 
     this.initialize()
 
-   }
+  }
 
-  async initialize(){
+  async initialize() {
 
     const res = await this.network.getElectionItem({
       election_id: this.item.id
@@ -33,7 +33,7 @@ export class ElectionListComponent implements OnInit {
 
     console.log(res);
 
-    if(res.length > 0){
+    if (res.length > 0) {
       this.item = res[0]
     }
 
@@ -41,10 +41,11 @@ export class ElectionListComponent implements OnInit {
   }
 
   getNowDate(date: string) {
-    return moment(date).fromNow();
+    const d = moment(date).format('hh:mm a');
+    return d;
   };
 
-  async selectedOptions(key: any){
+  async selectedOptions(key: any) {
     let obj = {
       election_id: this.item.id,
       user_id: this.user.id,

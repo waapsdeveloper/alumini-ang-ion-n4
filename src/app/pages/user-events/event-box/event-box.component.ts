@@ -27,12 +27,13 @@ export class EventBoxComponent extends BasePage implements OnInit {
     let res = await this.network.getEventInterst(obj)
     let data = await this.network.getInterested(obj);
     console.log(data);
-    
+
     this.count = data.intrested_count
     console.log(this.count);
   }
   getNowDate(date: string) {
-    return moment(date).fromNow();
+    const d = moment(date).format('hh:mm a');
+    return d;
   }
 
   async getInterst(id: any) {

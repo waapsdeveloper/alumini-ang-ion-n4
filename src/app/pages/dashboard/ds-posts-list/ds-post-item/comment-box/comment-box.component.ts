@@ -21,7 +21,7 @@ export class CommentBoxComponent implements OnInit {
     this.callApi();
   }
   user: any;
-  comment:any;
+  comment: any;
 
   constructor(private network: NetworkService, private users: UsersService) {
 
@@ -31,7 +31,7 @@ export class CommentBoxComponent implements OnInit {
 
   }
 
-  async callApi(){
+  async callApi() {
     let obj = {
       post_id: this.item.id,
     }
@@ -41,9 +41,9 @@ export class CommentBoxComponent implements OnInit {
     this.count = res.total;
 
   }
-  async sendComment(){
+  async sendComment() {
     this.user = this.users.getUser();
-    if(!this.comment){
+    if (!this.comment) {
       return;
     }
     let obj = {
@@ -59,27 +59,7 @@ export class CommentBoxComponent implements OnInit {
   }
 
   timeDilation(datetime: string) {
-    // console.log(datetime);
-    
-    moment.updateLocale('en', {
-      relativeTime: {
-        future: "in %s",
-        past: "%s ago",
-        s: 'a few seconds',
-        ss: '%d s',
-        m: "a minute",
-        mm: "%dm",
-        h: "an hour",
-        hh: "%dh",
-        d: "a day",
-        dd: "%dd",
-        M: "a month",
-        MM: "%dM",
-        y: "a year",
-        yy: "%dy"
-      }
-    });
-    const d = moment(datetime).fromNow()
+    const d = moment(datetime).format('hh:mm a');
     return d;
   }
 }

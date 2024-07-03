@@ -13,31 +13,31 @@ import { UsersService } from 'src/app/services/users.service';
 export class JobsPage implements OnInit {
 
   user: any
-  list: any[]=[]
+  list: any[] = []
   searchText = '';
 
-  constructor(private users: UsersService, public nav: NavService , private network:NetworkService) {
+  constructor(private users: UsersService, public nav: NavService, private network: NetworkService) {
 
-   }
+  }
 
   ngOnInit() {
     this.user = this.users.getUser()
     this.initialize();
   }
 
-  jobDetail(item: any){
+  jobDetail(item: any) {
     this.nav.push("/pages/dl/job-profile")
   }
 
-  async initialize(){
-    const res = await this.getJobs('',0, 10)
+  async initialize() {
+    const res = await this.getJobs('', 0, 10)
     this.list = res as any[];
 
   }
 
-  getJobs(search = '', offset = 0, limit = 10){
+  getJobs(search = '', offset = 0, limit = 10) {
 
-    return new Promise( async resolve => {
+    return new Promise(async resolve => {
       let obj = {
         search,
         offset,
@@ -53,17 +53,18 @@ export class JobsPage implements OnInit {
 
   }
 
-  getNowDate(date: string){
+  getNowDate(date: string) {
 
-    return moment(date).fromNow();
+    const d = moment(date).format('hh:mm a');
+    return d;
   }
 
-  async doSearch(){
-    const res = await this.getJobs(this.searchText,0, 10)
+  async doSearch() {
+    const res = await this.getJobs(this.searchText, 0, 10)
     this.list = res as any[];
   }
 
-  async loadMore(){
+  async loadMore() {
 
     let obj = {
       search: this.searchText,
@@ -75,8 +76,8 @@ export class JobsPage implements OnInit {
     this.list = [...this.list, ...res];
   }
 
-  async openJobDetails(item: any){
-    this.nav.push('/pages/dl/job-profle/' + item.id )
+  async openJobDetails(item: any) {
+    this.nav.push('/pages/dl/job-profle/' + item.id)
   }
 
 

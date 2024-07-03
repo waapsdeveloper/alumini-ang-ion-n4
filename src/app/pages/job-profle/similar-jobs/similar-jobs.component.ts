@@ -24,7 +24,7 @@ export class SimilarJobsComponent implements OnInit {
     this.initialize()
   }
 
-  async initialize(){
+  async initialize() {
 
     let obj = {
       search: '',
@@ -37,12 +37,13 @@ export class SimilarJobsComponent implements OnInit {
 
   }
 
-  async openJobDetails(item: any){
-    this.nav.push('/pages/dl/job-profle/' + item.id )
+  async openJobDetails(item: any) {
+    this.nav.push('/pages/dl/job-profle/' + item.id)
   }
 
-  getNowDate(date: string){
-    return moment(date).fromNow();
+  getNowDate(date: string) {
+    const d = moment(date).format('hh:mm a');
+    return d;
   }
 
 }
