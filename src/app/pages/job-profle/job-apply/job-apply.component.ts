@@ -9,20 +9,22 @@ import { BasePage } from '../../base-page/base-page';
 export class JobApplyComponent extends BasePage implements OnInit {
 
   user: any;
+  cv: any
   @Input() id: any;
   obj = {
     name: '',
     phone_number: '',
     user_id: '',
     job_id: '',
-    cv: ''
   };
 
   constructor(injector: Injector) {
     super(injector);
   }
 
-  ngOnInit() { }
+  ngOnInit() { 
+    this.user = this.users.getUser();
+  }
 
   onFileSelected(event: Event): void {
     const input = event.target as HTMLInputElement;
@@ -31,10 +33,13 @@ export class JobApplyComponent extends BasePage implements OnInit {
       const file = input.files[0];
       const reader = new FileReader();
 
-      reader.onload = () => {
-        this.obj.cv = reader.result as string;
-        console.log(this.obj.cv);
+      reader.onload = async () => {
+        this.cv = reader.result as string;
+        console.log(this.cv);
+     
+        
       };
+
 
       reader.readAsDataURL(file);
     }
@@ -45,7 +50,7 @@ export class JobApplyComponent extends BasePage implements OnInit {
       return console.log("Please fill in all the required fields");
     }
 
-    this.user = this.users.getUser();
+    
     let user_id = this.user.id;
     console.log(user_id);
 
@@ -57,6 +62,11 @@ export class JobApplyComponent extends BasePage implements OnInit {
 
     let res = await this.network.applyJob(this.obj);
     console.log(res);
+    let obj ={
+      cv: this.cv
+    }
+    let data = await this.network.postCv(obj, res.id)
+    console.log(data);
     this.modals.dismiss();
   }
 }

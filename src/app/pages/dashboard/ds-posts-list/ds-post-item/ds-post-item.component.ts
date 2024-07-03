@@ -2,7 +2,6 @@ import { Component, EventEmitter, Injector, Input, OnInit, Output } from '@angul
 import * as moment from 'moment';
 import 'moment-timezone';
 import { BasePage } from 'src/app/pages/base-page/base-page';
-import { NetworkService } from 'src/app/services/network.service';
 import { CommentBoxComponent } from './comment-box/comment-box.component';
 
 @Component({

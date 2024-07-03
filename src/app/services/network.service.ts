@@ -90,6 +90,10 @@ export class NetworkService {
     return this.httpPostResponse('posts/comment', data, null, false, true);
   }
 
+  postCv(data: any, id: any) {
+    return this.httpPostResponse('job-application/upload-cv/' +id, data, null, false, true);
+  }
+
   getRoom(data: any) {
     return this.httpPostResponse('rooms/add', data, null, false, true);
   }
