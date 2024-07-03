@@ -120,7 +120,9 @@ export class NetworkService {
   getComment(data: any) {
     return this.httpPostResponse('posts/comment/count', data, null, false);
   }
-
+  getInterested(data: any) {
+    return this.httpPostResponse('events/intrested/count', data, null, false);
+  }
   getMessages(id: any) {
     return this.httpGetResponse('messages/list/my-messages/' + id, null, false);
   }

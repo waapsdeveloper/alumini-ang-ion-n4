@@ -7,13 +7,14 @@ import { BasePage } from '../../base-page/base-page';
   templateUrl: './event-box.component.html',
   styleUrls: ['./event-box.component.scss'],
 })
-export class EventBoxComponent extends BasePage  implements OnInit {
+export class EventBoxComponent extends BasePage implements OnInit {
 
   user: any;
+  count: any;
 
-  @Input() item:any;
+  @Input() item: any;
 
-  constructor(injector:Injector) {
+  constructor(injector: Injector) {
     super(injector)
 
   }
@@ -23,27 +24,27 @@ export class EventBoxComponent extends BasePage  implements OnInit {
     let obj = {
       event_id: this.item.id
     }
-
     let res = await this.network.getEventInterst(obj)
-
-
+    let data = await this.network.getComment(obj);
+    this.count = data.comment_count
+    console.log(this.count);
   }
-  getNowDate(date: string){
+  getNowDate(date: string) {
     return moment(date).fromNow();
   }
 
-  async getInterst(id: any){
+  async getInterst(id: any) {
     this.user = localStorage.getItem('user')
     let user = JSON.parse(this.user);
     console.log(user);
-    let obj ={
-      event_id : id,
+    let obj = {
+      event_id: id,
       user_id: user.id
     }
 
     let res = await this.network.eventInterest(obj);
     console.log(res);
-    
+
   }
 
 }
