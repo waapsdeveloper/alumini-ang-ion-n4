@@ -166,8 +166,8 @@ export class MessagesPage implements OnInit {
   }
 
   getRsTime(time: string) {
-    const d = moment(time).format('hh:mm a');
-    return d;
+    const adjustedTime = moment(time).subtract(5, 'hours').format('hh:mm a');
+    return adjustedTime;
   }
 
 
