@@ -25,8 +25,10 @@ export class EventBoxComponent extends BasePage implements OnInit {
       event_id: this.item.id
     }
     let res = await this.network.getEventInterst(obj)
-    let data = await this.network.getComment(obj);
-    this.count = data.comment_count
+    let data = await this.network.getInterested(obj);
+    console.log(data);
+    
+    this.count = data.intrested_count
     console.log(this.count);
   }
   getNowDate(date: string) {
