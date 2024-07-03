@@ -113,6 +113,10 @@ export class NetworkService {
     return this.httpPostResponse('posts/likes/count', data, null, false);
   }
 
+  getComment(data: any) {
+    return this.httpPostResponse('posts/comment/count', data, null, false);
+  }
+
   getMessages(id: any) {
     return this.httpGetResponse('messages/list/my-messages/' + id, null, false);
   }

@@ -11,6 +11,7 @@ import { UsersService } from 'src/app/services/users.service';
 export class CommentBoxComponent implements OnInit {
   private _item: any;
   list: any[] = [];
+  count: any
   @Input('item')
   public get item() {
     return this._item;
@@ -31,29 +32,25 @@ export class CommentBoxComponent implements OnInit {
   }
 
   async callApi(){
-    // let user = JSON.parse(this.user);
     let obj = {
       post_id: this.item.id,
     }
-
     let res = await this.network.getComments(obj);
-    console.log(res);
+    console.log(res, "asdagasghsaghjsah");
     this.list = res.comments;
+    this.count = res.total;
 
   }
   async sendComment(){
     this.user = this.users.getUser();
-
     if(!this.comment){
       return;
     }
-
     let obj = {
       user_id: this.user.id,
       post_id: this.item.id,
       comment: this.comment,
     };
-
     let res = await this.network.postComment(obj);
     console.log(res);
     this.list.push(res)
@@ -62,6 +59,26 @@ export class CommentBoxComponent implements OnInit {
   }
 
   timeDilation(datetime: string) {
+    // console.log(datetime);
+    
+    moment.updateLocale('en', {
+      relativeTime: {
+        future: "in %s",
+        past: "%s ago",
+        s: 'a few seconds',
+        ss: '%d s',
+        m: "a minute",
+        mm: "%dm",
+        h: "an hour",
+        hh: "%dh",
+        d: "a day",
+        dd: "%dd",
+        M: "a month",
+        MM: "%dM",
+        y: "a year",
+        yy: "%dy"
+      }
+    });
     const d = moment(datetime).fromNow()
     return d;
   }

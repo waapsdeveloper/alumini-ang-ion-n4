@@ -13,6 +13,7 @@ export class DsPostItemComponent extends BasePage implements OnInit {
 
   user: any;
   like: any;
+  count:any;
   flag= false;
   data: any
   private _item: any;
@@ -43,6 +44,10 @@ export class DsPostItemComponent extends BasePage implements OnInit {
     }
     this.data = await this.network.getLikes(obj) as any [];
     this.like = this.data.totalLikes;
+    let res = await this.network.getComment(obj);
+    this.count = res.comment_count
+    console.log(this.count);
+
     this.flag = this.data.mylike >= 1;
    }
 
@@ -71,6 +76,7 @@ export class DsPostItemComponent extends BasePage implements OnInit {
     console.log(res);
     this.data = await this.network.getLikes(obj) as any [];
     this.like = this.data.totalLikes;
+
     this.flag = this.data.mylike >= 1;
 
   }
