@@ -1,5 +1,6 @@
 import { Component, EventEmitter, Injector, Input, OnInit, Output } from '@angular/core';
 import * as moment from 'moment';
+import 'moment-timezone';
 import { BasePage } from 'src/app/pages/base-page/base-page';
 import { NetworkService } from 'src/app/services/network.service';
 import { CommentBoxComponent } from './comment-box/comment-box.component';
@@ -59,7 +60,7 @@ export class DsPostItemComponent extends BasePage implements OnInit {
   }
 
   timeDilation(datetime: string) {
-    const d = moment(datetime).fromNow()
+    const d = moment(datetime).tz('Asia/Karachi').fromNow()
     return d;
   }
   async addLike(item: any) {

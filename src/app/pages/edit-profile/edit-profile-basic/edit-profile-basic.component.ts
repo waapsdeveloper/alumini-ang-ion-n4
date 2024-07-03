@@ -29,7 +29,7 @@ export class EditProfileBasicComponent extends BasePage implements OnInit {
       email: ['', [Validators.required]],
       username: ['', [Validators.required]],
       phone: ['', [Validators.required]],
-      alum_registration: ['', [Validators.required]],
+      alum_registration: [''],
       batch: ['', [Validators.required]],
       department: ['', [Validators.required]],
       occupation: ['', [Validators.required]],
@@ -141,7 +141,7 @@ export class EditProfileBasicComponent extends BasePage implements OnInit {
 
     this.getMyEducation();
   }
-  
+
   async editEducation(data: any) {
 
     let res = await this.modals.present(AddExerienceComponent, {data: data});

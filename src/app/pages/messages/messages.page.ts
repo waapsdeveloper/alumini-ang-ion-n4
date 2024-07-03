@@ -98,7 +98,7 @@ export class MessagesPage implements OnInit {
     console.log(res);
     if (res) {
       this.list = res;
-      this.chat = true;
+      this.chat = this.list.length > 0;
     }
 
   }
@@ -163,6 +163,10 @@ export class MessagesPage implements OnInit {
     this.getMessages(this.room_id);
 
     this.message = '';
+  }
+
+  getRsTime(time: string){
+    return moment(time).fromNow()
   }
 
 
