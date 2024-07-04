@@ -22,6 +22,8 @@ export class MyProfilePage extends BasePage implements OnInit {
 
   setUserData(){
     this.user = this.users.getUser();
+    console.log(this.user);
+    
     if(this.user.skills){
       this.skills = this.user.skills.split(',');
     }

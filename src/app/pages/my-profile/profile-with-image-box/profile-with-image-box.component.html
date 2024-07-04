@@ -4,7 +4,7 @@
       (click)="changeImage()">
     <h5 class="font-weight-bold text-dark mb-1 mt-4">{{ user?.name }}</h5>
     <div (click)="editDesignation = true">
-      <p *ngIf="!editDesignation" class="mb-0 text-muted" style="cursor: pointer;">{{ editedDesignation }}</p>
+      <p *ngIf="!editDesignation" class="mb-0 text-muted" style="cursor: pointer;">{{ user.occupation }}</p>
       <input *ngIf="editDesignation" type="text" class="designation-inputs" [(ngModel)]="editedDesignation"
         (focusout)="saveDesignation()">
     </div>
