@@ -25,6 +25,15 @@ export class EventBoxComponent extends BasePage implements OnInit {
       event_id: this.item.id
     }
     let res = await this.network.getEventInterst(obj)
+    this.callApi();
+    
+  }
+
+  async callApi(){
+    console.log(this.item);
+    let obj = {
+      event_id: this.item.id
+    }
     let data = await this.network.getInterested(obj);
     console.log(data);
 
@@ -47,7 +56,7 @@ export class EventBoxComponent extends BasePage implements OnInit {
 
     let res = await this.network.eventInterest(obj);
     console.log(res);
-
+    this.callApi();
   }
 
 }
