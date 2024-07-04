@@ -15,7 +15,9 @@
     <div class="p-3 job-item-footer" style="display: flex; align-items: center; justify-content: space-between;">
       <small class="text-gray-500"><i class="feather-clock"></i> {{ getNowDate(item.created_at)
         }}</small>
-      <a href="javascript:void(0)" class="mr-3 text-secondary">{{count}}</a>
+      <a href="javascript:void(0)" class="mr-3 text-secondary">
+        {{ count }} {{ count === 1 ? 'person is interested' : 'people are interested' }}
+      </a>
       <button (click)="getInterst(item.id)"
         style="background-color: #81181B; color: white; padding: 8px;border-radius: 8px; font-size: 12px;">Interested!</button>
     </div>
