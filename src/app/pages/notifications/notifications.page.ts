@@ -38,5 +38,16 @@ export class NotificationsPage extends BasePage implements OnInit {
     const adjustedTime = moment(datetime).subtract(5, 'hours').format('hh:mm a');
     return adjustedTime;
   }
+  async markAsRead(id: any){
+    let obj ={
+      id: id
+    }
+    let res = await this.network.marAsRead(obj);
+    console.log('====================================');
+    console.log(res);
+    console.log('====================================');
+    this.initialize()
+
+  }
 
 }

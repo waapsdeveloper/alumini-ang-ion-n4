@@ -90,6 +90,11 @@ export class NetworkService {
     return this.httpPostResponse('posts/comment', data, null, false, true);
   }
 
+  marAsRead(data: any) {
+    return this.httpPostResponse('notifications/notification-read', data, null, false, true);
+  }
+
+
   postCv(data: any, id: any) {
     return this.httpPostResponse('job-application/upload-cv/' +id, data, null, false, true);
   }
