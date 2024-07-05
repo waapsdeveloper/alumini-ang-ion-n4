@@ -44,6 +44,9 @@ export class ViewProfilePage extends BasePage implements OnInit {
 
 
     this.visiter = this.users.getUser();
+    console.log('====================================');
+    console.log(this.visiter);
+    console.log('====================================');
     this.getViewUser()
   }
   copyToClipboard() {
@@ -58,11 +61,9 @@ export class ViewProfilePage extends BasePage implements OnInit {
   async getViewUser(){
     const id = this.route.snapshot.paramMap.get('id');
     console.log('W', id);
-
     this.setUserProfileVIew(id)
-
     const res = await this.network.getViewUser(id);
-    console.log(res);
+    console.log(res, "dfsdf");
     this.link = 'https://aluminiconnect.online//pages/dl/view-profile/' + id;
     this.user = res;
     if(this.user.skills){
