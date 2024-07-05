@@ -15,6 +15,9 @@ export class ProfileAboutComponent extends BasePage implements OnInit {
   start_date: any;
   end_date: any;
   experince: any;
+  day: any;
+  month: any;
+  year: any;
   constructor(private fb: FormBuilder, injector: Injector) {
     super(injector)
   }
@@ -27,7 +30,16 @@ export class ProfileAboutComponent extends BasePage implements OnInit {
   async getMyEducation() {
     this.user = this.users.getUser();
     let user_id = this.user.id;
+    if(this.user.date_of_birth){
 
+      const dateOfBirth = new Date(this.user.date_of_birth);
+
+      this.day = dateOfBirth.getDate().toString().padStart(2, '0');
+      this.month = (dateOfBirth.getMonth() + 1).toString().padStart(2, '0'); // Months are 0-based
+      this.year = dateOfBirth.getFullYear().toString();
+
+
+    }
     let res = await this.network.getEducation(user_id);
     console.log(res);
 

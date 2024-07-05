@@ -13,6 +13,9 @@ export class ViewProfilePage extends BasePage implements OnInit {
   visiter: any;
   user: any;
   link = '';
+  day: any;
+  month: any;
+  year: any;
   skills: any[] = [];
   cStatus = '';
   MyGroup: FormGroup | any;
@@ -76,14 +79,14 @@ export class ViewProfilePage extends BasePage implements OnInit {
 
       const dateOfBirth = new Date(this.user.date_of_birth);
 
-      const day = dateOfBirth.getDate().toString().padStart(2, '0');
-      const month = (dateOfBirth.getMonth() + 1).toString().padStart(2, '0'); // Months are 0-based
-      const year = dateOfBirth.getFullYear().toString();
+      this.day = dateOfBirth.getDate().toString().padStart(2, '0');
+      this.month = (dateOfBirth.getMonth() + 1).toString().padStart(2, '0'); // Months are 0-based
+      this.year = dateOfBirth.getFullYear().toString();
 
-      this.MyGroup.controls['day'].setValue(day);
+      this.MyGroup.controls['day'].setValue(this.day);
       this.MyGroup.controls['date_of_birth'].setValue(this.user.date_of_birth);
-      this.MyGroup.controls['month'].setValue(month);
-      this.MyGroup.controls['year'].setValue(year);
+      this.MyGroup.controls['month'].setValue(this.month);
+      this.MyGroup.controls['year'].setValue(this.year);
 
     }
 

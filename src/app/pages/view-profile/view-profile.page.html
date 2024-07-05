@@ -50,10 +50,10 @@
                         <span class="text-danger">*</span>
                       </label>
                       <div class="form-group">
-                        <input readonly="true" type="text" class="form-control" formControlName="name"
-                          placeholder="Enter your name" aria-label="Enter your name" required=""
-                          aria-describedby="nameLabel" data-msg="Please enter your name." data-error-class="u-has-error"
-                          data-success-class="u-has-success">
+                        <div class="box-body" style="border-bottom: 1px solid black;">
+                          <p> {{ user?.name }}
+                          </p>
+                        </div>
                         <small class="form-text text-muted">Displayed on your public profile, notifications and other
                           places.</small>
                       </div>
@@ -66,10 +66,10 @@
                         <span class="text-danger">*</span>
                       </label>
                       <div class="form-group">
-                        <input readonly="true" type="text" class="form-control" formControlName="username"
-                          placeholder="Enter your username" aria-label="Enter your username" required=""
-                          aria-describedby="usernameLabel" data-msg="Please enter your username."
-                          data-error-class="u-has-error" data-success-class="u-has-success">
+                        <div class="box-body" style="border-bottom: 1px solid black;">
+                          <p> {{ user?.username }}
+                          </p>
+                        </div>
                       </div>
                     </div>
                   </div>
@@ -82,29 +82,32 @@
                   <div class="col-md-6 mb-3 mb-sm-6">
                     <div class="js-form-message">
                       <div class="form-group">
-                        <input readonly="true" class="form-control" required=""
-                        data-msg="Please select month." formControlName="month" data-error-class="u-has-error"
-                        data-success-class="u-has-success">
+                        <div class="form-group">
+                          <div class="box-body" style="border-bottom: 1px solid black;">
+                            <p> {{this.month }}
+                            </p>
+                          </div>
+                        </div>
                       </div>
                     </div>
                   </div>
                   <div class="col-sm-4 col-md-2 mb-3 mb-sm-6">
                     <div class="js-form-message">
                       <div class="form-group">
-                        <input readonly="true" class="form-control" required=""
-                        data-msg="Please select date." formControlName="day" data-error-class="u-has-error"
-                        data-success-class="u-has-success">
-                        
+                        <div class="box-body" style="border-bottom: 1px solid black;">
+                          <p> {{ this.day }}
+                          </p>
+                        </div>
                       </div>
                     </div>
                   </div>
                   <div class="col-sm-4 col-md-2 mb-3 mb-sm-6">
                     <div class="js-form-message">
                       <div class="form-group">
-                        <input readonly="true" readonly="true" class="form-control" required=""
-                        data-msg="Please select year." formControlName="year" data-error-class="u-has-error"
-                        data-success-class="u-has-success">
-                        
+                        <div class="box-body" style="border-bottom: 1px solid black;">
+                          <p> {{ this.year }}
+                          </p>
+                        </div>
                       </div>
                     </div>
                   </div>
@@ -126,11 +129,10 @@
                         <span class="text-danger">*</span>
                       </label>
                       <div class="form-group">
-                        <input type="email" class="form-control" placeholder="Enter your email address"
-                          formControlName="email" aria-label="Enter your email address" required=""
-                          aria-describedby="emailLabel" data-msg="Please enter a valid email address."
-                          data-error-class="u-has-error" data-success-class="u-has-success" readonly>
-                        <small class="form-text text-muted">We'll never share your email with anyone else.</small>
+                        <div class="box-body" style="border-bottom: 1px solid black;">
+                          <p> {{ user?.email }}
+                          </p>
+                        </div>
                       </div>
                     </div>
                   </div>
@@ -141,10 +143,10 @@
                         <span class="text-danger">*</span>
                       </label>
                       <div class="form-group">
-                        <input readonly="true" type="text" class="form-control" formControlName="location"
-                          placeholder="Enter your location" aria-label="Enter your location" required=""
-                          aria-describedby="locationLabel" data-msg="Please enter your location."
-                          data-error-class="u-has-error" data-success-class="u-has-success">
+                        <div class="box-body" style="border-bottom: 1px solid black;">
+                          <p> {{ user?.location }}
+                          </p>
+                        </div>
                       </div>
                     </div>
                   </div>
@@ -158,10 +160,10 @@
                         <span class="text-danger">*</span>
                       </label>
                       <div class="form-group">
-                        <input readonly="true" type="tel" class="form-control" formControlName="phone"
-                          placeholder="Enter your phone number" aria-label="Enter your phone number" required=""
-                          aria-describedby="phoneLabel" data-msg="Please enter a valid phone number."
-                          data-error-class="u-has-error" data-success-class="u-has-success">
+                        <div class="box-body" style="border-bottom: 1px solid black;">
+                          <p> {{ user?.phone }}
+                          </p>
+                        </div>
                       </div>
                     </div>
                   </div>
@@ -172,10 +174,10 @@
                         <span class="text-danger">*</span>
                       </label>
                       <div class="form-group">
-                        <input readonly="true" type="tel" class="form-control" formControlName="occupation"
-                          placeholder="occupation" aria-label="Enter your phone number" required=""
-                          aria-describedby="phoneLabel" data-msg="Please enter a valid phone number."
-                          data-error-class="u-has-error" data-success-class="u-has-success">
+                        <div class="box-body" style="border-bottom: 1px solid black;">
+                          <p> {{ user?.occupation }}
+                          </p>
+                        </div>
                       </div>
                     </div>
                   </div>
@@ -188,10 +190,10 @@
                         <span class="text-danger">*</span>
                       </label>
                       <div class="form-group">
-                        <input readonly="true" type="tel" class="form-control" formControlName="batch"
-                          placeholder="Enter your batch number" aria-label="Enter your batch number" required=""
-                          aria-describedby="phoneLabel" data-msg="Please enter a valid batch number."
-                          data-error-class="u-has-error" data-success-class="u-has-success">
+                        <div class="box-body" style="border-bottom: 1px solid black;">
+                          <p> {{ user?.occupation }}
+                          </p>
+                        </div>
                       </div>
                     </div>
                   </div>
@@ -202,10 +204,10 @@
                         <span class="text-danger">*</span>
                       </label>
                       <div class="form-group">
-                        <input readonly="true" type="tel" class="form-control" formControlName="alum_registration"
-                          placeholder="alum_registration" aria-label="Enter your phone number" required=""
-                          aria-describedby="phoneLabel" data-msg="Please enter a valid phone number."
-                          data-error-class="u-has-error" data-success-class="u-has-success">
+                        <div class="box-body" style="border-bottom: 1px solid black;">
+                          <p> {{ user?.alum_registration }}
+                          </p>
+                        </div>
                       </div>
                     </div>
                   </div>
@@ -219,13 +221,10 @@
                       </label>
                       <div class="js-form-message">
                         <div class="form-group">
-                          <select readonly="true" class="form-control" required=""
-                            data-msg="Please select your gender." formControlName="preferred_language"
-                            data-error-class="u-has-error" data-success-class="u-has-success">
-                            <option value="male">English</option>
-                            <option value="female">Urdu</option>
-                            <option value="other">Punjabi</option>
-                          </select>
+                          <div class="box-body" style="border-bottom: 1px solid black;">
+                            <p> {{ user?.preferred_language }}
+                            </p>
+                          </div>
                         </div>
                       </div>
                     </div>
@@ -237,10 +236,10 @@
                         <span class="text-danger">*</span>
                       </label>
                       <div class="form-group">
-                        <input readonly="true" type="tel" class="form-control" formControlName="department"
-                          placeholder="Department" aria-label="Enter your phone number" required=""
-                          aria-describedby="phoneLabel" data-msg="Please enter a valid phone number."
-                          data-error-class="u-has-error" data-success-class="u-has-success">
+                        <div class="box-body" style="border-bottom: 1px solid black;">
+                          <p> {{ user?.department }}
+                          </p>
+                        </div>
                       </div>
                     </div>
                   </div>

@@ -7,6 +7,218 @@
     </p>
   </div>
 </div>
+<div class="border rounded bg-white mb-3">
+  <div class="box-title border-bottom p-3">
+    <h6 class="m-0">Basic Info</h6>
+  </div>
+  <form >
+    <div class="box-body p-3">
+      <div class="row">
+        <div class="col-sm-6 mb-2">
+          <div class="js-form-message">
+            <label id="nameLabel" class="form-label">
+              Name
+              <span class="text-danger">*</span>
+            </label>
+            <div class="form-group">
+              <div class="box-body" style="border-bottom: 1px solid black;">
+                <p> {{ user?.name }}
+                </p>
+              </div>
+              <small class="form-text text-muted">Displayed on your public profile, notifications and other
+                places.</small>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-6 mb-2">
+          <div class="js-form-message">
+            <label id="usernameLabel" class="form-label">
+              Username
+              <span class="text-danger">*</span>
+            </label>
+            <div class="form-group">
+              <div class="box-body" style="border-bottom: 1px solid black;">
+                <p> {{ user?.username }}
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <label class="form-label">
+        Birth date
+        <span class="text-danger">*</span>
+      </label>
+      <div class="row">
+        <div class="col-md-6 mb-3 mb-sm-6">
+          <div class="js-form-message">
+            <div class="form-group">
+              <div class="form-group">
+                <div class="box-body" style="border-bottom: 1px solid black;">
+                  <p> {{this.month }}
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-4 col-md-2 mb-3 mb-sm-6">
+          <div class="js-form-message">
+            <div class="form-group">
+              <div class="box-body" style="border-bottom: 1px solid black;">
+                <p> {{ this.day }}
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-4 col-md-2 mb-3 mb-sm-6">
+          <div class="js-form-message">
+            <div class="form-group">
+              <div class="box-body" style="border-bottom: 1px solid black;">
+                <p> {{ this.year }}
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-4 col-md-2 mb-2">
+          <div class="js-form-message">
+            <div clasclass="form-control" required=""
+            data-msg="Please select your gender." formControlName="gender" data-error-class="u-has-error"
+            data-success-class="u-has-success">
+              
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-6 mb-2">
+          <div class="js-form-message">
+            <label id="emailLabel" class="form-label">
+              Email address
+              <span class="text-danger">*</span>
+            </label>
+            <div class="form-group">
+              <div class="box-body" style="border-bottom: 1px solid black;">
+                <p> {{ user?.email }}
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-6 mb-2">
+          <div class="js-form-message">
+            <label id="locationLabel" class="form-label">
+              Location
+              <span class="text-danger">*</span>
+            </label>
+            <div class="form-group">
+              <div class="box-body" style="border-bottom: 1px solid black;">
+                <p> {{ user?.location }}
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-sm-6 mb-2">
+          <div class="js-form-message">
+            <label id="phoneLabel" class="form-label">
+              Phone
+              <span class="text-danger">*</span>
+            </label>
+            <div class="form-group">
+              <div class="box-body" style="border-bottom: 1px solid black;">
+                <p> {{ user?.phone }}
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-6 mb-2">
+          <div class="js-form-message">
+            <label id="phoneLabel" class="form-label">
+              occupation
+              <span class="text-danger">*</span>
+            </label>
+            <div class="form-group">
+              <div class="box-body" style="border-bottom: 1px solid black;">
+                <p> {{ user?.occupation }}
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-6 mb-2">
+          <div class="js-form-message">
+            <label id="phoneLabel" class="form-label">
+              University Batch
+              <span class="text-danger">*</span>
+            </label>
+            <div class="form-group">
+              <div class="box-body" style="border-bottom: 1px solid black;">
+                <p> {{ user?.occupation }}
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-6 mb-2">
+          <div class="js-form-message">
+            <label id="phoneLabel" class="form-label">
+              Alum Registration
+              <span class="text-danger">*</span>
+            </label>
+            <div class="form-group">
+              <div class="box-body" style="border-bottom: 1px solid black;">
+                <p> {{ user?.alum_registration }}
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-6 mb-2">
+          <div class="js-form-message">
+            <label id="phoneLabel" class="form-label">
+              Preferred language
+              <span class="text-danger">*</span>
+            </label>
+            <div class="js-form-message">
+              <div class="form-group">
+                <div class="box-body" style="border-bottom: 1px solid black;">
+                  <p> {{ user?.preferred_language }}
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-6 mb-2">
+          <div class="js-form-message">
+            <label id="phoneLabel" class="form-label">
+              department
+              <span class="text-danger">*</span>
+            </label>
+            <div class="form-group">
+              <div class="box-body" style="border-bottom: 1px solid black;">
+                <p> {{ user?.department }}
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </form>
+</div>
 <div class="box shadow-sm border rounded bg-white mb-3">
   <div class="box-title border-bottom p-3">
     <h6 class="m-0">Experience</h6>
