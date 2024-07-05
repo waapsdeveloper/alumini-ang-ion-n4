@@ -21,5 +21,5 @@
     <a href="javascript:void(0)" class="mr-3 text-secondary"><i class="feather-message-square"></i>{{count}}</a>
     <div (click)="deletePost(item)" class="delete-btn-7867" *ngIf="user?.id == item?.user_id">Delete Post</div>
   </div>
-  <app-comment-box [item]="this.item"></app-comment-box>
+  <app-comment-box [item]="item" (commentSent)="onCommentSent()"></app-comment-box>
 </div>

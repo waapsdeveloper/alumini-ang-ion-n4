@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
 import * as moment from 'moment';
 import { NetworkService } from 'src/app/services/network.service';
 import { UsersService } from 'src/app/services/users.service';
@@ -11,36 +11,31 @@ import { UsersService } from 'src/app/services/users.service';
 export class CommentBoxComponent implements OnInit {
   private _item: any;
   list: any[] = [];
-  count: any
-  @Input('item')
-  public get item() {
+  count: any;
+  @Input('item') public get item() {
     return this._item;
   };
   public set item(value: any) {
     this._item = value;
     this.callApi();
   }
+  @Output() commentSent = new EventEmitter<void>();
+
   user: any;
   comment: any;
 
-  constructor(private network: NetworkService, private users: UsersService) {
+  constructor(private network: NetworkService, private users: UsersService) {}
 
-  }
-
-  ngOnInit() {
-
-  }
+  ngOnInit() {}
 
   async callApi() {
-    let obj = {
-      post_id: this.item.id,
-    }
+    let obj = { post_id: this.item.id };
     let res = await this.network.getComments(obj);
     console.log(res, "asdagasghsaghjsah");
     this.list = res.comments;
     this.count = res.total;
-
   }
+
   async sendComment() {
     this.user = this.users.getUser();
     if (!this.comment) {
@@ -53,9 +48,10 @@ export class CommentBoxComponent implements OnInit {
     };
     let res = await this.network.postComment(obj);
     console.log(res);
-    this.list.push(res)
+    this.list.push(res);
     this.comment = null;
 
+    this.commentSent.emit();
   }
 
   timeDilation(datetime: string) {
