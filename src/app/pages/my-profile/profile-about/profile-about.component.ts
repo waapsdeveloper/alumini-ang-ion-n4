@@ -54,10 +54,11 @@ export class ProfileAboutComponent extends BasePage implements OnInit {
     console.log(res);
 
     this.experince = res;
-    const startdate = this.experince.start_date;
-    const endTime = this.experince.end_date;
-    this.start_date = moment(startdate).format('Y-MM-DD');
-    this.end_date = moment(startdate).format('Y-MM-DD');
+    this.experince = res;
+    this.experince.forEach((exp: { start_date: moment.MomentInput; end_date: moment.MomentInput; }) => {
+      exp.start_date = moment(exp.start_date).format('YYYY-MM-DD');
+      exp.end_date = moment(exp.end_date).format('YYYY-MM-DD');
+    });
 
   }
 }

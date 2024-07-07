@@ -184,13 +184,14 @@ export class EditProfileBasicComponent extends BasePage implements OnInit {
     let user_id = this.user.id;
 
     let res = await this.network.getExperince(user_id);
-    console.log(res);
+    console.log(res[0]);
 
     this.experince = res;
-    const startdate = this.experince.start_date;
-    const endTime = this.experince.end_date;
-    this.start_date = moment(startdate).format('Y-MM-DD');
-    this.end_date = moment(startdate).format('Y-MM-DD');
+    this.experince.forEach((exp: { start_date: moment.MomentInput; end_date: moment.MomentInput; }) => {
+      exp.start_date = moment(exp.start_date).format('YYYY-MM-DD');
+      exp.end_date = moment(exp.end_date).format('YYYY-MM-DD');
+    });
+
 
   }
 
