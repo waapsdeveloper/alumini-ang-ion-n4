@@ -2,6 +2,7 @@ import { Component, Injector, OnInit } from '@angular/core';
 import { BasePage } from '../base-page/base-page';
 import { ActivatedRoute } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import * as moment from 'moment';
 
 @Component({
   selector: 'app-view-profile',
@@ -15,6 +16,8 @@ export class ViewProfilePage extends BasePage implements OnInit {
   link = '';
   day: any;
   month: any;
+  experince: any;
+  education: any;
   year: any;
   skills: any[] = [];
   cStatus = '';
@@ -51,6 +54,8 @@ export class ViewProfilePage extends BasePage implements OnInit {
     console.log(this.visiter);
     console.log('====================================');
     this.getViewUser()
+    this.getMyExperince()
+    this.getMyEducation();
   }
   copyToClipboard() {
     const inputElement = document.createElement('input');
@@ -186,6 +191,39 @@ export class ViewProfilePage extends BasePage implements OnInit {
       years.push(year);
     }
     return years;
+  }
+
+  async getMyExperince() {
+    const id = this.route.snapshot.paramMap.get('id');
+    console.log('W', id);
+    let user_id = id;
+
+    let res = await this.network.getExperince(user_id);
+    console.log(res , "asfsf");
+
+    this.experince = res;
+    this.experince = res;
+    this.experince.forEach((exp: { start_date: moment.MomentInput; end_date: moment.MomentInput; }) => {
+      exp.start_date = moment(exp.start_date).format('YYYY-MM-DD');
+      exp.end_date = moment(exp.end_date).format('YYYY-MM-DD');
+    });
+
+  }
+
+
+  async getMyEducation() {
+    const id = this.route.snapshot.paramMap.get('id');
+    console.log('W', id);
+    let user_id = id;
+    let res = await this.network.getEducation(user_id);
+    // console.log(res);
+    this.education = res;
+    this.education.forEach((exp: { start_date: moment.MomentInput; end_date: moment.MomentInput; }) => {
+      exp.start_date = moment(exp.start_date).format('YYYY-MM-DD');
+      exp.end_date = moment(exp.end_date).format('YYYY-MM-DD');
+    });
+
+
   }
 
 
