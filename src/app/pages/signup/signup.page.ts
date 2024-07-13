@@ -25,6 +25,16 @@ export class SignupPage extends BasePage implements OnInit {
 
   async onSubmit(){
     if (this.aForm.valid) {
+
+
+      const email = this.aForm.controls.email.value;
+
+      var domain = '@dsu.edu.pk';
+      if (!email.endsWith(domain)) {
+        this.utility.presentFailureToast("Email ONLY be accepted of @dsu.edu.pk")
+        return
+      }
+
       console.log(this.aForm.value);
       const formdata = this.aForm.value;
 
